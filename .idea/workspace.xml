@@ -4,7 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbda5a5e-5e34-4583-8c4f-a90327986aed" name="Changes" comment="" />
+    <list default="true" id="bbda5a5e-5e34-4583-8c4f-a90327986aed" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/io/input.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/io/output.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/navigation/Options.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/navigation/Stage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/navigation/navigation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/categoryOptions/CreateCategoryOption.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/categoryOptions/FindCategoryOption.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/categoryOptions/RemoveCategoryOption.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/categoryOptions/UpdateCategoryOption.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOptions/FindProductOption.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOptions/RemoveProductOption.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOptions/UpdateProductOption.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/categoryOptions/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/CreateProductOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOptions/CreateProductOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOptions/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/OptionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/OptionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/ProductService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +60,28 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="pl.czarek.adminpanel.Main" />
+      <module name="adminPanel" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.czarek.adminpanel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -50,5 +93,26 @@
       <updated>1647432165627</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.NoSuchElementException" package="java.util" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

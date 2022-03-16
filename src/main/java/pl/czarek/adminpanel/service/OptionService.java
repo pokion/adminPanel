@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class OptionService {
-    private final List<Option> options;
+    public final List<Option> options;//potem zmien na private
 
     public OptionService() {
         this.options = new ArrayList<>();

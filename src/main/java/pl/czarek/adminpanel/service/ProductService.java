@@ -1,6 +1,6 @@
 package pl.czarek.adminpanel.service;
 
-import pl.czarek.adminpanel.obj.Product;
+import pl.czarek.adminpanel.obj.productOptions.Product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +14,8 @@ public class ProductService {
         this.products = new ArrayList<>();
     }
 
-    public void createProduct(int id, String name) {
-        this.products.add(new Product(id, name));
+    public void createProduct(int id, String name, int categoryID) {
+        this.products.add(new Product(id, name, categoryID));
     }
 
     public void updateProduct(int id, String name) {
