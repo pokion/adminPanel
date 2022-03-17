@@ -1,5 +1,6 @@
 package pl.czarek.adminpanel.obj.categoryOptions;
 
+import pl.czarek.adminpanel.builder.CategoryBuilder;
 import pl.czarek.adminpanel.io.input;
 import pl.czarek.adminpanel.io.output;
 import pl.czarek.adminpanel.obj.Option;
@@ -22,7 +23,9 @@ public class CreateCategoryOption extends Option {
         int id = Integer.parseInt(input.zapytanie("Podaj id"));
         String name = input.zapytanie("Podaj nazwę");
 
-        categoryService.createCategory(id, name);
+        categoryService.createCategory(new CategoryBuilder(id)
+                .setName(name)
+                .getCategory());
 
     }
 }

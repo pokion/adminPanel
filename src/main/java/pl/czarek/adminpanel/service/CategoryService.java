@@ -2,37 +2,30 @@ package pl.czarek.adminpanel.service;
 
 import pl.czarek.adminpanel.obj.categoryOptions.Category;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 
 public class CategoryService {
 
-    private final List<Category> categories;
+    private final Map<Integer, Category> categories;
 
     public CategoryService(){
-        this.categories = new ArrayList<>();
+        this.categories = new HashMap<>();
     }
 
-    public void createCategory(int id, String name){
-        this.categories.add(new Category(id, name));
+    public void createCategory(Category category){
+        this.categories.put(category.getId(), category);
     }
 
     public Optional<Category> findCategory(int id){
-        return this.categories.stream()
-                .filter( category -> category.getId() == id)
-                .findFirst();
+        return Optional.ofNullable(this.categories.get(id));
     }
 
     public void updateCategory(int id, String name){
-        this.categories.stream()
-                .filter( category -> category.getId() == id)
-                .findFirst()
-                .ifPresent( category -> category.setName(name));
+        this.categories.get(id).setName(name);
     }
 
     public  void removeCategory(int id){
-        this.categories.removeIf( category -> category.getId() == id);
+        this.categories.remove(id);
     }
 }

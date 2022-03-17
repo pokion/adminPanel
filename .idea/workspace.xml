@@ -4,29 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbda5a5e-5e34-4583-8c4f-a90327986aed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/io/input.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/io/output.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/navigation/Options.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/navigation/Stage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/navigation/navigation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/categoryOptions/CreateCategoryOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/categoryOptions/FindCategoryOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/categoryOptions/RemoveCategoryOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/categoryOptions/UpdateCategoryOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOptions/FindProductOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOptions/RemoveProductOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOptions/UpdateProductOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/categoryOptions/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/CreateProductOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOptions/CreateProductOption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOptions/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/OptionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/OptionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/ProductService.java" afterDir="false" />
-    </list>
+    <list default="true" id="bbda5a5e-5e34-4583-8c4f-a90327986aed" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,7 +44,7 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="pl.czarek.adminpanel.Main" />
-      <module name="adminPanel" />
+      <module name="adminpanel" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="pl.czarek.adminpanel.*" />

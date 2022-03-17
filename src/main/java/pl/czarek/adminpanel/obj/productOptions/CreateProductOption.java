@@ -1,5 +1,6 @@
 package pl.czarek.adminpanel.obj.productOptions;
 
+import pl.czarek.adminpanel.builder.ProductBuilder;
 import pl.czarek.adminpanel.io.input;
 import pl.czarek.adminpanel.io.output;
 import pl.czarek.adminpanel.obj.Option;
@@ -24,7 +25,10 @@ public class CreateProductOption extends Option {
         int categoryID = Integer.parseInt(input.zapytanie("Podaj id kategorii"));
 
 
-        productService.createProduct(id, name, categoryID);
+        productService.createProduct(new ProductBuilder(id)
+                .setName(name)
+                .setCategory(categoryID)
+                .getProduct());
     }
 
 }

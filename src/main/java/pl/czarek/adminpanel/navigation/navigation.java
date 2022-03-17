@@ -9,12 +9,15 @@ public class navigation {
 
     private List<Stage> stages;
     public static ArrayList<Options> options;
-    private int currentStage = 0;
+    public static String prevOpt;
+    public int currentStage = 0;
 
     public navigation() {
         this.stages = new ArrayList<>();
         this.options = new ArrayList<>();
     }
+
+
 
 
     public void start(OptionService optionService){
@@ -57,12 +60,20 @@ public class navigation {
         String show = stageStream.get().getOptions();
 
         output.napisz(show);
+        output.napisz("exit");
     }
 
     public void goTo(String name){
         Optional<Options> opts = options.stream().filter(options1 -> options1.option.equals(name)).findFirst();
 
-        this.createStage(opts.get().nestOptions);
+        ArrayList<String> optsArray = opts.get().nestOptions;
+
+        Set<String> set = new HashSet<>(optsArray);
+        optsArray.clear();
+        optsArray.addAll(set);
+
+        prevOpt = opts.get().option;
+        this.createStage(optsArray);
         currentStage++;
         this.showStage();
 
@@ -70,6 +81,8 @@ public class navigation {
 
     public void removeStage(int idx){
         stages.remove(idx);
+        currentStage = 0;
+
     }
 
     public String prevStage(){
