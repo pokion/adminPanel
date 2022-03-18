@@ -1,0 +1,114 @@
+SOLID
+
+S -> Samodzielny (Single responsibility Principle)
+
+Metoda powinna mieć wyłącznie jeden powód do zmiany.
+Dana klasa powinna mieć tylko jeden główny cel. Jedną funkcjonalność.
+
+skrpt{
+	złe {
+		public class Contract {
+
+		    private final Date start;
+
+		    private final Date end;
+
+		    public Contract(Date start, Date end) {
+		        this.start = start;
+		        this.end = end;
+		    }
+
+		    public BigDecimal getMonthlySubscriptionFee() {
+		        // compute based on end and start
+		        return BigDecimal.ONE;
+		    }
+
+		    public byte[] formatAsPDF() {
+		        return "...".getBytes();
+		    }
+		}
+	}
+	dobrze{
+		public class Contract {
+
+		    private final Date start;
+
+		    private final Date end;
+
+		    public Contract(Date start, Date end) {
+		        this.start = start;
+		        this.end = end;
+		    }
+
+		    public Date getStart() {
+		        return start;
+		    }
+
+		    public Date getEnd() {
+		        return end;
+		    }
+
+		    public BigDecimal getMonthlySubscriptionFee() {
+		        // compute based on end and start
+		        return BigDecimal.ONE;
+		    }
+		}
+
+		public class PDFFormatter {
+
+		    private final Contract contract;
+
+		    public PDFFormatter(Contract contract) {
+		        this.contract = contract;
+		    }
+
+		    public byte[] format() {
+		        return "...".getBytes();
+		    }
+		}
+	}
+}
+
+O -> Otwarty
+
+Żeby kod był możliwy do rozszerzenia i zmaknięty na modyfikacje.
+Modyfikacja jest zabroniona, ponieważ zmiana deklaracji jakiejkolwiek metody może spowodować awarię systemu.
+
+L -> Liskov Substitution
+
+Kod powinien współpracować poprawnie z klasą, jak i wszystkimi jej podklasami.
+Wszystkie implementacje interfejsu powinny poprawnie działać z naszą klasą/metodą.
+np: Metoda bez wiedzy z jakim podtypem ma do czynienie wykona dokładnie to samo.
+
+I -> Interfejsy (Interface Segregation)
+
+Rozdzielać interfejsy klasy.
+Chodzi tu o to aby inny fragment kodu, który używa twojej klasy używał wyłącznie podzbioru metod, któy jest w tamtym przypadku istotny.
+
+D -> oDwrócenie zależności (Dependency inversion)
+
+Wysokopoziomowe klasy nie powinny zależeć od niskopoziomowych detali.
+
+
+MAVEN
+
+Ułatwienia
+-dodawanie do projektu zlaeżnoś do danej bilioteki bądź frameworku
+-kompilowanie i budowanie projektu
+-przeprowadzanie testów jednostkowych i integrayjnych
+-generowanie raportów z testów oraz stron informacyjnych o projekcie
+
+Maven stosuje zasadę konwencja ponad konfiguracją. Dzięki temu większość domyślnych ustawień jest wystarczających i nie trzeba się nimi przejmować.
+
+Maven automatycznie pobiera zależności i pobiera je z oficjalnego repozytorium. ostają umieszczone w lokalnym katalogu. 
+
+Pros 
+
+-Dodaje wszystkie zależności automatycznie poprzez czytanie pliku pom.
+-Dodawanie zależności jest bardzo proste.
+-Bardzo łatwo zacząć projekt w innych środowiskach.
+
+
+Cons
+-Maven potrzebuje być zainstalowany w systemie i też trzeba dodać plugin do ide.
+- 
