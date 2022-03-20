@@ -6,9 +6,11 @@ import java.util.*;
 
 public class ProductService {
 
+    private final DatabaseService databaseService;
     private final Map<Integer, Product> products;
 
-    public ProductService() {
+    public ProductService(DatabaseService databaseService) {
+        this.databaseService = databaseService;
         this.products = new HashMap<>();
     }
 
@@ -16,9 +18,12 @@ public class ProductService {
         this.products.put(product.getId(), product);
     }
 
-    public void updateProduct(int id, String name, int categoryID) {
-        this.products.get(id).setName(name);
-        this.products.get(id).setCategoryID(categoryID);
+    public void updateProduct(Product product) {
+        if(this.products.containsKey(product.getId())){
+            this.products.replace(product.getId(), product);
+        } else {
+            throw new IllegalStateException("No product under given ID");
+        }
     }
 
     public Optional<Product> findProduct(int id) {

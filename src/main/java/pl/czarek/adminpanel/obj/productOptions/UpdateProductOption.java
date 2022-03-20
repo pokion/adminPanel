@@ -23,6 +23,6 @@ public class UpdateProductOption extends Option {
         String name = input.zapytanie("Podaj nazwę");
         int categoryId = Integer.parseInt(input.zapytanie("Podaj idkategorii"));
 
-        productService.updateProduct(id, name, categoryId);
+        productService.updateProduct(new Product(id, name, categoryId));
     }
 }

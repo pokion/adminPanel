@@ -25,6 +25,6 @@ public class UpdateUserOption extends Option {
         String login = input.zapytanie("Podaj login");
         String password = input.zapytanie("Podaj hasło");
 
-        userService.updateUser(id,name,login,password);
+        userService.updateUser(new User(id, name,login, password));
     }
 }

@@ -25,11 +25,14 @@ import pl.czarek.adminpanel.service.*;
 public class Main {
 
     private static OptionService optionService;
+    private static DatabaseService databaseService;
 
     public static void configure() {
-        ProductService productService = new ProductService();
-        CategoryService categoryService = new CategoryService();
-        CartService cartService = new CartService();
+        databaseService = DatabaseService.getInstance();
+
+        ProductService productService = new ProductService(databaseService);
+        CategoryService categoryService = new CategoryService(databaseService);
+        CartService cartService = new CartService(databaseService);
         UserService userService = new UserService();
 
         optionService = new OptionService();

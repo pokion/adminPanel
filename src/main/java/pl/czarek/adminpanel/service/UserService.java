@@ -23,10 +23,12 @@ public class UserService {
         return Optional.ofNullable(this.users.get(id));
     }
 
-    public void updateUser(int id, String name, String login, String password){
-        this.users.get(id).setName(name);
-        this.users.get(id).setLogin(login);
-        this.users.get(id).setPassword(password);
+    public void updateUser(User user){
+        if (this.users.containsKey(user.getId())){
+            this.users.replace(user.getId(), user);
+        } else {
+            throw new IllegalStateException("No User under given ID");
+        }
     }
 
     public void removeUser(int id){

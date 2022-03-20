@@ -1,12 +1,12 @@
-package pl.czarek.adminpanel.obj.purchase;
+package pl.czarek.adminpanel.obj.order;
 
-public class Purchase {
+public class Order {
     private int id;
     private String productsID;
     private int data;
     private String status;
 
-    public Purchase(int id, String productsID, int data, String status){
+    public Order(int id, String productsID, int data, String status){
         this.id = id;
         this.data = data;
         this.status = status;

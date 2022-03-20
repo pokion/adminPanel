@@ -1,0 +1,45 @@
+CREATE TABLE category(
+	id int AUTO_INCREMENT,
+    name VARCHAR(50),
+    PRIMARY KEY (id)
+);
+CREATE TABLE product(
+    id INT AUTO_INCREMENT,
+    categoryID INT,
+    name VARCHAR(255),
+    PRIMARY KEY (id)
+);
+CREATE TABLE productOrder(
+    id INT AUTO_INCREMENT,
+    productID INT,
+    quantity INT,
+    price DECIMAL(10,2),
+    inStock int,
+    PRIMARY KEY (id)
+);
+CREATE TABLE cartOrder(
+    id INT AUTO_INCREMENT,
+    productOrderID INT,
+    cartID INT,
+    PRIMARY KEY (id)
+);
+CREATE TABLE cart(
+    id INT AUTO_INCREMENT,
+    userID INT,
+    PRIMARY KEY (id)
+);
+CREATE TABLE users(
+    id INT AUTO_INCREMENT,
+    name VARCHAR(50),
+    login VARCHAR(255),
+    password VARCHAR(255),
+    email VARCHAR(255),
+    PRIMARY KEY (id)
+);
+CREATE TABLE orders(
+    id INT AUTO_INCREMENT,
+    cartOrderID INT,
+    status VARCHAR(255),
+    dataOrder DATE DEFAULT NOW(),
+    PRIMARY KEY (id)
+);

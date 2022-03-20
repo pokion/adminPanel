@@ -1,114 +1,151 @@
-SOLID
+SOLID{
+	S -> Samodzielny (Single responsibility Principle)
 
-S -> Samodzielny (Single responsibility Principle)
+	Metoda powinna mieć wyłącznie jeden powód do zmiany.
+	Dana klasa powinna mieć tylko jeden główny cel. Jedną funkcjonalność.
 
-Metoda powinna mieć wyłącznie jeden powód do zmiany.
-Dana klasa powinna mieć tylko jeden główny cel. Jedną funkcjonalność.
+	skrpt{
+		złe {
+			public class Contract {
 
-skrpt{
-	złe {
-		public class Contract {
+			    private final Date start;
 
-		    private final Date start;
+			    private final Date end;
 
-		    private final Date end;
+			    public Contract(Date start, Date end) {
+			        this.start = start;
+			        this.end = end;
+			    }
 
-		    public Contract(Date start, Date end) {
-		        this.start = start;
-		        this.end = end;
-		    }
+			    public BigDecimal getMonthlySubscriptionFee() {
+			        // compute based on end and start
+			        return BigDecimal.ONE;
+			    }
 
-		    public BigDecimal getMonthlySubscriptionFee() {
-		        // compute based on end and start
-		        return BigDecimal.ONE;
-		    }
+			    public byte[] formatAsPDF() {
+			        return "...".getBytes();
+			    }
+			}
+		}
+		dobrze{
+			public class Contract {
 
-		    public byte[] formatAsPDF() {
-		        return "...".getBytes();
-		    }
+			    private final Date start;
+
+			    private final Date end;
+
+			    public Contract(Date start, Date end) {
+			        this.start = start;
+			        this.end = end;
+			    }
+
+			    public Date getStart() {
+			        return start;
+			    }
+
+			    public Date getEnd() {
+			        return end;
+			    }
+
+			    public BigDecimal getMonthlySubscriptionFee() {
+			        // compute based on end and start
+			        return BigDecimal.ONE;
+			    }
+			}
+
+			public class PDFFormatter {
+
+			    private final Contract contract;
+
+			    public PDFFormatter(Contract contract) {
+			        this.contract = contract;
+			    }
+
+			    public byte[] format() {
+			        return "...".getBytes();
+			    }
+			}
 		}
 	}
-	dobrze{
-		public class Contract {
 
-		    private final Date start;
+	O -> Otwarty
 
-		    private final Date end;
+	Żeby kod był możliwy do rozszerzenia i zmaknięty na modyfikacje.
+	Modyfikacja jest zabroniona, ponieważ zmiana deklaracji jakiejkolwiek metody może spowodować awarię systemu.
 
-		    public Contract(Date start, Date end) {
-		        this.start = start;
-		        this.end = end;
-		    }
+	L -> Liskov Substitution
 
-		    public Date getStart() {
-		        return start;
-		    }
+	Kod powinien współpracować poprawnie z klasą, jak i wszystkimi jej podklasami.
+	Wszystkie implementacje interfejsu powinny poprawnie działać z naszą klasą/metodą.
+	np: Metoda bez wiedzy z jakim podtypem ma do czynienie wykona dokładnie to samo.
 
-		    public Date getEnd() {
-		        return end;
-		    }
+	I -> Interfejsy (Interface Segregation)
 
-		    public BigDecimal getMonthlySubscriptionFee() {
-		        // compute based on end and start
-		        return BigDecimal.ONE;
-		    }
-		}
+	Rozdzielać interfejsy klasy.
+	Chodzi tu o to aby inny fragment kodu, który używa twojej klasy używał wyłącznie podzbioru metod, któy jest w tamtym przypadku istotny.
 
-		public class PDFFormatter {
+	D -> oDwrócenie zależności (Dependency inversion)
 
-		    private final Contract contract;
+	Wysokopoziomowe klasy nie powinny zależeć od niskopoziomowych detali.
 
-		    public PDFFormatter(Contract contract) {
-		        this.contract = contract;
-		    }
-
-		    public byte[] format() {
-		        return "...".getBytes();
-		    }
-		}
-	}
 }
 
-O -> Otwarty
+MAVEN{
+	
+	Ułatwienia
+	-dodawanie do projektu zlaeżnoś do danej bilioteki bądź frameworku
+	-kompilowanie i budowanie projektu
+	-przeprowadzanie testów jednostkowych i integrayjnych
+	-generowanie raportów z testów oraz stron informacyjnych o projekcie
 
-Żeby kod był możliwy do rozszerzenia i zmaknięty na modyfikacje.
-Modyfikacja jest zabroniona, ponieważ zmiana deklaracji jakiejkolwiek metody może spowodować awarię systemu.
+	Maven stosuje zasadę konwencja ponad konfiguracją. Dzięki temu większość domyślnych ustawień jest wystarczających i nie trzeba się nimi przejmować.
 
-L -> Liskov Substitution
+	Maven automatycznie pobiera zależności i pobiera je z oficjalnego repozytorium. ostają umieszczone w lokalnym katalogu. 
 
-Kod powinien współpracować poprawnie z klasą, jak i wszystkimi jej podklasami.
-Wszystkie implementacje interfejsu powinny poprawnie działać z naszą klasą/metodą.
-np: Metoda bez wiedzy z jakim podtypem ma do czynienie wykona dokładnie to samo.
+	Pros 
 
-I -> Interfejsy (Interface Segregation)
-
-Rozdzielać interfejsy klasy.
-Chodzi tu o to aby inny fragment kodu, który używa twojej klasy używał wyłącznie podzbioru metod, któy jest w tamtym przypadku istotny.
-
-D -> oDwrócenie zależności (Dependency inversion)
-
-Wysokopoziomowe klasy nie powinny zależeć od niskopoziomowych detali.
+	-Dodaje wszystkie zależności automatycznie poprzez czytanie pliku pom.
+	-Dodawanie zależności jest bardzo proste.
+	-Bardzo łatwo zacząć projekt w innych środowiskach.
 
 
-MAVEN
+	Cons
+	-Maven potrzebuje być zainstalowany w systemie i też trzeba dodać plugin do ide.
+	-Maven potrzebuje połączenia z internetem.
+}
 
-Ułatwienia
--dodawanie do projektu zlaeżnoś do danej bilioteki bądź frameworku
--kompilowanie i budowanie projektu
--przeprowadzanie testów jednostkowych i integrayjnych
--generowanie raportów z testów oraz stron informacyjnych o projekcie
+ACID{
+	A -> Niepodzielność (Atomicity)
 
-Maven stosuje zasadę konwencja ponad konfiguracją. Dzięki temu większość domyślnych ustawień jest wystarczających i nie trzeba się nimi przejmować.
+	Przykład{
+		OPERACJA 1 ————————-> SUKCES (np. INSERT)
 
-Maven automatycznie pobiera zależności i pobiera je z oficjalnego repozytorium. ostają umieszczone w lokalnym katalogu. 
+		OPERACJA 2 ————————-> SUKCES (np. DELETE)
 
-Pros 
+		OPERACJA 3 ————————-> PORAŻKA (np. INSERT - do archiwum)
 
--Dodaje wszystkie zależności automatycznie poprzez czytanie pliku pom.
--Dodawanie zależności jest bardzo proste.
--Bardzo łatwo zacząć projekt w innych środowiskach.
+		OPERACJA 4 ————————-> SUKCES (np. UPDATE na danych dodanych do archiwum)
+	}
 
+	Zapewnienie że operacja lub zestaw operacji zostanie wykonana w całości lub anulowana.
+	Transakcja zostanie anulowana a wykonane zmiany zostaną cofnięte.
 
-Cons
--Maven potrzebuje być zainstalowany w systemie i też trzeba dodać plugin do ide.
-- 
+	C -> Spójność (Consistency)
+
+	Po wykonaniu transakcji system będzie spójny czyli nie zostaną naruszone zasady integralności.
+
+	I -> Izolacja (isolation)
+
+	Ozanacza to że dwie transakcje wykonują się współbieżnie czyli nei widzą wprowadzanych przez siebie zmian.
+
+	Przykłady izolacji{
+		    read uncommitted – jedna transakcja może odczytywać wiersze, na których działają inne transakcje (najniższy poziom izolacji)
+		    read committed – transakcja może odczytywać tylko wiersze zapisane
+		    repeatable read – transakcja nie może czytać ani zapisywać na wierszach odczytywanych lub zapisywanych w innej transakcji
+		    serializable (szeregowalne) – wyniki współbieżnie realizowanych zapytań muszą być identyczne z wynikami tych samych zapytań realizowanych szeregowo (pełna izolacja).
+	}
+
+	D -> Trwałość (durability)
+
+	Oznacza to że system potrafi się uruchomiś i udostępnić spójne, nienaruszone dane np po awarii zasilania.
+}  

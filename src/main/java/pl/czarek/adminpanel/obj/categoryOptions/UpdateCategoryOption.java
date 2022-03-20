@@ -22,6 +22,6 @@ public class UpdateCategoryOption extends Option {
         int id = Integer.parseInt(input.zapytanie("Podaj id"));
         String name = input.zapytanie("Podaj nazwę");
 
-        categoryService.updateCategory(id, name);
+        categoryService.updateCategory(new Category(id, name));
     }
 }

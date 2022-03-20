@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbda5a5e-5e34-4583-8c4f-a90327986aed" name="Changes" comment="" />
+    <list default="true" id="bbda5a5e-5e34-4583-8c4f-a90327986aed" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/DatabaseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prezentacja.txt" beforeDir="false" afterPath="$PROJECT_DIR$/prezentacja.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/cartOption/UpdateCartOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/cartOption/UpdateCartOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/categoryOptions/UpdateCategoryOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/categoryOptions/UpdateCategoryOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOptions/UpdateProductOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOptions/UpdateProductOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/purchase/Purchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/order/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/userOption/UpdateUserOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/userOption/UpdateUserOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/CartService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/UserService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,7 +59,7 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="pl.czarek.adminpanel.Main" />
-      <module name="adminpanel" />
+      <module name="adminPanel" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="pl.czarek.adminpanel.*" />

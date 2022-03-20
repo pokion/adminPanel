@@ -17,10 +17,13 @@ public class UpdateCartOption extends Option {
 
     @Override
     public void execute() {
-        output.napisz("Usuwanie koszyka");
+        output.napisz("Aktualizacja koszyka");
 
         int id = Integer.parseInt(input.zapytanie("Podaj id"));
+        String listProduct = input.zapytanie("Podaj listę produktów");
+        int userID = Integer.parseInt(input.zapytanie("Podaj id user"));
+        String status = input.zapytanie("Podaj status");
 
-        cartService.removeCart(id);
+        cartService.updateCart(new Cart(id, listProduct, userID, status));
     }
 }
