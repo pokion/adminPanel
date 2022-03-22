@@ -25,7 +25,7 @@ public class OrderService {
     public void updateOrder(Order order){
         if (this.findOrder(order.getId()).isPresent()){
             this.databaseService.performDML(
-                    "UPDATE orders SET" +
+                    "UPDATE orders SET " +
                             "userID ='" + order.getUserID() + "'," +
                             "status ='" + order.getStatus() + "' " +
                             "WHERE id="+ order.getId()

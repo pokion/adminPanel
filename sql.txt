@@ -1,46 +1,108 @@
-CREATE TABLE category(
-	id int AUTO_INCREMENT,
-    name VARCHAR(50),
-    PRIMARY KEY (id)
-);
-CREATE TABLE product(
-    id INT AUTO_INCREMENT,
-    categoryID INT,
-    name VARCHAR(255),
-    PRIMARY KEY (id)
-);
-CREATE TABLE productOrder(
-    id INT AUTO_INCREMENT,
-    productID INT,
-    orderID INT,
-    quantity INT,
-    price DECIMAL(10,2),
-    inStock int,
-    PRIMARY KEY (id)
-);
-CREATE TABLE cartOrder(
-    id INT AUTO_INCREMENT,
-    productOrderID INT,
-    cartID INT,
-    PRIMARY KEY (id)
-);
-CREATE TABLE cart(
-    id INT AUTO_INCREMENT,
-    userID INT,
-    PRIMARY KEY (id)
-);
-CREATE TABLE users(
-    id INT AUTO_INCREMENT,
-    name VARCHAR(50),
-    login VARCHAR(255),
-    password VARCHAR(255),
-    email VARCHAR(255),
-    PRIMARY KEY (id)
-);
-CREATE TABLE orders(
-    id INT AUTO_INCREMENT,
-    cartOrderID INT,
-    status VARCHAR(255),
-    dataOrder DATE DEFAULT NOW(),
-    PRIMARY KEY (id)
-);
+create Table{
+    CREATE TABLE category(
+        id int AUTO_INCREMENT,
+        name VARCHAR(50),
+        PRIMARY KEY (id)
+    );
+    CREATE TABLE product(
+        id INT AUTO_INCREMENT,
+        categoryID INT,
+        name VARCHAR(255),
+        PRIMARY KEY (id)
+    );
+    CREATE TABLE productOrder(
+        id INT AUTO_INCREMENT,
+        productID INT,
+        orderID INT,
+        quantity INT,
+        price DECIMAL(10,2),
+        inStock int,
+        PRIMARY KEY (id)
+    );
+    CREATE TABLE cartOrder(
+        id INT AUTO_INCREMENT,
+        productOrderID INT,
+        cartID INT,
+        PRIMARY KEY (id)
+    );
+    CREATE TABLE cart(
+        id INT AUTO_INCREMENT,
+        userID INT,
+        PRIMARY KEY (id)
+    );
+    CREATE TABLE users(
+        id INT AUTO_INCREMENT,
+        name VARCHAR(50),
+        login VARCHAR(255),
+        password VARCHAR(255),
+        email VARCHAR(255),
+        PRIMARY KEY (id)
+    );
+    CREATE TABLE orders(
+        id INT AUTO_INCREMENT,
+        cartOrderID INT,
+        status VARCHAR(255),
+        dataOrder DATE DEFAULT NOW(),
+        PRIMARY KEY (id)
+    );
+}
+
+inner join{
+    SELECT product.id, category.name, product.name
+    FROM product
+    INNER JOIN category ON product.categoryID = category.id
+
+    SELECT user.id, user.name, orders.status, orders.dataOrder
+    FROM user
+    INNER JOIN orders ON user.id = orders.userID
+
+    SELECT user.name, orders.status, product_order.quantity, product_order.price
+    FROM user
+    INNER JOIN orders ON user.id = orders.userID
+    INNER JOIN product_order ON orders.id = product_order.orderID
+
+    SELECT orders.status, product_order.quantity, product.name
+    FROM orders
+    INNER JOIN product_order ON orders.id = product_order.orderID
+    INNER JOIN product ON product_order.productID = product.id
+
+    SELECT user.name, orders.status, product_order.price, product.name
+    FROM user
+    INNER JOIN orders ON user.id = orders.userID
+    INNER JOIN product_order ON orders.id = product_order.orderID
+    INNER JOIN product ON product_order.productID = product.id
+
+    SELECT orders.status, orders.dataOrder, product_order.quantity, product_order.price, product.name, category.name
+    FROM orders
+    INNER JOIN product_order ON orders.id = product_order.orderID
+    INNER JOIN product ON product_order.productID = product.id
+    INNER JOIN category ON product.categoryID = category.id
+
+    SELECT user.name, orders.status, product_order.quantity, product.name, category.name
+    FROM user
+    INNER JOIN orders ON user.id = orders.userID
+    INNER JOIN product_order ON orders.id = product_order.orderID
+    INNER JOIN product ON product_order.productID = product.id
+    INNER JOIN category ON product.categoryID = category.id
+
+    SELECT user.name, user.login, orders.status, orders.dataOrder, product_order.quantity, product_order.price, product.name, category.name
+    FROM user
+    INNER JOIN orders ON user.id = orders.userID
+    INNER JOIN product_order ON orders.id = product_order.orderID
+    INNER JOIN product ON product_order.productID = product.id
+    INNER JOIN category ON product.categoryID = category.id
+
+    SELECT category.name, product.name, product_order.quantity, product_order.price, orders.status, orders.dataOrder
+    FROM category
+    INNER JOIN product ON category.id = product.categoryID
+    INNER JOIN product_order ON product.id = product_order.productID
+    INNER JOIN orders ON product_order.orderID = orders.id
+
+    SELECT user.name, user.login, user.password, orders.status, orders.dataOrder, product_order.quantity, product_order.price, product.name, category.name
+    FROM user
+    INNER JOIN orders ON user.id = orders.userID
+    INNER JOIN product_order ON orders.id = product_order.orderID
+    INNER JOIN product ON product_order.productID = product.id
+    INNER JOIN category ON product.categoryID = category.id
+
+}
