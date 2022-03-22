@@ -2,9 +2,11 @@ package pl.czarek.adminpanel.obj.productOptions;
 
 public class Product {
 
-    private final int id;
+    private int id;
     private int categoryID;
     private String name;
+
+    public Product(){}
 
     public Product(int id){
         this.id = id;

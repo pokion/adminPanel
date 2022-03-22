@@ -6,6 +6,10 @@ public class ProductBuilder {
 
     private final Product product;
 
+    public ProductBuilder(){
+        this.product = new Product();
+    }
+
     public ProductBuilder(int id){
         this.product = new Product(id);
     }

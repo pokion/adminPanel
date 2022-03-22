@@ -20,10 +20,9 @@ public class CreateCategoryOption extends Option {
     public void execute() {
         output.napisz("Tworzenie kategorii" + "\n");
 
-        int id = Integer.parseInt(input.zapytanie("Podaj id"));
         String name = input.zapytanie("Podaj nazwę");
 
-        categoryService.createCategory(new CategoryBuilder(id)
+        categoryService.createCategory(new CategoryBuilder()
                 .setName(name)
                 .getCategory());
 

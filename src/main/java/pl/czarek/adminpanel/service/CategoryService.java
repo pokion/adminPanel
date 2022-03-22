@@ -1,35 +1,54 @@
 package pl.czarek.adminpanel.service;
 
-import pl.czarek.adminpanel.io.output;
+import pl.czarek.adminpanel.builder.CategoryBuilder;
 import pl.czarek.adminpanel.obj.categoryOptions.Category;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 
 
 public class CategoryService {
 
     private final DatabaseService databaseService;
-    private final Map<Integer, Category> categories;
 
     public CategoryService(DatabaseService databaseService){
         this.databaseService = databaseService;
-        this.categories = new HashMap<>();
     }
 
     public void createCategory(Category category){
-        this.categories.put(category.getId(), category);
         this.databaseService.performDML(
                 "INSERT INTO category(name) VALUE ('"+ category.getName() +"')"
         );
     }
 
     public Optional<Category> findCategory(int id){
-        return Optional.ofNullable(this.categories.get(id));
+        try (Connection connection = this.databaseService.getConnection();
+             PreparedStatement statement = connection.prepareStatement(
+                     "SELECT * FROM category WHERE id = "+ id
+             )){
+            ResultSet results = statement.executeQuery();
+            if (results.next()){
+                int idCategory = results.getInt("id");
+                String name = results.getString("name");
+
+                Category category = new CategoryBuilder(idCategory)
+                        .setName(name).getCategory();
+
+                return Optional.of(category);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Optional.empty();
     }
 
     public void updateCategory(Category category){
-         if (this.categories.containsKey(category.getId())){
-             this.categories.replace(category.getId(), category);
+         if (this.findCategory(category.getId()).isPresent()){
+
              this.databaseService.performDML(
                      "UPDATE category SET name = '"+ category.getName() +"' WHERE id="+ category.getId()
              );
@@ -38,7 +57,14 @@ public class CategoryService {
          }
     }
 
-    public  void removeCategory(int id){
-        this.categories.remove(id);
+    public void removeCategory(int id){
+        if (this.findCategory(id).isPresent()){
+            this.databaseService.performDML(
+                    "DELETE FROM category WHERE id = "+ id
+            );
+        } else {
+            throw new IllegalStateException("No category under given ID");
+        }
+
     }
 }

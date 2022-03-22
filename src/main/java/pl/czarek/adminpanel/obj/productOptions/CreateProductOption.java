@@ -20,12 +20,11 @@ public class CreateProductOption extends Option {
     public void execute() {
         output.napisz("Tworzenie produktu");
 
-        int id = Integer.parseInt(input.zapytanie("Podaj id"));
         String name = input.zapytanie("Podaj nazwę");
         int categoryID = Integer.parseInt(input.zapytanie("Podaj id kategorii"));
 
 
-        productService.createProduct(new ProductBuilder(id)
+        productService.createProduct(new ProductBuilder()
                 .setName(name)
                 .setCategory(categoryID)
                 .getProduct());

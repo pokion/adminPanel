@@ -149,3 +149,7 @@ ACID{
 
 	Oznacza to że system potrafi się uruchomiś i udostępnić spójne, nienaruszone dane np po awarii zasilania.
 }  
+
+
+
+dodać connection to service 

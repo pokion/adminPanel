@@ -39,4 +39,8 @@ public class DatabaseService {
             throw new RuntimeException(e);
         }
     }
+
+    public Connection getConnection() throws SQLException {
+        return this.dataSource.getConnection();
+    }
 }

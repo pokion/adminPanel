@@ -24,6 +24,12 @@ public class FindProductOption extends Option {
         int id = Integer.parseInt(input.zapytanie("Podaj id"));
 
         Optional<Product> product = productService.findProduct(id);
-        output.napisz(product.get().getName());
+        if (product.isPresent()){
+            output.napisz("id: "+product.get().getId());
+            output.napisz("categoryID: "+product.get().getCategoryID());
+            output.napisz("name: "+product.get().getName());
+        }else {
+            output.napisz("nie znaleziono");
+        }
     }
 }

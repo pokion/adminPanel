@@ -6,6 +6,10 @@ public class CategoryBuilder {
 
     private final Category category;
 
+    public CategoryBuilder(){
+        this.category = new Category();
+    }
+
     public CategoryBuilder(int id){
         this.category = new Category(id);
     }

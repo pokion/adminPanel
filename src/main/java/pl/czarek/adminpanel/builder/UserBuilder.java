@@ -1,10 +1,14 @@
 package pl.czarek.adminpanel.builder;
 
-import pl.czarek.adminpanel.obj.userOption.User;
+import pl.czarek.adminpanel.obj.userOptions.User;
 
 public class UserBuilder {
 
     private final User user;
+
+    public UserBuilder(){
+        this.user = new User();
+    }
 
     public UserBuilder(int id){
         this.user = new User(id);

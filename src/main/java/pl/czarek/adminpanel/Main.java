@@ -1,25 +1,28 @@
 package pl.czarek.adminpanel;
 
 import pl.czarek.adminpanel.io.input;
-import pl.czarek.adminpanel.io.output;
 import pl.czarek.adminpanel.navigation.navigation;
-import pl.czarek.adminpanel.obj.cartOption.CreateCartOption;
-import pl.czarek.adminpanel.obj.cartOption.FindCartOption;
-import pl.czarek.adminpanel.obj.cartOption.RemoveCartOption;
-import pl.czarek.adminpanel.obj.cartOption.UpdateCartOption;
 import pl.czarek.adminpanel.obj.categoryOptions.CreateCategoryOption;
 import pl.czarek.adminpanel.obj.categoryOptions.FindCategoryOption;
 import pl.czarek.adminpanel.obj.categoryOptions.RemoveCategoryOption;
 import pl.czarek.adminpanel.obj.categoryOptions.UpdateCategoryOption;
+import pl.czarek.adminpanel.obj.orderOptions.CreateOrderOption;
+import pl.czarek.adminpanel.obj.orderOptions.FindOrderOption;
+import pl.czarek.adminpanel.obj.orderOptions.RemoveOrderOption;
+import pl.czarek.adminpanel.obj.orderOptions.UpdateOrderOption;
 import pl.czarek.adminpanel.obj.productOptions.CreateProductOption;
 import pl.czarek.adminpanel.obj.Option;
 import pl.czarek.adminpanel.obj.productOptions.FindProductOption;
 import pl.czarek.adminpanel.obj.productOptions.RemoveProductOption;
 import pl.czarek.adminpanel.obj.productOptions.UpdateProductOption;
-import pl.czarek.adminpanel.obj.userOption.CreateUserOption;
-import pl.czarek.adminpanel.obj.userOption.FindUserOption;
-import pl.czarek.adminpanel.obj.userOption.RemoveUserOption;
-import pl.czarek.adminpanel.obj.userOption.UpdateUserOption;
+import pl.czarek.adminpanel.obj.productOrderOptions.CreateProductOrderOption;
+import pl.czarek.adminpanel.obj.productOrderOptions.FindProductOrderOption;
+import pl.czarek.adminpanel.obj.productOrderOptions.RemoveProductOrderOption;
+import pl.czarek.adminpanel.obj.productOrderOptions.UpdateProductOrderOption;
+import pl.czarek.adminpanel.obj.userOptions.CreateUserOption;
+import pl.czarek.adminpanel.obj.userOptions.FindUserOption;
+import pl.czarek.adminpanel.obj.userOptions.RemoveUserOption;
+import pl.czarek.adminpanel.obj.userOptions.UpdateUserOption;
 import pl.czarek.adminpanel.service.*;
 
 public class Main {
@@ -32,10 +35,17 @@ public class Main {
 
         ProductService productService = new ProductService(databaseService);
         CategoryService categoryService = new CategoryService(databaseService);
-        CartService cartService = new CartService(databaseService);
-        UserService userService = new UserService();
+        ProductOrderService productOrderService = new ProductOrderService(databaseService);
+        UserService userService = new UserService(databaseService);
+        OrderService orderService = new OrderService(databaseService);
 
         optionService = new OptionService();
+
+        optionService.registerOption(new CreateOrderOption(orderService));
+        optionService.registerOption(new FindOrderOption(orderService));
+        optionService.registerOption(new RemoveOrderOption(orderService));
+        optionService.registerOption(new UpdateOrderOption(orderService));
+
         optionService.registerOption(new CreateProductOption(productService));
         optionService.registerOption(new FindProductOption(productService));
         optionService.registerOption(new RemoveProductOption(productService));
@@ -46,10 +56,10 @@ public class Main {
         optionService.registerOption(new RemoveCategoryOption(categoryService));
         optionService.registerOption(new UpdateCategoryOption(categoryService));
 
-        optionService.registerOption(new CreateCartOption(cartService));
-        optionService.registerOption(new FindCartOption(cartService));
-        optionService.registerOption(new RemoveCartOption(cartService));
-        optionService.registerOption(new UpdateCartOption(cartService));
+        optionService.registerOption(new CreateProductOrderOption(productOrderService));
+        optionService.registerOption(new FindProductOrderOption(productOrderService));
+        optionService.registerOption(new RemoveProductOrderOption(productOrderService));
+        optionService.registerOption(new UpdateProductOrderOption(productOrderService));
 
         optionService.registerOption(new CreateUserOption(userService));
         optionService.registerOption(new FindUserOption(userService));
@@ -75,6 +85,7 @@ public class Main {
             optionService.findOption(nestOption+"-"+navi.prevOpt)
                     .ifPresent(Option::execute);
 
+            input.zapytanie("Press any key to continue...");
             navi.removeStage(navi.currentStage);
         }
 
