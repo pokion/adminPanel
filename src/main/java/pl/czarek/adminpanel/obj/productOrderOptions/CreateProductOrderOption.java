@@ -23,7 +23,7 @@ public class CreateProductOrderOption extends Option {
         int productID = Integer.parseInt(input.zapytanie("Podaj product ID"));
         int orderID = Integer.parseInt(input.zapytanie("Podaj order ID"));
         int quantity = Integer.parseInt(input.zapytanie("Podaj quantity"));
-        int price = Integer.parseInt(input.zapytanie("Podaj cenę"));
+        float price = Float.parseFloat(input.zapytanie("Podaj cenę"));
 
         productOrderService.createProductOrder(new ProductOrderBuilder()
                 .setProductID(productID)

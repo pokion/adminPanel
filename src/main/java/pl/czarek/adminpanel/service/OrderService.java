@@ -43,7 +43,7 @@ public class OrderService {
                 int idOrder = results.getInt("id");
                 int userID = results.getInt("userID");
                 String status = results.getNString("status");
-                Date date = results.getDate("date");
+                Date date = results.getDate("dataOrder");
 
                 Order order = new OrderBuilder(idOrder)
                         .setUserID(userID)

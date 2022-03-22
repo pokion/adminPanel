@@ -29,7 +29,7 @@ public class ProductOrderBuilder {
         return this;
     }
 
-    public ProductOrderBuilder setPrice(int price){
+    public ProductOrderBuilder setPrice(float price){
         this.productOrder.setPrice(price);
         return this;
     }

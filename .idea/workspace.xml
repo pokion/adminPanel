@@ -5,66 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbda5a5e-5e34-4583-8c4f-a90327986aed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/builder/OrderBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/orderOptions/CreateOrderOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/orderOptions/FindOrderOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/orderOptions/RemoveOrderOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/orderOptions/UpdateOrderOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOrderOptions/CreateProductOrderOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOrderOptions/FindProductOrderOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOrderOptions/RemoveProductOrderOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOrderOptions/UpdateProductOrderOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/OrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/ProductOrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prezentacja.txt" beforeDir="false" afterPath="$PROJECT_DIR$/prezentacja.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sql.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/builder/CartBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/builder/ProductOrderBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/builder/CategoryBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/builder/CategoryBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/builder/ProductBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/builder/ProductBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/builder/UserBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/builder/UserBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/cartOption/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOrderOptions/ProductOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/cartOption/CreateCartOption.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/cartOption/FindCartOption.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/cartOption/RemoveCartOption.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/cartOption/UpdateCartOption.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/categoryOptions/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/categoryOptions/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/categoryOptions/CreateCategoryOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/categoryOptions/CreateCategoryOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/builder/ProductOrderBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/builder/ProductOrderBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/categoryOptions/FindCategoryOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/categoryOptions/FindCategoryOption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/order/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/orderOptions/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOptions/CreateProductOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOptions/CreateProductOption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOptions/FindProductOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOptions/FindProductOption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOptions/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOptions/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/userOption/CreateUserOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/userOptions/CreateUserOption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/userOption/FindUserOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/userOptions/FindUserOption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/userOption/RemoveUserOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/userOptions/RemoveUserOption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/userOption/UpdateUserOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/userOptions/UpdateUserOption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/userOption/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/userOptions/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/CartService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/DatabaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/DatabaseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/builder/CartBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/builder/UserBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/builder/UserBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/cartOption/Cart.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/cartOption/CreateCartOption.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/cartOption/FindCartOption.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/cartOption/RemoveCartOption.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/cartOption/UpdateCartOption.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/order/Order.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/userOption/CreateUserOption.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/userOption/FindUserOption.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/userOption/RemoveUserOption.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/userOption/UpdateUserOption.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/userOption/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/CartService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/CategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/CategoryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/DatabaseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/DatabaseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/ProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOrderOptions/CreateProductOrderOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOrderOptions/CreateProductOrderOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOrderOptions/ProductOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOrderOptions/ProductOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOrderOptions/UpdateProductOrderOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOrderOptions/UpdateProductOrderOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/ProductOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/ProductOrderService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

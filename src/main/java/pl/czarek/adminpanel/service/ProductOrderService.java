@@ -32,7 +32,7 @@ public class ProductOrderService {
     public void updateProductOrder(ProductOrder productOrder){
         if (this.findProductOrder(productOrder.getId()).isPresent()) {
             this.databaseService.performDML(
-                    "UPDATE product_order SET" +
+                    "UPDATE product_order SET " +
                             "productID ='" + productOrder.getProductID() + "'," +
                             "orderID ='" + productOrder.getOrderID() + "'," +
                             "quantity ='" + productOrder.getQuantity() + "'," +
@@ -54,12 +54,14 @@ public class ProductOrderService {
                 int productID = results.getInt("productID");
                 int orderID = results.getInt("orderID");
                 int quantity = results.getInt("quantity");
+                float price = results.getFloat("price");
                 int inStock = results.getInt("inStock");
 
                 ProductOrder productOrder = new ProductOrderBuilder(idPOrder)
                         .setProductID(productID)
                         .setOrderID(orderID)
                         .setQuantity(quantity)
+                        .setPrice(price)
                         .setInStock(inStock).getProductOrder();
 
                 return Optional.of(productOrder);

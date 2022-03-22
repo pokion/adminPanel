@@ -5,7 +5,7 @@ public class ProductOrder {
     private int productID;
     private int orderID;
     private int quantity;
-    private int price;
+    private float price;
     private int inStock;
 
     public ProductOrder(){}
@@ -30,7 +30,7 @@ public class ProductOrder {
         return quantity;
     }
 
-    public int getPrice(){
+    public float getPrice(){
         return price;
     }
 
@@ -50,7 +50,7 @@ public class ProductOrder {
         this.quantity = quantity;
     }
 
-    public void setPrice(int price){
+    public void setPrice(float price){
         this.price = price;
     }
 

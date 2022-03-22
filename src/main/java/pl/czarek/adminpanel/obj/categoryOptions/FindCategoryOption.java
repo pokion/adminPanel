@@ -24,7 +24,11 @@ public class FindCategoryOption extends Option {
         int id = Integer.parseInt(input.zapytanie("Podaj id"));
 
         Optional<Category> category = categoryService.findCategory(id);
-        output.napisz("id: "+category.get().getId());
-        output.napisz("name: "+category.get().getName());
+        if(category.isPresent()){
+            output.napisz("id: "+category.get().getId());
+            output.napisz("name: "+category.get().getName());
+        }else {
+            output.napisz("Nie znaleziono");
+        }
     }
 }
