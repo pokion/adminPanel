@@ -31,7 +31,7 @@ public class FindProductOrderOption extends Option {
             output.napisz("orderID: "+productOrder.get().getOrderID());
             output.napisz("quantity: "+productOrder.get().getQuantity());
             output.napisz("price: "+productOrder.get().getPrice());
-            output.napisz("inStock: "+productOrder.get().getInStock());
+            output.napisz("createDate: "+productOrder.get().getDate());
         }else {
             output.napisz("Nie znaleziono");
         }

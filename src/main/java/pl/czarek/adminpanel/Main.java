@@ -2,24 +2,12 @@ package pl.czarek.adminpanel;
 
 import pl.czarek.adminpanel.io.input;
 import pl.czarek.adminpanel.navigation.navigation;
-import pl.czarek.adminpanel.obj.categoryOptions.CreateCategoryOption;
-import pl.czarek.adminpanel.obj.categoryOptions.FindCategoryOption;
-import pl.czarek.adminpanel.obj.categoryOptions.RemoveCategoryOption;
-import pl.czarek.adminpanel.obj.categoryOptions.UpdateCategoryOption;
-import pl.czarek.adminpanel.obj.orderOptions.CreateOrderOption;
-import pl.czarek.adminpanel.obj.orderOptions.FindOrderOption;
-import pl.czarek.adminpanel.obj.orderOptions.RemoveOrderOption;
-import pl.czarek.adminpanel.obj.orderOptions.UpdateOrderOption;
+import pl.czarek.adminpanel.obj.categoryOptions.*;
+import pl.czarek.adminpanel.obj.orderOptions.*;
 import pl.czarek.adminpanel.obj.productOptions.*;
 import pl.czarek.adminpanel.obj.Option;
-import pl.czarek.adminpanel.obj.productOrderOptions.CreateProductOrderOption;
-import pl.czarek.adminpanel.obj.productOrderOptions.FindProductOrderOption;
-import pl.czarek.adminpanel.obj.productOrderOptions.RemoveProductOrderOption;
-import pl.czarek.adminpanel.obj.productOrderOptions.UpdateProductOrderOption;
-import pl.czarek.adminpanel.obj.userOptions.CreateUserOption;
-import pl.czarek.adminpanel.obj.userOptions.FindUserOption;
-import pl.czarek.adminpanel.obj.userOptions.RemoveUserOption;
-import pl.czarek.adminpanel.obj.userOptions.UpdateUserOption;
+import pl.czarek.adminpanel.obj.productOrderOptions.*;
+import pl.czarek.adminpanel.obj.userOptions.*;
 import pl.czarek.adminpanel.service.*;
 
 public class Main {
@@ -42,6 +30,7 @@ public class Main {
         optionService.registerOption(new FindOrderOption(orderService));
         optionService.registerOption(new RemoveOrderOption(orderService));
         optionService.registerOption(new UpdateOrderOption(orderService));
+        optionService.registerOption(new FindAllOrderOption(orderService));
 
         optionService.registerOption(new CreateProductOption(productService));
         optionService.registerOption(new FindProductOption(productService));
@@ -53,16 +42,19 @@ public class Main {
         optionService.registerOption(new FindCategoryOption(categoryService));
         optionService.registerOption(new RemoveCategoryOption(categoryService));
         optionService.registerOption(new UpdateCategoryOption(categoryService));
+        optionService.registerOption(new FindAllCategoryOption(categoryService));
 
         optionService.registerOption(new CreateProductOrderOption(productOrderService));
         optionService.registerOption(new FindProductOrderOption(productOrderService));
         optionService.registerOption(new RemoveProductOrderOption(productOrderService));
         optionService.registerOption(new UpdateProductOrderOption(productOrderService));
+        optionService.registerOption(new FindAllProductOrderOption(productOrderService));
 
         optionService.registerOption(new CreateUserOption(userService));
         optionService.registerOption(new FindUserOption(userService));
         optionService.registerOption(new RemoveUserOption(userService));
         optionService.registerOption(new UpdateUserOption(userService));
+        optionService.registerOption(new FindAllUserOption(userService));
     }
 
     public static void main(String[] args) {

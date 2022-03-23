@@ -106,3 +106,38 @@ inner join{
     INNER JOIN category ON product.categoryID = category.id
 
 }
+
+kolejne joiny{
+    SELECT *
+    FROM product_order po
+    LEFT JOIN product p ON po.productID = p.id
+
+    SELECT *
+    FROM user
+    LEFT JOIN orders ON user.id = orders.userID
+    WHERE orders.userID IS NULL
+
+    SELECT orders.status AS "status", orders.dataOrder AS "order date", user.name AS "user name", product_order.price
+    FROM orders
+    LEFT JOIN user ON orders.userID = user.id
+    LEFT JOIN product_order ON orders.id = product_order.orderID
+
+    SELECT * 
+    FROM product p 
+    LEFT JOIN category c ON p.categoryID = c.id
+    WHERE c.id IS NULL
+
+    SELECT product_order.id, product_order.price, orders.status, product.name
+    FROM product_order
+    LEFT JOIN product ON product_order.productID = product.id
+    RIGHT JOIN orders ON product_order.orderID = orders.id
+
+    SELECT *
+    FROM product_order
+    RIGHT JOIN product ON product_order.productID = product.id
+    LEFT JOIN orders ON product_order.orderID = orders.id
+
+    
+
+
+}

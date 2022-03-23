@@ -1,7 +1,9 @@
 package pl.czarek.adminpanel.service;
 
 import pl.czarek.adminpanel.builder.CategoryBuilder;
+import pl.czarek.adminpanel.builder.ProductBuilder;
 import pl.czarek.adminpanel.obj.categoryOptions.Category;
+import pl.czarek.adminpanel.obj.productOptions.Product;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -78,5 +80,27 @@ public class CategoryService {
             throw new IllegalStateException("No category under given ID");
         }
 
+    }
+
+    public Optional<ArrayList<Category>> findAll() {
+        try {
+            ArrayList<Category> categories = this.databaseService.performQuery("SELECT * FROM category", resultSet -> {
+                ArrayList<Category> categoriesQuery = new ArrayList<>();
+                while (resultSet.next()) {
+
+                    int id = resultSet.getInt("id");
+                    String name = resultSet.getString("name");
+
+                    categoriesQuery.add(new CategoryBuilder(id)
+                            .setName(name)
+                            .getCategory());
+                }
+                return categoriesQuery;
+            });
+            return Optional.ofNullable(categories);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Optional.empty();
+        }
     }
 }

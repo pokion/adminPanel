@@ -2,6 +2,8 @@ package pl.czarek.adminpanel.builder;
 
 import pl.czarek.adminpanel.obj.productOrderOptions.ProductOrder;
 
+import java.sql.Date;
+
 public class ProductOrderBuilder {
 
     private final ProductOrder productOrder;
@@ -34,8 +36,8 @@ public class ProductOrderBuilder {
         return this;
     }
 
-    public ProductOrderBuilder setInStock(int inStock){
-        this.productOrder.setInStock(inStock);
+    public ProductOrderBuilder setDate(Date date){
+        this.productOrder.setDate(date);
         return this;
     }
 

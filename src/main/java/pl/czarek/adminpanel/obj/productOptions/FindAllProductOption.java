@@ -19,20 +19,18 @@ public class FindAllProductOption extends Option {
 
     @Override
     public void execute() {
-        output.napisz("Wszystkie produkty");
+        System.out.println("Wszystkie produkty");
 
         Optional<ArrayList<Product>> products = this.productService.findAll();
 
         for (Product product:
         products.get()) {
-
+            System.out.println(
+                    "id: "+product.getId()+", "
+                    +"categoryID: "+product.getCategoryID()+", "
+                    +"name: "+product.getName()
+            );
         }
-        System.out.println();
-//        for (int i=0;i<products.get().size(); i++){
-//            output.napisz("id: "+products.get().get(i).getId()+
-//                    ", categoryID: "+products.get().get(i).getCategoryID()+
-//                    ", name: "+products.get().get(i).getName());
-//        }
 
     }
 }

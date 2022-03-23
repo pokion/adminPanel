@@ -2,6 +2,8 @@ package pl.czarek.adminpanel.builder;
 
 import pl.czarek.adminpanel.obj.userOptions.User;
 
+import java.sql.Date;
+
 public class UserBuilder {
 
     private final User user;
@@ -26,6 +28,11 @@ public class UserBuilder {
 
     public UserBuilder setPassword(String password){
         this.user.setPassword(password);
+        return this;
+    }
+
+    public UserBuilder setDate(Date date){
+        this.user.setDate(date);
         return this;
     }
 

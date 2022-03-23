@@ -1,10 +1,13 @@
 package pl.czarek.adminpanel.obj.userOptions;
 
+import java.sql.Date;
+
 public class User {
     private int id;
     private String name;
     private String login;
     private String  password;
+    private Date createDate;
 
     public User(){}
 
@@ -33,6 +36,10 @@ public class User {
         return password;
     }
 
+    public Date getCreateDate(){
+        return createDate;
+    }
+
     public void setName(String name){
         this.name = name;
     }
@@ -43,5 +50,8 @@ public class User {
 
     public void setPassword(String password){
         this.password = password;
+    }
+    public void setDate(Date date){
+        this.createDate = date;
     }
 }

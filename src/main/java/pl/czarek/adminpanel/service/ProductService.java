@@ -87,9 +87,11 @@ public class ProductService {
             ArrayList<Product> products = this.databaseService.performQuery("SELECT * FROM product", resultSet -> {
                 ArrayList<Product> productsQuery = new ArrayList<>();
                 while (resultSet.next()){
+
                     int id = resultSet.getInt("id");
                     String name = resultSet.getString("name");
                     int categoryId = resultSet.getInt("categoryID");
+
                     productsQuery.add(new ProductBuilder(id)
                             .setName(name)
                             .setCategory(categoryId)

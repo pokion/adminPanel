@@ -1,12 +1,12 @@
 package pl.czarek.adminpanel.service;
 
+import pl.czarek.adminpanel.builder.ProductOrderBuilder;
 import pl.czarek.adminpanel.builder.UserBuilder;
+import pl.czarek.adminpanel.obj.productOrderOptions.ProductOrder;
 import pl.czarek.adminpanel.obj.userOptions.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -86,6 +86,34 @@ public class UserService {
             }
         } else {
             throw new IllegalStateException("No user under given ID");
+        }
+    }
+
+    public Optional<ArrayList<User>> findAll() {
+        try {
+            ArrayList<User> users = this.databaseService.performQuery("SELECT * FROM user", resultSet -> {
+                ArrayList<User> usersQueries = new ArrayList<>();
+                while (resultSet.next()) {
+
+                    int id = resultSet.getInt("id");
+                    String name = resultSet.getString("name");
+                    String login = resultSet.getString("login");
+                    String password = resultSet.getString("password");
+                    Date createDate = resultSet.getDate("createDate");
+
+                    usersQueries.add(new UserBuilder(id)
+                            .setName(name)
+                            .setLogin(login)
+                            .setPassword(password)
+                            .setDate(createDate)
+                            .getUser());
+                }
+                return usersQueries;
+            });
+            return Optional.ofNullable(users);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Optional.empty();
         }
     }
 }
