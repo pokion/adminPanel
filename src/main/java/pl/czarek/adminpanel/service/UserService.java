@@ -20,12 +20,16 @@ public class UserService {
     }
 
     public void createUser(User user){
-        this.databaseService.performDML(
-                "INSERT INTO user(name, login, password) VALUE ('"+ user.getName() +"'," +
-                        "'"+ user.getLogin() + "',"+
-                        "'"+ user.getPassword() +
-                        "')"
-        );
+        try{
+            this.databaseService.performDML(
+                    "INSERT INTO user(name, login, password) VALUE ('"+ user.getName() +"'," +
+                            "'"+ user.getLogin() + "',"+
+                            "'"+ user.getPassword() +
+                            "')"
+            );
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public Optional<User> findUser(int id){
@@ -57,11 +61,15 @@ public class UserService {
 
     public void updateUser(User user){
         if (this.findUser(user.getId()).isPresent()){
-            this.databaseService.performDML(
-                    "UPDATE user SET name = '"+ user.getName() +"', " +
-                            "login = '"+ user.getLogin() +"', " +
-                            "password = '"+ user.getPassword() +"' WHERE id="+ user.getId()
-            );
+            try{
+                this.databaseService.performDML(
+                        "UPDATE user SET name = '"+ user.getName() +"', " +
+                                "login = '"+ user.getLogin() +"', " +
+                                "password = '"+ user.getPassword() +"' WHERE id="+ user.getId()
+                );
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         } else {
             throw new IllegalStateException("No user under given ID");
         }
@@ -69,9 +77,13 @@ public class UserService {
 
     public void removeUser(int id){
         if (this.findUser(id).isPresent()){
-            this.databaseService.performDML(
-                    "DELETE FROM user WHERE id = "+ id
-            );
+            try {
+                this.databaseService.performDML(
+                        "DELETE FROM user WHERE id = "+ id
+                );
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         } else {
             throw new IllegalStateException("No user under given ID");
         }

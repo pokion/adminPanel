@@ -10,11 +10,8 @@ import pl.czarek.adminpanel.obj.orderOptions.CreateOrderOption;
 import pl.czarek.adminpanel.obj.orderOptions.FindOrderOption;
 import pl.czarek.adminpanel.obj.orderOptions.RemoveOrderOption;
 import pl.czarek.adminpanel.obj.orderOptions.UpdateOrderOption;
-import pl.czarek.adminpanel.obj.productOptions.CreateProductOption;
+import pl.czarek.adminpanel.obj.productOptions.*;
 import pl.czarek.adminpanel.obj.Option;
-import pl.czarek.adminpanel.obj.productOptions.FindProductOption;
-import pl.czarek.adminpanel.obj.productOptions.RemoveProductOption;
-import pl.czarek.adminpanel.obj.productOptions.UpdateProductOption;
 import pl.czarek.adminpanel.obj.productOrderOptions.CreateProductOrderOption;
 import pl.czarek.adminpanel.obj.productOrderOptions.FindProductOrderOption;
 import pl.czarek.adminpanel.obj.productOrderOptions.RemoveProductOrderOption;
@@ -50,6 +47,7 @@ public class Main {
         optionService.registerOption(new FindProductOption(productService));
         optionService.registerOption(new RemoveProductOption(productService));
         optionService.registerOption(new UpdateProductOption(productService));
+        optionService.registerOption(new FindAllProductOption(productService));
 
         optionService.registerOption(new CreateCategoryOption(categoryService));
         optionService.registerOption(new FindCategoryOption(categoryService));

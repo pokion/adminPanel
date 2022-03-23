@@ -4,6 +4,7 @@ import pl.czarek.adminpanel.builder.OrderBuilder;
 import pl.czarek.adminpanel.obj.orderOptions.Order;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class OrderService {
@@ -15,21 +16,29 @@ public class OrderService {
     }
 
     public void createOrder(Order order){
-        this.databaseService.performDML(
-                "INSERT INTO orders (userID, status) VALUES (" +
-                        "'"+ order.getUserID() +"',"+
-                        "'"+ order.getStatus() +"')"
-        );
+        try{
+            this.databaseService.performDML(
+                    "INSERT INTO orders (userID, status) VALUES (" +
+                            "'"+ order.getUserID() +"',"+
+                            "'"+ order.getStatus() +"')"
+            );
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void updateOrder(Order order){
         if (this.findOrder(order.getId()).isPresent()){
-            this.databaseService.performDML(
-                    "UPDATE orders SET " +
-                            "userID ='" + order.getUserID() + "'," +
-                            "status ='" + order.getStatus() + "' " +
-                            "WHERE id="+ order.getId()
-            );
+            try{
+                this.databaseService.performDML(
+                        "UPDATE orders SET " +
+                                "userID ='" + order.getUserID() + "'," +
+                                "status ='" + order.getStatus() + "' " +
+                                "WHERE id="+ order.getId()
+                );
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }else throw new IllegalStateException("No Order under given ID");
     }
 
@@ -61,8 +70,37 @@ public class OrderService {
     }
 
     public void removeOrder(int id){
-        this.databaseService.performDML(
-                "DELETE FROM orders WHERE id="+id
-        );
+        try {
+            this.databaseService.performDML(
+                    "DELETE FROM orders WHERE id="+id
+            );
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public Optional<ArrayList<Order>> findAll(){
+        try {
+            ArrayList<Order> orders = this.databaseService.performQuery("SELECT * FROM orders", resultSet -> {
+                ArrayList<Order> ordersQuery = new ArrayList<>();
+                while (resultSet.next()){
+                    int id = resultSet.getInt("id");
+                    int userID = resultSet.getInt("userID");
+                    String status = resultSet.getString("status");
+                    Date dataOrder = resultSet.getDate("dataOrder");
+
+                    ordersQuery.add(new OrderBuilder(id)
+                            .setDate(dataOrder)
+                            .setStatus(status)
+                            .setUserID(userID)
+                            .getOrder());
+                }
+                return ordersQuery;
+            });
+            return Optional.ofNullable(orders);
+        }catch (Exception e){
+            e.printStackTrace();
+            return Optional.empty();
+        }
     }
 }

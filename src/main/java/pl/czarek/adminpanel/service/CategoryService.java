@@ -19,9 +19,13 @@ public class CategoryService {
     }
 
     public void createCategory(Category category){
-        this.databaseService.performDML(
-                "INSERT INTO category(name) VALUE ('"+ category.getName() +"')"
-        );
+        try{
+            this.databaseService.performDML(
+                    "INSERT INTO category(name) VALUE ('"+ category.getName() +"')"
+            );
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public Optional<Category> findCategory(int id){
@@ -49,9 +53,13 @@ public class CategoryService {
     public void updateCategory(Category category){
          if (this.findCategory(category.getId()).isPresent()){
 
-             this.databaseService.performDML(
-                     "UPDATE category SET name = '"+ category.getName() +"' WHERE id="+ category.getId()
-             );
+             try{
+                 this.databaseService.performDML(
+                         "UPDATE category SET name = '"+ category.getName() +"' WHERE id="+ category.getId()
+                 );
+             }catch (Exception e){
+                 e.printStackTrace();
+             }
          } else {
              throw new IllegalStateException("No category under given ID");
          }
@@ -59,9 +67,13 @@ public class CategoryService {
 
     public void removeCategory(int id){
         if (this.findCategory(id).isPresent()){
-            this.databaseService.performDML(
-                    "DELETE FROM category WHERE id = "+ id
-            );
+            try{
+                this.databaseService.performDML(
+                        "DELETE FROM category WHERE id = "+ id
+                );
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         } else {
             throw new IllegalStateException("No category under given ID");
         }
