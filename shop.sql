@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 22 Mar 2022, 20:23
+-- Czas generowania: 24 Mar 2022, 22:47
 -- Wersja serwera: 10.4.22-MariaDB
 -- Wersja PHP: 8.1.1
 
@@ -41,7 +41,9 @@ INSERT INTO `category` (`id`, `name`) VALUES
 (2, 'trzewiki'),
 (3, 'buty'),
 (4, 'buty do kolan'),
-(5, 'buty z przedłużoną cholewką');
+(5, 'buty z przedłużoną cholewką'),
+(6, 'Buty damskie'),
+(7, 'Buty męskie');
 
 -- --------------------------------------------------------
 
@@ -65,7 +67,8 @@ INSERT INTO `orders` (`id`, `userID`, `status`, `dataOrder`) VALUES
 (2, 3, 'Pending', '2022-03-22'),
 (3, 4, 'Paid', '2022-03-22'),
 (4, 5, 'Ok', '2022-03-22'),
-(5, 6, 'Cart', '2022-03-22');
+(5, 6, 'Cart', '2022-03-22'),
+(6, 8, 'Cart', '2022-03-23');
 
 -- --------------------------------------------------------
 
@@ -93,7 +96,9 @@ INSERT INTO `product` (`id`, `categoryID`, `name`) VALUES
 (8, 4, 'Badura V787-19-1 Beżowy'),
 (9, 4, 'Jenny Fairy LS5618-02 Czarny'),
 (10, 5, 'Saszki SA/1 czarne'),
-(11, 5, 'Lasocki MB-BOBO-04 Skóra');
+(11, 5, 'Lasocki MB-BOBO-04 Skóra'),
+(12, NULL, 'Addidasy szare'),
+(13, NULL, 'Czarne też addidasy');
 
 -- --------------------------------------------------------
 
@@ -145,7 +150,9 @@ INSERT INTO `user` (`id`, `name`, `login`, `password`, `createDate`) VALUES
 (3, 'Jakub', 'jak', 'kar', '2022-03-22 20:17:01'),
 (4, 'Monika', 'moni', 'ka', '2022-03-22 20:17:01'),
 (5, 'Mariusz', 'mar', 'wski', '2022-03-22 20:17:01'),
-(6, 'Julita', 'jul', 'ita', '2022-03-22 20:17:01');
+(6, 'Julita', 'jul', 'ita', '2022-03-22 20:17:01'),
+(7, 'Jack', 'Sparrow', 'CzarnaPerła', '2022-03-23 18:31:03'),
+(8, 'Jan', 'Paweł', 'II', '2022-03-23 18:31:23');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -193,19 +200,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT dla tabeli `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT dla tabeli `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT dla tabeli `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT dla tabeli `product_order`
@@ -217,7 +224,7 @@ ALTER TABLE `product_order`
 -- AUTO_INCREMENT dla tabeli `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Ograniczenia dla zrzutów tabel
