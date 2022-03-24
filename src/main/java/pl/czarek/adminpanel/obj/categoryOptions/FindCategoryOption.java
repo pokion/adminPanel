@@ -19,16 +19,16 @@ public class FindCategoryOption extends Option {
 
     @Override
     public void execute() {
-        output.napisz("Szukanie kategorii");
+        output.write("Szukanie kategorii");
 
-        int id = Integer.parseInt(input.zapytanie("Podaj id"));
+        int id = Integer.parseInt(input.question("Podaj id"));
 
         Optional<Category> category = categoryService.findCategory(id);
         if(category.isPresent()){
-            output.napisz("id: "+category.get().getId());
-            output.napisz("name: "+category.get().getName());
+            output.write("id: "+category.get().getId());
+            output.write("name: "+category.get().getName());
         }else {
-            output.napisz("Nie znaleziono");
+            output.write("Nie znaleziono");
         }
     }
 }

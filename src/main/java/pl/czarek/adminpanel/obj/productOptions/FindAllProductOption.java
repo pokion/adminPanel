@@ -27,7 +27,7 @@ public class FindAllProductOption extends Option {
         products.get()) {
             System.out.println(
                     "id: "+product.getId()+", "
-                    +"categoryID: "+product.getCategoryID()+", "
+                    +"categoryID: "+product.getCategory().getId()+", "
                     +"name: "+product.getName()
             );
         }

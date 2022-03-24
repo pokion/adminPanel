@@ -17,9 +17,9 @@ public class RemoveOrderOption extends Option {
 
     @Override
     public void execute() {
-        output.napisz("Usuwanie order");
+        output.write("Usuwanie order");
 
-        int id = Integer.parseInt(input.zapytanie("Podaj id"));
+        int id = Integer.parseInt(input.question("Podaj id"));
 
         orderService.removeOrder(id);
     }

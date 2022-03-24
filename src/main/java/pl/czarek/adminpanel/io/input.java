@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class input {
 
-    public static String zapytanie(String zapytanie) {
+    public static String question(String zapytanie) {
         System.out.println(zapytanie + "\n");
 
         Scanner scan = new Scanner(System.in);

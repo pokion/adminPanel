@@ -21,18 +21,18 @@ public class FindUserOption extends Option {
 
     @Override
     public void execute() {
-        output.napisz("Szukanie usera");
+        output.write("Szukanie usera");
 
-        int id = Integer.parseInt(input.zapytanie("Podaj id"));
+        int id = Integer.parseInt(input.question("Podaj id"));
 
         Optional<User> user = userService.findUser(id);
         if (user.isPresent()){
-            output.napisz("id: "+ user.get().getId());
-            output.napisz("name: "+ user.get().getName());
-            output.napisz("login: "+ user.get().getLogin());
-            output.napisz("password: "+ user.get().getPassword());
+            output.write("id: "+ user.get().getId());
+            output.write("name: "+ user.get().getName());
+            output.write("login: "+ user.get().getLogin());
+            output.write("password: "+ user.get().getPassword());
         }else {
-            output.napisz("Nie znaleziono");
+            output.write("Nie znaleziono");
         }
     }
 }

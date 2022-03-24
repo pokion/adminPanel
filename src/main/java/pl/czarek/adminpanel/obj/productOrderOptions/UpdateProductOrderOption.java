@@ -18,13 +18,13 @@ public class UpdateProductOrderOption extends Option {
 
     @Override
     public void execute() {
-        output.napisz("Update productOrder");
+        output.write("Update productOrder");
 
-        int id = Integer.parseInt(input.zapytanie("Podaj ID"));
-        int productID = Integer.parseInt(input.zapytanie("Podaj product ID"));
-        int orderID = Integer.parseInt(input.zapytanie("Podaj order ID"));
-        int quantity = Integer.parseInt(input.zapytanie("Podaj quantity"));
-        float price = Float.parseFloat(input.zapytanie("Podaj cenę"));
+        int id = Integer.parseInt(input.question("Podaj ID"));
+        int productID = Integer.parseInt(input.question("Podaj product ID"));
+        int orderID = Integer.parseInt(input.question("Podaj order ID"));
+        int quantity = Integer.parseInt(input.question("Podaj quantity"));
+        float price = Float.parseFloat(input.question("Podaj cenę"));
 
         productOrderService.updateProductOrder(new ProductOrderBuilder(id)
                 .setProductID(productID)

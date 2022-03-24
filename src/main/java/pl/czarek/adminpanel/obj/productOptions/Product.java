@@ -1,10 +1,12 @@
 package pl.czarek.adminpanel.obj.productOptions;
 
+import pl.czarek.adminpanel.obj.categoryOptions.Category;
+
 public class Product {
 
     private int id;
-    private int categoryID;
     private String name;
+    private Category category;
 
     public Product(){}
 
@@ -12,29 +14,30 @@ public class Product {
         this.id = id;
     }
 
-    public Product(int id, String name, int categoryID) {
+    public Product(int id, String name) {
         this.id = id;
         this.name = name;
-        this.categoryID = categoryID;
     }
 
     public int getId() {
         return id;
     }
 
-    public int getCategoryID(){
-        return categoryID;
-    }
 
     public String getName() {
         return name;
+    }
+
+    public Category getCategory(){
+        return category;
+    }
+
+    public void setCategory(Category category){
+        this.category = category;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setCategoryID(int categoryID){
-        this.categoryID = categoryID;
-    }
 }

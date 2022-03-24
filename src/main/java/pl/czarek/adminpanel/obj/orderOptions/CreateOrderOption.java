@@ -18,10 +18,10 @@ public class CreateOrderOption extends Option {
 
     @Override
     public void execute() {
-        output.napisz("Tworzenie order");
+        output.write("Tworzenie order");
 
-        int userID = Integer.parseInt(input.zapytanie("Podaj userID"));
-        String status = input.zapytanie("Podaj status");
+        int userID = Integer.parseInt(input.question("Podaj userID"));
+        String status = input.question("Podaj status");
 
         orderService.createOrder(new OrderBuilder()
                 .setUserID(userID)

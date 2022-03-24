@@ -37,6 +37,7 @@ public class Main {
         optionService.registerOption(new RemoveProductOption(productService));
         optionService.registerOption(new UpdateProductOption(productService));
         optionService.registerOption(new FindAllProductOption(productService));
+        optionService.registerOption(new GetLinkedProductOption(productService));
 
         optionService.registerOption(new CreateCategoryOption(categoryService));
         optionService.registerOption(new FindCategoryOption(categoryService));
@@ -66,16 +67,16 @@ public class Main {
         while (true){
 
             navi.showStage();
-            String option = input.zapytanie("Wpisz nazwę");
+            String option = input.question("Wpisz nazwę");
             if(option.equals("exit")) navi.exit();
             navi.goTo(option);
-            String nestOption = input.zapytanie("Wpisz nazwę");
+            String nestOption = input.question("Wpisz nazwę");
             if(nestOption.equals("exit")) navi.exit();
 
             optionService.findOption(nestOption+"-"+navi.prevOpt)
                     .ifPresent(Option::execute);
 
-            input.zapytanie("Press any key to continue...");
+            input.question("Press any key to continue...");
             navi.removeStage(navi.currentStage);
         }
 

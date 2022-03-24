@@ -18,12 +18,12 @@ public class CreateProductOrderOption extends Option {
 
     @Override
     public void execute() {
-        output.napisz("Tworzenie productOrder");
+        output.write("Tworzenie productOrder");
 
-        int productID = Integer.parseInt(input.zapytanie("Podaj product ID"));
-        int orderID = Integer.parseInt(input.zapytanie("Podaj order ID"));
-        int quantity = Integer.parseInt(input.zapytanie("Podaj quantity"));
-        float price = Float.parseFloat(input.zapytanie("Podaj cenę"));
+        int productID = Integer.parseInt(input.question("Podaj product ID"));
+        int orderID = Integer.parseInt(input.question("Podaj order ID"));
+        int quantity = Integer.parseInt(input.question("Podaj quantity"));
+        float price = Float.parseFloat(input.question("Podaj cenę"));
 
         productOrderService.createProductOrder(new ProductOrderBuilder()
                 .setProductID(productID)

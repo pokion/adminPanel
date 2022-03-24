@@ -17,10 +17,10 @@ public class UpdateCategoryOption extends Option {
 
     @Override
     public void execute() {
-        output.napisz("Aktualizacja produktu");
+        output.write("Aktualizacja produktu");
 
-        int id = Integer.parseInt(input.zapytanie("Podaj id"));
-        String name = input.zapytanie("Podaj nazwę");
+        int id = Integer.parseInt(input.question("Podaj id"));
+        String name = input.question("Podaj nazwę");
 
         categoryService.updateCategory(new Category(id, name));
     }

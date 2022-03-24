@@ -1,6 +1,5 @@
 package pl.czarek.adminpanel.obj.orderOptions;
 
-import com.sun.source.tree.IfTree;
 import pl.czarek.adminpanel.io.input;
 import pl.czarek.adminpanel.io.output;
 import pl.czarek.adminpanel.obj.Option;
@@ -20,19 +19,19 @@ public class FindOrderOption extends Option {
 
     @Override
     public void execute() {
-        output.napisz("Find order");
+        output.write("Find order");
 
-        int id = Integer.parseInt(input.zapytanie("Podaj ID"));
+        int id = Integer.parseInt(input.question("Podaj ID"));
 
         Optional<Order> order = orderService.findOrder(id);
 
         if (order.isPresent()){
-            output.napisz("id: "+order.get().getId());
-            output.napisz("userID: "+order.get().getUserID());
-            output.napisz("status: "+order.get().getStatus());
-            output.napisz("date: "+order.get().getDate());
+            output.write("id: "+order.get().getId());
+            output.write("userID: "+order.get().getUserID());
+            output.write("status: "+order.get().getStatus());
+            output.write("date: "+order.get().getDate());
         }else {
-            output.napisz("Nie znaleziono");
+            output.write("Nie znaleziono");
         }
     }
 }

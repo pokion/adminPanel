@@ -17,9 +17,9 @@ public class RemoveUserOption extends Option {
 
     @Override
     public void execute() {
-        output.napisz("Usuwanie user");
+        output.write("Usuwanie user");
 
-        int id = Integer.parseInt(input.zapytanie("Podaj id"));
+        int id = Integer.parseInt(input.question("Podaj id"));
 
         userService.removeUser(id);
     }

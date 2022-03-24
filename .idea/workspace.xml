@@ -4,37 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbda5a5e-5e34-4583-8c4f-a90327986aed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/categoryOptions/FindAllCategoryOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOrderOptions/FindAllProductOrderOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/userOptions/FindAllUserOption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sql.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/builder/ProductOrderBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/builder/ProductOrderBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/builder/UserBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/builder/UserBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/orderOptions/FindAllOrderOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/orderOptions/FindAllOrderOption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOptions/FindAllProductOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOptions/FindAllProductOption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOrderOptions/FindProductOrderOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOrderOptions/FindProductOrderOption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOrderOptions/ProductOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOrderOptions/ProductOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/userOptions/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/userOptions/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/ProductOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/ProductOrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/builder/ProductOrderBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/builder/ProductOrderBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/builder/UserBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/builder/UserBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/orderOptions/FindAllOrderOption.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/orderOptions/FindAllOrderOption.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/productOptions/FindAllProductOption.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/productOptions/FindAllProductOption.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/productOrderOptions/FindProductOrderOption.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/productOrderOptions/FindProductOrderOption.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/productOrderOptions/ProductOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/productOrderOptions/ProductOrder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/userOptions/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/userOptions/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/CategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/CategoryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/ProductOrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/ProductOrderService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/ProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/UserService.class" afterDir="false" />
-    </list>
+    <list default="true" id="bbda5a5e-5e34-4583-8c4f-a90327986aed" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,7 +52,7 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="pl.czarek.adminpanel.Main" />
-      <module name="adminPanel" />
+      <module name="adminpanel" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="pl.czarek.adminpanel.*" />

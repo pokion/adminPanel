@@ -17,9 +17,9 @@ public class RemoveCategoryOption extends Option {
 
     @Override
     public void execute() {
-        output.napisz("Usuwanie kategori");
+        output.write("Usuwanie kategori");
 
-        int id = Integer.parseInt(input.zapytanie("Podaj id"));
+        int id = Integer.parseInt(input.question("Podaj id"));
 
         categoryService.removeCategory(id);
     }

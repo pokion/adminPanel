@@ -1,5 +1,6 @@
 package pl.czarek.adminpanel.builder;
 
+import pl.czarek.adminpanel.obj.categoryOptions.Category;
 import pl.czarek.adminpanel.obj.productOptions.Product;
 
 public class ProductBuilder {
@@ -19,8 +20,8 @@ public class ProductBuilder {
         return this;
     }
 
-    public ProductBuilder setCategory(int id){
-        this.product.setCategoryID(id);
+    public ProductBuilder setCategory(Category category){
+        this.product.setCategory(category);
         return this;
     }
 

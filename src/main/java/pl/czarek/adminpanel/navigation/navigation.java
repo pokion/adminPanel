@@ -53,14 +53,14 @@ public class navigation {
     }
 
     public void showStage(){
-        output.napisz("Wybierz opcję");
+        output.write("Wybierz opcję");
 
         Optional<Stage> stageStream = stages.stream().filter(stage -> stage.getIdx() == currentStage).findFirst();
 
         String show = stageStream.get().getOptions();
 
-        output.napisz(show);
-        output.napisz("exit");
+        output.write(show);
+        output.write("exit");
     }
 
     public void goTo(String name){

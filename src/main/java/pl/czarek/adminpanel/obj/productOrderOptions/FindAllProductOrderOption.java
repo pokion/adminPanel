@@ -12,7 +12,7 @@ public class FindAllProductOrderOption extends Option {
     private final ProductOrderService productOrderService;
 
     public FindAllProductOrderOption(ProductOrderService productOrderService){
-        super("findAll-product");
+        super("findAll-productOrder");
 
         this.productOrderService = productOrderService;
     }
@@ -22,7 +22,7 @@ public class FindAllProductOrderOption extends Option {
         System.out.println("Wszystkie productOrder");
 
         Optional<ArrayList<ProductOrder>> productOrders = this.productOrderService.findAll();
-        System.out.println(productOrders.get().get(1));
+        System.out.println(productOrders.isPresent()+"asdasd");
         for (ProductOrder productOrder:
                 productOrders.get()) {
             System.out.println(

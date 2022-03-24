@@ -1,7 +1,9 @@
 package pl.czarek.adminpanel.service;
 
+import pl.czarek.adminpanel.builder.CategoryBuilder;
 import pl.czarek.adminpanel.builder.ProductBuilder;
 import pl.czarek.adminpanel.io.output;
+import pl.czarek.adminpanel.obj.categoryOptions.Category;
 import pl.czarek.adminpanel.obj.productOptions.Product;
 
 import java.sql.Connection;
@@ -22,7 +24,7 @@ public class ProductService {
         try {
             this.databaseService.performDML(
                     "INSERT INTO product(name, categoryID) " +
-                            "VALUE ('"+ product.getName() +"', '"+ product.getCategoryID() +"')"
+                            "VALUE ('"+ product.getName() +"', '"+ product.getCategory().getId() +"')"
             );
         }catch (Exception e){
             e.printStackTrace();
@@ -33,7 +35,7 @@ public class ProductService {
         try {
             if(this.findProduct(product.getId()).isPresent()){
                 this.databaseService.performDML(
-                        "UPDATE product SET name = '"+ product.getName() +"', categoryID = '"+ product.getCategoryID() +"' WHERE id="+ product.getId()
+                        "UPDATE product SET name = '"+ product.getName() +"', categoryID = '"+ product.getCategory().getId() +"' WHERE id="+ product.getId()
                 );
             } else {
                 throw new IllegalStateException("No product under given ID");
@@ -54,7 +56,7 @@ public class ProductService {
 
                     return new ProductBuilder(id)
                             .setName(name)
-                            .setCategory(categoryId)
+                            .setCategory(new Category(categoryId))
                             .getProduct();
                 }
 
@@ -94,7 +96,7 @@ public class ProductService {
 
                     productsQuery.add(new ProductBuilder(id)
                             .setName(name)
-                            .setCategory(categoryId)
+                            .setCategory(new Category(categoryId))
                             .getProduct());
                 }
                 return productsQuery;
@@ -103,6 +105,31 @@ public class ProductService {
         }catch (Exception e){
             e.printStackTrace();
             return Optional.empty();
+        }
+    }
+
+    public ArrayList<Product> getLinked(){
+        try {
+            ArrayList<Product> products = this.databaseService.performQuery(
+                    "SELECT category.id AS 'category_id', category.name AS 'category_name'," +
+                            "product.id, product.categoryID, category.name FROM product " +
+                            "INNER JOIN category ON product.categoryID = category.id",
+                    resultSet -> {
+                        ArrayList<Product> queryReturn = new ArrayList<>();
+                        while (resultSet.next()){
+                            queryReturn.add(new ProductBuilder(resultSet.getInt("id"))
+                                    .setCategory(new CategoryBuilder(resultSet.getInt("category_id"))
+                                            .setName(resultSet.getString("category_name")).getCategory())
+                                    .setName(resultSet.getString("name"))
+                                    .getProduct());
+                        }
+                        return queryReturn;
+                    }
+            );
+            return products;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
         }
     }
 }

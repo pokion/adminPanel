@@ -17,13 +17,13 @@ public class UpdateUserOption extends Option {
 
     @Override
     public void execute() {
-        output.napisz("aktualizacja user");
+        output.write("aktualizacja user");
 
-        int id = Integer.parseInt(input.zapytanie("Podaj id"));
+        int id = Integer.parseInt(input.question("Podaj id"));
 
-        String name = input.zapytanie("Podaj imię");
-        String login = input.zapytanie("Podaj login");
-        String password = input.zapytanie("Podaj hasło");
+        String name = input.question("Podaj imię");
+        String login = input.question("Podaj login");
+        String password = input.question("Podaj hasło");
 
         userService.updateUser(new User(id, name,login, password));
     }

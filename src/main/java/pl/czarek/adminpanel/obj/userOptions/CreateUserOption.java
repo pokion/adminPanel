@@ -18,11 +18,11 @@ public class CreateUserOption extends Option {
 
     @Override
     public void execute() {
-        output.napisz("Tworzenie user" + "\n");
+        output.write("Tworzenie user" + "\n");
 
-        String name = input.zapytanie("podaj nazwę");
-        String login = input.zapytanie("podaj login");
-        String password = input.zapytanie("podaj hasło");
+        String name = input.question("podaj nazwę");
+        String login = input.question("podaj login");
+        String password = input.question("podaj hasło");
 
         userService.createUser(new UserBuilder()
                 .setName(name)

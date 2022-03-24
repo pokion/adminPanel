@@ -19,17 +19,17 @@ public class FindProductOption extends Option {
 
     @Override
     public void execute() {
-        output.napisz("Szukanie produktu");
+        output.write("Szukanie produktu");
 
-        int id = Integer.parseInt(input.zapytanie("Podaj id"));
+        int id = Integer.parseInt(input.question("Podaj id"));
 
         Optional<Product> product = productService.findProduct(id);
         if (product.isPresent()){
-            output.napisz("id: "+product.get().getId());
-            output.napisz("categoryID: "+product.get().getCategoryID());
-            output.napisz("name: "+product.get().getName());
+            output.write("id: "+product.get().getId());
+            output.write("categoryID: "+product.get().getCategory().getId());
+            output.write("name: "+product.get().getName());
         }else {
-            output.napisz("nie znaleziono");
+            output.write("nie znaleziono");
         }
     }
 }

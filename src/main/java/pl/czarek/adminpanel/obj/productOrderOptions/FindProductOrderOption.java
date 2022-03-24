@@ -19,21 +19,21 @@ public class FindProductOrderOption extends Option {
 
     @Override
     public void execute() {
-        output.napisz("Find productOrder");
+        output.write("Find productOrder");
 
-        int id = Integer.parseInt(input.zapytanie("Podaj ID"));
+        int id = Integer.parseInt(input.question("Podaj ID"));
 
         Optional<ProductOrder> productOrder = productOrderService.findProductOrder(id);
 
         if (productOrder.isPresent()){
-            output.napisz("id: "+productOrder.get().getId());
-            output.napisz("productID: "+productOrder.get().getProductID());
-            output.napisz("orderID: "+productOrder.get().getOrderID());
-            output.napisz("quantity: "+productOrder.get().getQuantity());
-            output.napisz("price: "+productOrder.get().getPrice());
-            output.napisz("createDate: "+productOrder.get().getDate());
+            output.write("id: "+productOrder.get().getId());
+            output.write("productID: "+productOrder.get().getProductID());
+            output.write("orderID: "+productOrder.get().getOrderID());
+            output.write("quantity: "+productOrder.get().getQuantity());
+            output.write("price: "+productOrder.get().getPrice());
+            output.write("createDate: "+productOrder.get().getDate());
         }else {
-            output.napisz("Nie znaleziono");
+            output.write("Nie znaleziono");
         }
     }
 }

@@ -137,7 +137,25 @@ kolejne joiny{
     RIGHT JOIN product ON product_order.productID = product.id
     LEFT JOIN orders ON product_order.orderID = orders.id
 
-    
+    SELECT * 
+    FROM product_order
+    LEFT JOIN orders ON product_order.orderID = orders.id
+    RIGHT JOIN user ON orders.userID = user.id
 
+    SELECT * 
+    FROM orders
+    RIGHT JOIN user ON orders.userID = user.id
 
+    SELECT *
+    FROM category
+    RIGHT JOIN product ON category.id = product.categoryID
+    LEFT JOIN product_order ON product.id = product_order.productID
+
+    SELECT user.name, user.login, orders.status, orders.dataOrder, product_order.quantity
+    FROM user
+    LEFT JOIN orders ON user.id = orders.userID
+    RIGHT JOIN product_order ON orders.id = product_order.orderID
 }
+
+builder dodać te category do product;
+productBuilder.getCategory()

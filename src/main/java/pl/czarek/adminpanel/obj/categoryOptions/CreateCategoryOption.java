@@ -18,9 +18,9 @@ public class CreateCategoryOption extends Option {
 
     @Override
     public void execute() {
-        output.napisz("Tworzenie kategorii" + "\n");
+        output.write("Tworzenie kategorii" + "\n");
 
-        String name = input.zapytanie("Podaj nazwę");
+        String name = input.question("Podaj nazwę");
 
         categoryService.createCategory(new CategoryBuilder()
                 .setName(name)

@@ -18,11 +18,11 @@ public class UpdateOrderOption extends Option {
 
     @Override
     public void execute() {
-        output.napisz("Update order");
+        output.write("Update order");
 
-        int id = Integer.parseInt(input.zapytanie("Podaj ID"));
-        int userID = Integer.parseInt(input.zapytanie("Podaj user ID"));
-        String status = input.zapytanie("Podaj status");
+        int id = Integer.parseInt(input.question("Podaj ID"));
+        int userID = Integer.parseInt(input.question("Podaj user ID"));
+        String status = input.question("Podaj status");
 
         orderService.updateOrder(new OrderBuilder(id)
                 .setUserID(userID)
