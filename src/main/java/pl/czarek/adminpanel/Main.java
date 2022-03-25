@@ -7,6 +7,8 @@ import pl.czarek.adminpanel.obj.orderOptions.*;
 import pl.czarek.adminpanel.obj.productOptions.*;
 import pl.czarek.adminpanel.obj.Option;
 import pl.czarek.adminpanel.obj.productOrderOptions.*;
+import pl.czarek.adminpanel.obj.raportService.PriceSpendMonthOption;
+import pl.czarek.adminpanel.obj.raportService.SumPriceUsersOption;
 import pl.czarek.adminpanel.obj.userOptions.*;
 import pl.czarek.adminpanel.service.*;
 
@@ -23,8 +25,12 @@ public class Main {
         ProductOrderService productOrderService = new ProductOrderService(databaseService);
         UserService userService = new UserService(databaseService);
         OrderService orderService = new OrderService(databaseService);
+        //RaportService raportService = new RaportService(databaseService);
 
         optionService = new OptionService();
+
+        /*optionService.registerOption(new SumPriceUsersOption(raportService));
+        optionService.registerOption(new PriceSpendMonthOption(raportService));*/
 
         optionService.registerOption(new CreateOrderOption(orderService));
         optionService.registerOption(new FindOrderOption(orderService));

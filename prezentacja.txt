@@ -87,7 +87,6 @@ SOLID{
 	D -> oDwrócenie zależności (Dependency inversion)
 
 	Wysokopoziomowe klasy nie powinny zależeć od niskopoziomowych detali.
-
 }
 
 MAVEN{
@@ -150,6 +149,16 @@ ACID{
 	Oznacza to że system potrafi się uruchomiś i udostępnić spójne, nienaruszone dane np po awarii zasilania.
 }  
 
+SQL ROLLUP{
+	ROLLUP to rozszerzenie do GROUP BY. ROLLUP pozwala na dodanie kolejnej kolumny która reprezentuje sumy. Przy użyciu ROLLUP możesz generować wiele grup.
 
+	ROLLUP(c1,c2) wygeneruje nam takie grupy (c1,c2), (c1), ()
 
-dodać connection to service 
+	mySQL syntax{
+		SELECT 
+		    c1, c2, aggregate_function(c3)
+		FROM
+		    table_name
+		GROUP BY c1, c2 WITH ROLLUP;
+	}
+}

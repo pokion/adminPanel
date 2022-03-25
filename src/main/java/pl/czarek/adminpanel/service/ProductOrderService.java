@@ -21,12 +21,11 @@ public class ProductOrderService {
     public void createProductOrder(ProductOrder productOrder){
         try{
             this.databaseService.performDML(
-                    "INSERT INTO product_order (productID, orderID, quantity, price, createDate) VALUES (" +
+                    "INSERT INTO product_order (productID, orderID, quantity, price) VALUES (" +
                             "'"+ productOrder.getProductID() +"'," +
                             "'"+ productOrder.getOrderID() +"'," +
                             "'"+ productOrder.getQuantity() +"'," +
-                            "'"+ productOrder.getPrice() +"'," +
-                            "'"+ productOrder.getDate() +"'" +
+                            "'"+ productOrder.getPrice() +"'" +
                             ")"
             );
         }catch (Exception e){
@@ -92,7 +91,7 @@ public class ProductOrderService {
         }
     }
 
-    public Optional<ArrayList<ProductOrder>> findAll() {
+    public ArrayList<ProductOrder> findAll() {
         try {
             ArrayList<ProductOrder> productOrders = this.databaseService.performQuery("SELECT * FROM product_order", resultSet -> {
                 ArrayList<ProductOrder> productOrdersQueries = new ArrayList<>();
@@ -115,10 +114,10 @@ public class ProductOrderService {
                 }
                 return productOrdersQueries;
             });
-            return Optional.ofNullable(productOrders);
+            return productOrders;
         } catch (Exception e) {
             e.printStackTrace();
-            return Optional.empty();
+            return null;
         }
     }
 }

@@ -157,5 +157,78 @@ kolejne joiny{
     RIGHT JOIN product_order ON orders.id = product_order.orderID
 }
 
-builder dodać te category do product;
-productBuilder.getCategory()
+raporty{
+    SELECT u.name, SUM(po.price * po.quantity) AS "sum price"
+    FROM orders o
+    INNER JOIN user u ON o.userID = u.id
+    INNER JOIN product_order po ON o.id = po.orderID
+    GROUP BY u.name
+
+    SELECT user.name, MONTH(product_order.createDate) AS "month", SUM(product_order.price * product_order.quantity) AS "sum price"
+    FROM user 
+    INNER JOIN orders ON user.id = orders.userID
+    INNER JOIN product_order ON orders.id = product_order.orderID
+    GROUP BY MONTH(product_order.createDate) ASC
+
+    SELECT category.name, SUM(product_order.quantity) AS "quantity"
+    FROM product_order
+    INNER JOIN product ON product_order.productID = product.id
+    INNER JOIN category ON product.categoryID = category.id
+    GROUP BY category.name
+
+    SELECT orders.status, SUM(product_order.price) AS "price sum", product_order.createDate
+    FROM orders
+    INNER JOIN product_order ON orders.id = product_order.orderID
+    GROUP BY orders.status
+
+    SELECT user.name, SUM(product_order.quantity) AS "quantity > 5"
+    FROM user
+    INNER JOIN orders ON user.id = orders.userID
+    INNER JOIN product_order ON orders.id = product_order.orderID
+    GROUP BY user.name
+    HAVING SUM(product_order.quantity) > 5
+
+    SELECT user.name, SUM(product_order.quantity * product_order.price) AS "spend money > 800"
+    FROM user
+    INNER JOIN orders ON user.id = orders.userID
+    INNER JOIN product_order ON orders.id = product_order.orderID
+    GROUP BY user.name
+    HAVING SUM(product_order.quantity * product_order.price) > 800
+
+    SELECT product.name, SUM(product_order.quantity)
+    FROM product
+    INNER JOIN product_order ON product.id = product_order.productID
+    GROUP BY product.name
+
+    SELECT user.name, IF(SUM(product_order.quantity * product_order.price)>800, "spend a lot", "spend not much") AS "spend money", SUM(product_order.quantity * product_order.price) AS "price"
+    FROM user
+    INNER JOIN orders ON user.id = orders.userID
+    INNER JOIN product_order ON orders.id = product_order.orderID
+    GROUP BY user.name
+
+}
+
+sql inny{
+    1
+    SELECT user.name, user.login, orders.status, orders.dataOrder
+    FROM user
+    INNER JOIN orders ON user.id = orders.userID
+    WHERE DAYOFWEEK(orders.dataOrder) = 3
+
+    2
+    SELECT user.name, SUM(product_order.quantity * product_order.price)
+    FROM user
+    INNER JOIN orders ON user.id = orders.userID
+    INNER JOIN product_order ON orders.id = product_order.orderID
+    GROUP BY user.name
+    HAVING (SELECT AVG(product_order.quantity * product_order.price) FROM product_order) < SUM(product_order.quantity * product_order.price)
+
+    3
+    SELECT product.name AS "Product name", MAX(product.price), category.name AS "category name"
+    FROM product
+    INNER JOIN category ON product.categoryID = category.id
+    GROUP BY category.name
+
+    4
+    
+}

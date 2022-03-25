@@ -89,7 +89,7 @@ public class UserService {
         }
     }
 
-    public Optional<ArrayList<User>> findAll() {
+    public ArrayList<User> findAll() {
         try {
             ArrayList<User> users = this.databaseService.performQuery("SELECT * FROM user", resultSet -> {
                 ArrayList<User> usersQueries = new ArrayList<>();
@@ -110,10 +110,10 @@ public class UserService {
                 }
                 return usersQueries;
             });
-            return Optional.ofNullable(users);
+            return users;
         } catch (Exception e) {
             e.printStackTrace();
-            return Optional.empty();
+            return null;
         }
     }
 }
