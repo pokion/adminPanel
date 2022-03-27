@@ -162,3 +162,34 @@ SQL ROLLUP{
 		GROUP BY c1, c2 WITH ROLLUP;
 	}
 }
+
+SPRING{
+	Jego głównym założeniem jest dostarczenie programiście mechanizmów, które sprawią, że tworzenie aplikacji będzie:
+
+    sprawniejsze, przy jednoczesnym zachowaniu najlepszych praktyk programistycznych;
+    zachowywało pewne standardy, przez które łatwiej utrzymać kod w uporządkowany sposób.
+
+    Po sukcesie springa storzono spring boot, które zostało określone jako "framework do frameworka"
+
+    spring udostępnia wiele kontenerów wstykiwania zależności
+
+    spring data
+    	projekt upraszczający dostęp do baz danych. zmniejszenie ilości powtarzającego się kodu.
+
+    spring mvc 
+    	najpopularniejszy framework wykorzystywany do tworzenia aplikacji webowych w javie 
+    	. projekt wykorzystywany jest do tworzenia aplikacji z widokiem generownym po stronie serwera jak i do wystawiania restowych endpointów.
+
+    spring security
+    	projekt który pozawala na stworzenie systemu uwierzytelniania i autoryzacji.
+
+    spring boot
+    	ułatwia konfigurację springa.
+
+    cechy springa
+    	łatwo się go nauczyć
+    	elazstyczny i wszechstronny
+    	jest lekki (podstawowa wersja około 2mb)
+    	łatwo go przetestwoać i wdrożyć
+
+}
