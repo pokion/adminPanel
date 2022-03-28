@@ -230,6 +230,14 @@ sql inny{
     GROUP BY category.name
 
     4
+    SELECT user.name AS "user", category.name AS "category"
+    FROM user
+    INNER JOIN orders ON user.id = orders.userID
+    INNER JOIN product_order ON orders.id = product_order.orderID
+    INNER JOIN product ON product_order.productID = product.id
+    INNER JOIN category ON product.categoryID = category.id
+    GROUP BY user.id
+    HAVING COUNT(DISTINCT user.id) = 1
 
     5
     SELECT product_order.quantity, product.name, COUNT(product_order.quantity), MONTH(product_order.createDate), YEAR(product_order.createDate)
@@ -264,22 +272,30 @@ sql inny{
     LEFT JOIN product_order ON orders.id = product_order.orderID
     LEFT JOIN product ON product_order.productID = product.id
 
+    10
 
-
+    SELECT DISTINCT user.name AS "user", product.name AS "product", TIMESTAMPDIFF(YEAR,user.createDate, NOW()) AS "user create date", COUNT(product_order.quantity * product_order.price * 0.05)
+    FROM user
+    INNER JOIN orders ON user.id = orders.userID
+    INNER JOIN product_order ON orders.id = product_order.orderID
+    INNER JOIN product ON product_order.productID = product.id
+    WHERE TIMESTAMPDIFF(YEAR,user.createDate, NOW()) > 10
     
 }
 
-SELECT user.name AS "user name", category.name AS "category name"
-FROM user
-INNER JOIN orders ON user.id = orders.userID
-INNER JOIN product_order ON orders.id = product_order.orderID
-INNER JOIN product ON product_order.productID = product.id
-INNER JOIN category ON product.categoryID = category.id
-GROUP BY user.name
+    SELECT orders.status AS "status", orders.dataOrder AS "order date", user.name AS "user name", product_order.price
+    FROM orders
+    LEFT JOIN user ON orders.userID = user.id
+    LEFT JOIN product_order ON orders.id = product_order.orderID
 
-SELECT user.name, COUNT(product.categoryID)
-FROM user
-INNER JOIN orders ON user.id = orders.userID
-INNER JOIN product_order ON orders.id = product_order.orderID
-INNER JOIN product ON product_order.productID = product.id
-GROUP BY product.categoryID
+    SELECT * 
+    FROM product p 
+    LEFT JOIN category c ON p.categoryID = c.id
+    WHERE c.id IS NULL
+    
+    SELECT user.name, SUM(product_order.quantity) AS "quantity > 5"
+    FROM user
+    INNER JOIN orders ON user.id = orders.userID
+    INNER JOIN product_order ON orders.id = product_order.orderID
+    GROUP BY user.name
+    HAVING SUM(product_order.quantity) > 5

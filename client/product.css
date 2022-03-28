@@ -1,0 +1,16 @@
+.productImageCart{
+	height: 500px;
+	object-fit: cover;
+	padding-right: 20px;
+}
+
+.rightContent{
+	border: 1px solid grey;
+	margin-left: 20px;
+	padding: 15px;
+	border-radius: 10px;
+}
+
+.productPrice{
+	margin-top: 20px;
+}
