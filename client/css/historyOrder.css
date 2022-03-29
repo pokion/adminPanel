@@ -1,4 +1,4 @@
-table{
+.historyTable{
 	width: 100%;
 	table-layout: fixed;
 	overflow-wrap: break-word;
@@ -7,19 +7,19 @@ table{
 	border-collapse: collapse;
 }
 
-tr:first-child{
+.historyTable>tbody>tr:first-child{
 	border-bottom: 2px solid #eee;
 }
 
-tr{
+.historyTable>tbody>tr{
 	text-align: center;
 	height: 50px;
 }
 
-td, th{
+.historyTable>tbody>td, .historyTable>tbody>th{
 	border-right: 2px solid #eee;
 }
 
-tr:nth-child(even){
+.historyTable>tbody>tr:nth-child(even){
 	background-color: #f4f7f8;
 }
