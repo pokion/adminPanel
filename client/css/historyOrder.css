@@ -1,0 +1,25 @@
+table{
+	width: 100%;
+	table-layout: fixed;
+	overflow-wrap: break-word;
+	border: 2px solid #eee;
+	border-radius: 5px;
+	border-collapse: collapse;
+}
+
+tr:first-child{
+	border-bottom: 2px solid #eee;
+}
+
+tr{
+	text-align: center;
+	height: 50px;
+}
+
+td, th{
+	border-right: 2px solid #eee;
+}
+
+tr:nth-child(even){
+	background-color: #f4f7f8;
+}

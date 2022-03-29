@@ -1,0 +1,19 @@
+.productImage{
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.productOfferBox{
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	padding: 0 30px;
+	box-sizing: border-box;
+}
+
+.image{
+	height: auto;
+	object-fit: cover;
+}

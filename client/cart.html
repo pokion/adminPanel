@@ -4,44 +4,104 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Cart</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" type="text/css" href="cart.css">
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+	<link rel="stylesheet" type="text/css" href="./css/cart.css">
 </head>
 <body>
+<div class="container">
 
-	<div class="container">
 		<div class="topBar">
 			<div class="bar">
 				<ul class="barList">
-					<li><a class="button" href="./index.html">Strona główna</a></li>
-					<li><a class="button" href="#">Koszyk</a></li>
-					<li><a class="button" href="#">Opcja 3</a></li>
+					<li><a class="buttonNavi" href="./index.html">Strona główna</a></li>
+					<li><a class="buttonNavi active" href="./cart.html">Koszyk</a></li>
+					<li><a class="buttonNavi" href="./historyOrder.html">Historia zamówień</a></li>
+					<li><a class="buttonNavi" href="./produkt.html">Produkt</a></li>
 				</ul>
 			</div>
 		</div>
 
-
 		<div class="content">
-			<div class="cart">
-				<div class="products">
-					<img src="image.jpg" class="productImage">
-					<div class="product">
-						<span>Name product</span>
-						<span>Quantity</span>
-						<span>Price</span>
+
+			<div class="products">
+
+				<div class="product">
+					<img class="productImage" src="./image/image.jpg">
+					<div class="productContent">
+						<p>ADIDAS</p>
+						<p>Obuwie sportowe ADIDAS STRUTTER GX0670 Biały</p>
+					</div>
+					<div class="productContent">
+						<p>Ilość</p>
+						<p>2 szt.</p>
+					</div>
+					<div class="productContent">
+						<p>Cena łączna:</p>
+						<p>499,98 zł</p>
 					</div>
 				</div>
-			</div>
-		</div>
 
-		<div class="footer">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<div class="product">
+					<img class="productImage" src="./image/image.jpg">
+					<div class="productContent">
+						<p>ADIDAS</p>
+						<p>Obuwie sportowe ADIDAS STRUTTER GX0670 Biały</p>
+					</div>
+					<div class="productContent">
+						<p>Ilość</p>
+						<p>2 szt.</p>
+					</div>
+					<div class="productContent">
+						<p>Cena łączna:</p>
+						<p>499,98 zł</p>
+					</div>
+				</div>
+
+				<div class="product">
+					<img class="productImage" src="./image/image.jpg">
+					<div class="productContent">
+						<p>ADIDAS</p>
+						<p>Obuwie sportowe ADIDAS STRUTTER GX0670 Biały</p>
+					</div>
+					<div class="productContent">
+						<p>Ilość</p>
+						<p>2 szt.</p>
+					</div>
+					<div class="productContent">
+						<p>Cena łączna:</p>
+						<p>499,98 zł</p>
+					</div>
+				</div>
+
+			</div>
+			<div class="overview">
+				<h1>Podsumowanie</h1>
+				<div class="boxLine">
+					<p class="boxDesc">Wartość produktów</p>
+					<span class="boxPrice">1 499,94 zł</span>
+				</div>
+				<div class="boxLine">
+					<p class="boxDesc">Koszt dostawy</p>
+					<span class="boxPrice">10,00 zł</span>
+				</div>
+				<div class="boxLine">
+					<p class="boxDesc">Suma</p>
+					<span class="boxPrice">1 509,94 zł</span>
+				</div>
+
+				<a class="buttonBuy">Dodaj do koszyka</a>
+			</div>
+
 		</div>
+	</div>
+
+	<div class="footer">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 	</div>
 
 </body>
