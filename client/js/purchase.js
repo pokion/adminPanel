@@ -21,8 +21,27 @@ function SliderPay(){
 	this.form = document.querySelector(".payForm");
 	this.boxes;
 	this.count = 0;
+	this.payListItems = [];
 	this.prev;
 	this.next;
+
+	this.createDiv = ()=>{
+		let payList = document.querySelector('.payList');
+
+		if(payList){
+			for(let i=0; i<this.boxes.length; i++){
+				let divPayMenu = document.createElement('div');
+				divPayMenu.classList.add('payMenu--item');
+
+				divPayMenu.innerHTML = i+1+'';
+
+				payList.append(divPayMenu);
+
+				this.payListItems.push(divPayMenu)
+			}
+			
+		}
+	}
 
 	this.init = (prev, next)=>{
 		if(this.form){
@@ -33,25 +52,44 @@ function SliderPay(){
 
 			this.prev = prev || undefined;
 			this.next = next || undefined;
+
+			this.createDiv();
+
+			this.payListItems[this.count].classList.add('payMenu--item-blue');
 		}
 	}
 
 	this.next = ()=>{
 		this.boxes[this.count].classList.add('invisible');
 		
-		let nexCount = this.count < this.boxes.length-1 ? this.count+1 : 0;
+		let nexCount = this.count < this.boxes.length-1 ? this.count+1 : this.boxes.length-1;
 
 		this.boxes[nexCount].classList.remove('invisible');
 
+		this.payListItems[this.count].classList.add('payMenu--item-green')
+		this.payListItems[this.count].classList.remove('payMenu--item-blue')
+
 		if(this.next != undefined){
-			this.next(this.boxes[this.count],this.boxes[this.count+1])
+			this.next(this.boxes[this.count],this.boxes[nexCount])
 		}
 
 		this.count = nexCount;
+
+		this.payListItems[this.count].classList.add('payMenu--item-blue')
 	}
 
 	this.prev = ()=>{
+		this.boxes[this.count].classList.add('invisible');
+		
+		let nexCount = this.count > 0 ? this.count-1 : 0;
 
+		this.boxes[nexCount].classList.remove('invisible');
+
+		if(this.prev != undefined){
+			this.prev(this.boxes[this.count],this.boxes[nexCount])
+		}
+
+		this.count = nexCount;
 	}
 
 	this.showStart = ()=>{

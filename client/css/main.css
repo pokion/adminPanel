@@ -34,6 +34,12 @@
 	transition: 0.2s;
 }
 
+.imgA{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
 .quickView:hover{
 	-webkit-box-shadow: 0px 8px 30px -6px rgba(66, 68, 90, 1);
 	-moz-box-shadow: 0px 8px 30px -6px rgba(66, 68, 90, 1);

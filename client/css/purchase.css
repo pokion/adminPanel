@@ -39,3 +39,30 @@
 	gap: 20px;
 	justify-content: center;
 }
+
+.payList{
+	display: flex;
+	flex-direction: row;
+	gap: 30px;
+	margin-bottom: 50px;
+}
+
+.payMenu--item{
+	height: 50px;
+	width: 50px;
+	border: 1px solid black;
+	border-radius: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.payMenu--item-blue{
+	border: 1px solid blue !important;
+	color: blue;
+}
+
+.payMenu--item-green{
+	border: 1px solid green !important;
+	color: green;
+}
