@@ -191,5 +191,8 @@ SPRING{
     	elazstyczny i wszechstronny
     	jest lekki (podstawowa wersja około 2mb)
     	łatwo go przetestwoać i wdrożyć
-
 }
+
+
+produkt więcej napisu
+no i form dalej

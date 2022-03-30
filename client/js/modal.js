@@ -3,7 +3,6 @@ function Modal(triggerClass){
 	this.trigger = triggerClass;
 
 	this.init = function(){
-		console.log(this.trigger)
 		Array.from(document.querySelectorAll(this.trigger)).forEach((el)=>{
 			el.addEventListener('click', (event)=>{
 				let triggerAim = event.target.getAttribute('trigger');

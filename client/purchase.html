@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://kit.fontawesome.com/45823de667.js" crossorigin="anonymous"></script>
+	<title>Płatność</title>
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+	<link rel="stylesheet" type="text/css" href="./css/purchase.css">
+</head>
+<body>
+
+	<div class="container">
+
+		<div class="topBar">
+			<div class="bar">
+				<ul class="barList">
+					<li><a class="buttonNavi" href="./index.html">Strona główna</a></li>
+					<li><a class="buttonNavi" href="./historyOrder.html">Historia zamówień</a></li>
+				</ul>
+				<div class="logo">
+					LOGO
+				</div>
+				<div class="menu">
+					<div class="menu--item">
+						<a href="./cart.html" class="menu--item-none">
+							<i class="fa-solid fa-bag-shopping fa-lg"></i>
+							<p class="menu--item-option">Koszyk</p>
+						</a>
+					</div>
+					<div class="menu--item">
+						<i class="fa-solid fa-user fa-lg"></i>
+						<p class="menu--item-option">Zaloguj</p>
+					</div>
+					<div class="menu--item">
+						<i class="fa-solid fa-magnifying-glass fa-lg"></i>
+						<p class="menu--item-option">Szukaj</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- modal -->
+
+		<div class="modal invisible" id="content">
+			<div class="modal--body">
+				<div class="modal--image">
+					<img src="./image/image.jpg">
+				</div>
+				<div class="modal--desc">
+					<span class="modal--desc-exit"><i class="fa-solid fa-xmark"></i></span>
+					<!-- <p>Czy wszystkie dane się zgadzają?</p>
+					<p>Imię: <span id="nameVer"></span>  Nazwisko: <span id="ursnameVer"></span></p>
+					<p>Nr telefonu: <span id="telVer"></span>  Email: <span id="emailVer"></span></p>
+					<p>Kod pocztowy: <span id="postCodeVer"></span>  Miasto: <span id="cityVer"></span>  Ulica: <span id="streetVer"></span></p>
+					<p>Metoda Płatności: <span id="methodVer"></span></p>
+					<div>
+						<a href="./index.html" class="buttonBuy">Tak</a>
+						<a href="./index.html" class="buttonBuy">Nie</a>
+					</div> -->
+					<p>Dziękujemy za zakupy</p>
+					<a href="./index.html" class="buttonBuy">Przejdź do strony głównej</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- modal end -->
+
+		<div class="content">
+
+			<form class="payForm">
+
+				<div class="payNavi"></div>
+
+				<div class="payBox">
+					<h3>Dane do dostawy</h3>
+					<div class="payLine">
+						<div class="space">
+							<label for="name"><p>Imię</p></label>
+							<input type="text" id="name" name="name" required>
+						</div>
+						<div class="space">
+							<label for="ursname"><p>Nazwisko</p></label>
+							<input type="text" id="ursname" name="ursname" required>
+						</div>
+					</div>
+					<div class="payLine">
+						<div class="space">
+							<label for="phone"><p>Nr telefony</p></label>
+							<input type="tel" id="phone" name="phone" pattern="[0-9]{3}[0-9]{3}[0-9]{3}" required>
+						</div>
+						<div class="space">
+							<label for="email"><p>Email</p></label>
+							<input type="email" id="email" name="email">
+						</div>
+					</div>
+					<div class="payLine">
+						<div class="space">
+							<label for="postCode"><p>Kod pocztowy</p></label>
+							<input type="text" id="postCode" name="postCode" pattern="^\d{2}-\d{3}$" required>
+						</div>
+						<div class="space">
+							<label for="city"><p>Miasto</p></label>
+							<input type="text" name="city" id="city" required>
+						</div>
+						<div class="space">
+							<label for="street"><p>Ulica</p></label>
+							<input type="text" id="street" name="street" required>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="payBox invisible">
+					<h3>Metoda Płatności</h3>
+					<div class="payLine space">
+						<input type="radio" name="method" id="blik" value="blik" required>
+						<label for="blik" >
+							<img src="./image/blik.png" class="methodImg">
+							<p>blik</p>
+						</label>
+
+						<input type="radio" name="method" id="p24" value="p24" required>
+						<label for="p24" >
+							<img src="./image/p24.png" class="methodImg">
+							<p>przelewy 24</p>
+						</label>
+
+						<input type="radio" name="method" id="payu" value="payu" required>
+						<label for="payu" >
+							<img src="./image/payu.png" class="methodImg">
+							<p>payU</p>
+						</label>
+
+						<input type="radio" name="method" id="paypal" value="paypal" required>
+						<label for="paypal" >
+							<img src="./image/paypal.png" class="methodImg">
+							<p>PayPal</p>
+						</label>
+					</div>
+				</div>
+
+				<div class="payBox invisible">
+					<h3>Zgody</h3>
+					<div class="payLine">
+						<input type="checkbox" name="agre">
+						<p>Wyrażam zgodę na przetwarzanie moich danych podanych w powyższym formularzu w celach marketingowych, otrzymywanie od Allegro.pl sp. z o.o. informacji handlowych z wykorzystaniem środków komunikacji elektronicznej (m.in. e-mail, telefon, komunikator internetowy) oraz na używanie telekomunikacyjnych urządzeń końcowych (w szczególności telefonu) dla celów przesyłania mi informacji handlowych (w tym marketingu bezpośredniego).</p>
+					</div>
+					<div class="payLine">
+						<input type="checkbox" name="agre1">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. </p>
+					</div>
+					<div class="payLine">
+						<input type="checkbox" name="agre2">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+					</div>
+				</div>
+				<div class="space payButtons">
+					<a class="buttonBuy" payButton="prev" trigger="#content" id="cheackUser">Wstecz</a>
+					<a class="buttonBuy" trigger="#content" payButton="next" id="cheackUser">Dalej</a>
+				</div>
+
+			</form>
+			
+
+		</div>
+	</div>
+
+	<div class="footer">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+	
+	<script type="text/javascript" src="./js/modal.js">
+		
+	</script>
+	<script type="text/javascript" src="./js/purchase.js">
+		
+	</script>
+	<script type="text/javascript">
+		let modal = new Modal('.product--triger');
+
+		modal.init();
+
+		let sliderPay = new SliderPay();
+		sliderPay.init();
+
+	</script>
+</body>
+</html>

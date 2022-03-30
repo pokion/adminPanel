@@ -11,19 +11,39 @@
 <body>
 <div class="container">
 
+	<!-- modal -->
+
+		<div class="modal invisible" id="contentModal">
+			<div class="modal--body">
+				<div class="modal--image">
+					<img src="./image/image.jpg">
+				</div>
+				<div class="modal--desc">
+					<span class="modal--desc-exit"><i class="fa-solid fa-xmark"></i></span>
+					<p>Czy chcesz usunąć z koszyka ten produkt ?</p>
+					<div>
+						<a href="#" class="buttonBuy">Tak</a>
+						<a href="#" class="buttonBuy">nie</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- modal end -->
+
+
 		<div class="topBar">
 			<div class="bar">
 				<ul class="barList">
 					<li><a class="buttonNavi" href="./index.html">Strona główna</a></li>
 					<li><a class="buttonNavi" href="./historyOrder.html">Historia zamówień</a></li>
-					<li><a class="buttonNavi" href="./produkt.html">Produkt</a></li>
 				</ul>
 				<div class="logo">
 					LOGO
 				</div>
 				<div class="menu">
 					<div class="menu--item">
-						<a href="./cart.html" class="menu--item-none">
+						<a href="./cart.html" class="menu--item-none active">
 							<i class="fa-solid fa-bag-shopping fa-lg"></i>
 							<p class="menu--item-option">Koszyk</p>
 						</a>
@@ -45,7 +65,9 @@
 			<div class="products">
 
 				<div class="product">
-					<img class="productImage" src="./image/image.jpg">
+					<div class="productContent">
+						<img class="productImage" src="./image/image.jpg">
+					</div>
 					<div class="productContent">
 						<p>ADIDAS</p>
 						<p>Obuwie sportowe ADIDAS STRUTTER GX0670 Biały</p>
@@ -58,10 +80,14 @@
 						<p>Cena łączna:</p>
 						<p>499,98 zł</p>
 					</div>
+					<div class="productContent">
+						<i class="fa-solid fa-trash-can modal--triger" trigger="#contentModal"></i>
+					</div>
 				</div>
-
 				<div class="product">
-					<img class="productImage" src="./image/image.jpg">
+					<div class="productContent">
+						<img class="productImage" src="./image/image.jpg">
+					</div>
 					<div class="productContent">
 						<p>ADIDAS</p>
 						<p>Obuwie sportowe ADIDAS STRUTTER GX0670 Biały</p>
@@ -74,10 +100,14 @@
 						<p>Cena łączna:</p>
 						<p>499,98 zł</p>
 					</div>
+					<div class="productContent">
+						<i class="fa-solid fa-trash-can modal--triger" trigger="#contentModal"></i>
+					</div>
 				</div>
-
 				<div class="product">
-					<img class="productImage" src="./image/image.jpg">
+					<div class="productContent">
+						<img class="productImage" src="./image/image.jpg">
+					</div>
 					<div class="productContent">
 						<p>ADIDAS</p>
 						<p>Obuwie sportowe ADIDAS STRUTTER GX0670 Biały</p>
@@ -90,7 +120,11 @@
 						<p>Cena łączna:</p>
 						<p>499,98 zł</p>
 					</div>
+					<div class="productContent">
+						<i class="fa-solid fa-trash-can modal--triger" trigger="#contentModal"></i>
+					</div>
 				</div>
+				
 
 			</div>
 			<div class="overview">
@@ -108,7 +142,7 @@
 					<span class="boxPrice">1 509,94 zł</span>
 				</div>
 
-				<a class="buttonBuy">Przejdź do zamówienia</a>
+				<a class="buttonBuy" href="./purchase.html">Przejdź do zapłaty</a>
 			</div>
 
 		</div>
@@ -123,5 +157,12 @@
 		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 	</div>
 
+
+	<script type="text/javascript" src="./js/modal.js"></script>
+	<script type="text/javascript">
+		let modal = new Modal('.modal--triger');
+
+		modal.init();
+	</script>
 </body>
 </html>

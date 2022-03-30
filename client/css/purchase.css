@@ -1,0 +1,41 @@
+.payBox{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: auto;
+}
+
+.payLine{
+	display: flex;
+	flex-direction: row;
+	text-align: center;
+}
+
+.space{
+	margin: 10px;
+}
+
+.methodImg{
+	height: 50px;
+}
+
+.payForm{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.payNavi{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	width: 100%;
+	justify-content: center;
+}
+
+.payButtons{
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+	justify-content: center;
+}
