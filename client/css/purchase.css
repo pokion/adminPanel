@@ -9,10 +9,15 @@
 	display: flex;
 	flex-direction: row;
 	text-align: center;
+	margin-top: 40px;
 }
 
 .space{
 	margin: 10px;
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	position: relative;
 }
 
 .methodImg{
@@ -31,6 +36,60 @@
 	flex-wrap: nowrap;
 	width: 100%;
 	justify-content: center;
+}
+
+.space>input{
+	font-size: 1.3rem;
+	outline: none;
+	border: none;
+	border-bottom: 2px solid #eee;
+	transition: 0.3s;
+}
+
+.space>label{
+	position: absolute;
+	bottom: 10px;
+	cursor: text;
+	transition: 0.3s;
+}
+
+.space>input:focus{
+	border-bottom: 2px solid #ff0000;
+}
+
+.space>input:focus ~ label,
+.space>input:valid ~ label{
+	bottom: 40px;
+	font-size: 0.9rem;
+	transition: 0.3s;
+}
+
+
+.payLabel{
+	margin: 10px;
+	border-radius: 25px;
+	height: 120px;
+	width: 140px;
+	display: flex;
+	box-sizing: border-box;
+	justify-content: center;
+	flex-direction: column;
+	position: relative;
+	padding: 10px 20px;
+}
+
+.payLabel>img{
+	height: 60%;
+	object-fit: cover;
+}
+
+.payRadio{
+	height: 0px;
+	width: 0px;
+}
+
+input.payRadio:focus ~ label{
+	border: 2px solid green;
 }
 
 .payButtons{
@@ -55,14 +114,4 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
-
-.payMenu--item-blue{
-	border: 1px solid blue !important;
-	color: blue;
-}
-
-.payMenu--item-green{
-	border: 1px solid green !important;
-	color: green;
 }

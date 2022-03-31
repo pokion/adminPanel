@@ -199,3 +199,38 @@ body{
 .modal--triger{
 	cursor: pointer;
 }
+
+/*topBarMobile*/
+.topBarMobile{
+	position: fixed;
+	top: 0;
+	left: -100%;
+	width: 60%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	border-bottom: 1px solid #eee;
+}
+.barMobile{
+	display: flex;
+	height: 100%;
+	width: 100%;
+	flex-direction: column;
+
+}
+
+.mobileMenuIco{
+	position: fixed;
+	width: 10%;
+	height: 10%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 20px;
+	right: 20px;
+}
+
+.mobileMenuCss:checked ~ .topBarMobile{
+	left: 0;
+}
+/*topBarMobile end*/

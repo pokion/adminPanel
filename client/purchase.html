@@ -80,78 +80,92 @@
 					<h3>Dane do dostawy</h3>
 					<div class="payLine">
 						<div class="space">
-							<label for="name"><p>Imię</p></label>
 							<input type="text" id="name" name="name" required>
+							<label for="name">Imię</label>
 						</div>
 						<div class="space">
-							<label for="ursname"><p>Nazwisko</p></label>
 							<input type="text" id="ursname" name="ursname" required>
+							<label for="ursname">Nazwisko</label>
 						</div>
 					</div>
 					<div class="payLine">
 						<div class="space">
-							<label for="phone"><p>Nr telefony</p></label>
 							<input type="tel" id="phone" name="phone" pattern="[0-9]{3}[0-9]{3}[0-9]{3}" required>
+							<label for="phone">Nr telefony</label>
 						</div>
 						<div class="space">
-							<label for="email"><p>Email</p></label>
-							<input type="email" id="email" name="email">
+							<input type="email" id="email" name="email" required>
+							<label for="email">Email</label>
 						</div>
 					</div>
 					<div class="payLine">
 						<div class="space">
-							<label for="postCode"><p>Kod pocztowy</p></label>
 							<input type="text" id="postCode" name="postCode" pattern="^\d{2}-\d{3}$" required>
+							<label for="postCode">Kod pocztowy</label>
 						</div>
 						<div class="space">
-							<label for="city"><p>Miasto</p></label>
 							<input type="text" name="city" id="city" required>
+							<label for="city">Miasto</label>
+						</div>
+					</div>
+					<div class="payLine">
+						<div class="space">
+							<input type="text" id="street" name="street" required>
+							<label for="street">Ulica</label>
 						</div>
 						<div class="space">
-							<label for="street"><p>Ulica</p></label>
-							<input type="text" id="street" name="street" required>
+							<input type="text" id="house" name="street" required>
+							<label for="house">Nr mieszkania / budynku</label>
 						</div>
 					</div>
 
 				</div>
 
-				<div class="payBox invisible">
+				<div class="payBox">
 					<h3>Metoda Płatności</h3>
-					<div class="payLine space">
-						<input type="radio" name="method" id="blik" value="blik" required>
-						<label for="blik" >
-							<img src="./image/blik.png" class="methodImg">
-							<p>blik</p>
-						</label>
+					<div class="payLine">
+						<div>
+							<input type="radio" name="method" id="blik" value="blik" class="payRadio" required>
+							<label for="blik" class="payLabel">
+								<img src="./image/blik.png" class="methodImg">
+								<p>blik</p>
+							</label>
+						</div>
 
-						<input type="radio" name="method" id="p24" value="p24" required>
-						<label for="p24" >
-							<img src="./image/p24.png" class="methodImg">
-							<p>przelewy 24</p>
-						</label>
+						<div>
+							<input type="radio" class="payRadio" name="method" id="p24" value="p24" required>
+							<label for="p24" class="payLabel">
+								<img src="./image/p24.png" class="methodImg">
+								<p>przelewy 24</p>
+							</label>
+						</div>
 
-						<input type="radio" name="method" id="payu" value="payu" required>
-						<label for="payu" >
-							<img src="./image/payu.png" class="methodImg">
-							<p>payU</p>
-						</label>
+						<div>
+							<input type="radio" class="payRadio" name="method" id="payu" value="payu" required>
+							<label for="payu" class="payLabel">
+								<img src="./image/payu.png" class="methodImg">
+								<p>payU</p>
+							</label>
+						</div>
 
-						<input type="radio" name="method" id="paypal" value="paypal" required>
-						<label for="paypal" >
-							<img src="./image/paypal.png" class="methodImg">
-							<p>PayPal</p>
-						</label>
+						<div>
+							<input type="radio" class="payRadio" name="method" id="paypal" value="paypal" required>
+							<label for="paypal" class="payLabel">
+								<img src="./image/paypal.png" class="methodImg">
+								<p>PayPal</p>
+							</label>
+						</div>
 					</div>
 				</div>
 
-				<div class="payBox invisible">
+				<div class="payBox">
 					<h3>Zgody</h3>
 					<div class="payLine">
-						<input type="checkbox" name="agre">
+						<input type="checkbox" name="agre" required>
 						<p>Wyrażam zgodę na przetwarzanie moich danych podanych w powyższym formularzu w celach marketingowych, otrzymywanie od Allegro.pl sp. z o.o. informacji handlowych z wykorzystaniem środków komunikacji elektronicznej (m.in. e-mail, telefon, komunikator internetowy) oraz na używanie telekomunikacyjnych urządzeń końcowych (w szczególności telefonu) dla celów przesyłania mi informacji handlowych (w tym marketingu bezpośredniego).</p>
 					</div>
 					<div class="payLine">
-						<input type="checkbox" name="agre1">
+						<input type="checkbox" name="agre1" required>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 						tempor incididunt ut labore et dolore magna aliqua. </p>
 					</div>
@@ -164,9 +178,8 @@
 				</div>
 				<div class="space payButtons">
 					
-					<a class="buttonBuy" trigger="#content" payButton="next" id="cheackUser">Dalej</a>
+					<button class="buttonBuy" trigger="#content" payButton="next" id="cheackUser">Zakup</button>
 				</div>
-				<a class="buttonBuy invisible" payButton="prev" trigger="#content" id="cheackUser">Wstecz</a>
 			</form>
 			
 
@@ -193,9 +206,7 @@
 
 		modal.init();
 
-		let sliderPay = new SliderPay();
-		sliderPay.init();
-
+		
 	</script>
 </body>
 </html>
