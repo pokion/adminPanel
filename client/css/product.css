@@ -50,3 +50,16 @@
 	list-style-type: none;
 	padding: 0;
 }
+
+@media screen and (max-width: 480px){
+	.productImage{
+		width: 100%;
+		flex-direction: column;
+		align-content: center;
+	}
+
+	.productOfferBox{
+		width: 100%;
+
+	}
+}

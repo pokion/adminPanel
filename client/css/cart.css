@@ -1,6 +1,5 @@
 .cart{
 	width: 100%;
-
 }
 
 .products{
@@ -20,9 +19,10 @@
 .product{
 	width: 100%;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	border: 2px solid #eee;
 	margin: 10px 0;
+	justify-content: center;
 }
 
 .productImage{
@@ -45,4 +45,22 @@
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
+}
+
+@media screen and (max-width:  481px){
+	.overview{
+		width: 100%;
+	}
+
+	.productContent{
+		border-left: none;
+		width: 100%;
+		padding: 0;
+		border-bottom: 2px solid #eee;
+		margin: auto;
+	}
+
+	.product{
+		margin: 10px;
+	}
 }

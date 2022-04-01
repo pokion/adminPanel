@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://kit.fontawesome.com/45823de667.js" crossorigin="anonymous"></script>
@@ -12,69 +13,73 @@
 
 	<div class="container">
 
-		<div class="topBar invisible">
-			<div class="bar">
-				<ul class="barList">
-					<li><a class="buttonNavi active" href="#">Strona główna</a></li>
-					<li><a class="buttonNavi" href="./historyOrder.html">Historia zamówień</a></li>
-				</ul>
-				<div class="logo">
-					LOGO
-				</div>
-				<div class="menu">
-					<div class="menu--item">
-						<a href="./cart.html" class="menu--item-none">
-							<i class="fa-solid fa-bag-shopping fa-lg"></i>
-							<p class="menu--item-option">Koszyk</p>
-						</a>
+		<div>
+			<div class="topBar hideOnMobile">
+				<div class="bar">
+					<ul class="barList">
+						<li><a class="buttonNavi active" href="./index.html">Strona główna</a></li>
+						<li><a class="buttonNavi" href="./historyOrder.html">Historia zamówień</a></li>
+					</ul>
+					<div class="logo">
+						LOGO
 					</div>
-					<div class="menu--item invisible">
-						<i class="fa-solid fa-user fa-lg"></i>
-						<p class="menu--item-option">Zaloguj</p>
-					</div>
-					<div class="menu--item invisible">
-						<i class="fa-solid fa-magnifying-glass fa-lg"></i>
-						<p class="menu--item-option">Szukaj</p>
+					<div class="menu">
+						<div class="menu--item">
+							<a href="./cart.html" class="menu--item-none">
+								<i class="fa-solid fa-bag-shopping fa-lg"></i>
+								<p class="menu--item-option">Koszyk</p>
+							</a>
+						</div>
+						<div class="menu--item invisible">
+							<i class="fa-solid fa-user fa-lg"></i>
+							<p class="menu--item-option">Zaloguj</p>
+						</div>
+						<div class="menu--item invisible">
+							<i class="fa-solid fa-magnifying-glass fa-lg"></i>
+							<p class="menu--item-option">Szukaj</p>
+						</div>
 					</div>
 				</div>
 			</div>
+
+			<label id="menuMobileButton" class="hideOnScreen">
+				<div class="mobileMenuIco">
+					<i class="fa-solid fa-bars fa-xl"></i>
+				</div>
+			</label>
+
+			<div class="topBarMobile menuMobileHide " id="menuMobile">
+
+				<span class="menuMobile--exit" id="mobileExit"><i class="fa-solid fa-xmark fa-xl"></i></span>
+
+				<div class="barMobile">
+					<div class="logoMobile">
+						LOGO
+					</div>
+					<ul class="barListMobile">
+						<li><a class="buttonNavi active" href="./index.html">Strona główna</a></li>
+						<li><a class="buttonNavi" href="./historyOrder.html">Historia zamówień</a></li>
+					</ul>
+					<div class="menu">
+						<div class="menu--item-mobile">
+							<a href="./cart.html" class="menu--item-none">
+								<i class="fa-solid fa-bag-shopping fa-lg"></i>
+								<p class="menu--item-option">Koszyk</p>
+							</a>
+						</div>
+						<div class="menu--item-mobile invisible">
+							<i class="fa-solid fa-user fa-lg"></i>
+							<p class="menu--item-option">Zaloguj</p>
+						</div>
+						<div class="menu--item-mobile invisible">
+							<i class="fa-solid fa-magnifying-glass fa-lg"></i>
+							<p class="menu--item-option">Szukaj</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</div>
-
-		<label for="mobileMenuCss">
-			<div class="mobileMenuIco">
-				<i class="fa-solid fa-bars fa-xl"></i>
-			</div>
-		</label>
-		<input type="checkbox" id="mobileMenuCss" class="">
-
-		<div class="topBarMobile">
-			<div class="barMobile">
-				<div class="logoMobile">
-					LOGO
-				</div>
-				<ul class="barListMobile">
-					<li><a class="buttonNavi active" href="#">Strona główna</a></li>
-					<li><a class="buttonNavi" href="./historyOrder.html">Historia zamówień</a></li>
-				</ul>
-				<div class="menu">
-					<div class="menu--item">
-						<a href="./cart.html" class="menu--item-none">
-							<i class="fa-solid fa-bag-shopping fa-lg"></i>
-							<p class="menu--item-option">Koszyk</p>
-						</a>
-					</div>
-					<div class="menu--item invisible">
-						<i class="fa-solid fa-user fa-lg"></i>
-						<p class="menu--item-option">Zaloguj</p>
-					</div>
-					<div class="menu--item invisible">
-						<i class="fa-solid fa-magnifying-glass fa-lg"></i>
-						<p class="menu--item-option">Szukaj</p>
-					</div>
-				</div>
-			</div>
-		</div>
-
 		<!-- modal -->
 
 		<div class="modal invisible" id="content">

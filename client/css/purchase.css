@@ -7,7 +7,7 @@
 
 .payLine{
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	text-align: center;
 	margin-top: 40px;
 }
@@ -114,4 +114,10 @@ input.payRadio:focus ~ label{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+@media screen and (max-width: 480px){
+	.space{
+		margin-bottom: 20px;
+	}
 }

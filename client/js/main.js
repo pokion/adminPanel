@@ -11,3 +11,17 @@ function productTriger(){
 }
 
 productTriger()
+
+function menuMobile(){
+	let button = document.querySelector('#menuMobileButton');
+	let mobileExit = document.querySelector('#mobileExit')
+
+	button.addEventListener("click", ()=>{
+		document.querySelector("#menuMobile").classList.toggle('menuMobileHide')
+	})
+
+	mobileExit.addEventListener("click", ()=>{
+		document.querySelector("#menuMobile").classList.toggle('menuMobileHide')
+	})
+}
+menuMobile()
