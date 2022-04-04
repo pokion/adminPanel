@@ -16,7 +16,7 @@
 			<div class="topBar hideOnMobile">
 				<div class="bar">
 					<ul class="barList">
-						<li><a class="buttonNavi active" href="./index.html">Strona główna</a></li>
+						<li><a class="buttonNavi" href="./index.html">Strona główna</a></li>
 						<li><a class="buttonNavi" href="./historyOrder.html">Historia zamówień</a></li>
 					</ul>
 					<div class="logo">
@@ -33,11 +33,19 @@
 							<i class="fa-solid fa-user fa-lg"></i>
 							<p class="menu--item-option">Zaloguj</p>
 						</div>
-						<div class="menu--item invisible">
-							<i class="fa-solid fa-magnifying-glass fa-lg"></i>
-							<p class="menu--item-option">Szukaj</p>
+						<div class="menu--item">
+							<a href="#" id="search" class="menu--item-none">
+								<i class="fa-solid fa-magnifying-glass fa-lg"></i>
+								<p class="menu--item-option">Szukaj</p>
+							</a>
 						</div>
 					</div>
+				</div>
+				<div class="search invisible">
+					<form>
+						<span><i class="fa-solid fa-magnifying-glass fa-lg"></i></span>
+						<input type="text" name="search" class="searchInput" placeholder='Wpisz, czego szukasz, np. "buty na jesień" lub "obuwie damskie'>
+					</form>
 				</div>
 			</div>
 
@@ -56,7 +64,7 @@
 						LOGO
 					</div>
 					<ul class="barListMobile">
-						<li><a class="buttonNavi active" href="./index.html">Strona główna</a></li>
+						<li><a class="buttonNavi" href="./index.html">Strona główna</a></li>
 						<li><a class="buttonNavi" href="./historyOrder.html">Historia zamówień</a></li>
 					</ul>
 					<div class="menu">
@@ -74,6 +82,13 @@
 							<i class="fa-solid fa-magnifying-glass fa-lg"></i>
 							<p class="menu--item-option">Szukaj</p>
 						</div>
+					</div>
+
+					<div class="search">
+						<form>
+							<span><i class="fa-solid fa-magnifying-glass fa-lg"></i></span>
+							<input type="text" name="search" class="searchInput" placeholder='Wpisz, czego szukasz, np. "buty na jesień" lub "obuwie damskie'>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -161,7 +176,7 @@
 					<h3>Metoda Płatności</h3>
 					<div class="payLine">
 						<div>
-							<input type="radio" name="method" id="blik" value="blik" class="payRadio" required>
+							<input type="radio" name="method" id="blik" value="blik" class="payRadio invisible" required>
 							<label for="blik" class="payLabel">
 								<img src="./image/blik.png" class="methodImg">
 								<p>blik</p>
@@ -169,7 +184,7 @@
 						</div>
 
 						<div>
-							<input type="radio" class="payRadio" name="method" id="p24" value="p24" required>
+							<input type="radio" class="payRadio invisible" name="method" id="p24" value="p24" required>
 							<label for="p24" class="payLabel">
 								<img src="./image/p24.png" class="methodImg">
 								<p>przelewy 24</p>
@@ -177,7 +192,7 @@
 						</div>
 
 						<div>
-							<input type="radio" class="payRadio" name="method" id="payu" value="payu" required>
+							<input type="radio" class="payRadio invisible" name="method" id="payu" value="payu" required>
 							<label for="payu" class="payLabel">
 								<img src="./image/payu.png" class="methodImg">
 								<p>payU</p>
@@ -185,7 +200,7 @@
 						</div>
 
 						<div>
-							<input type="radio" class="payRadio" name="method" id="paypal" value="paypal" required>
+							<input type="radio" class="payRadio invisible" name="method" id="paypal" value="paypal" required>
 							<label for="paypal" class="payLabel">
 								<img src="./image/paypal.png" class="methodImg">
 								<p>PayPal</p>

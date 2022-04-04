@@ -25,3 +25,13 @@ function menuMobile(){
 	})
 }
 menuMobile()
+
+function searchShow(){
+	let button = document.querySelector("#search");
+
+	button.addEventListener("click", ()=>{
+		document.querySelector('.search').classList.toggle('invisible')
+	})
+}
+
+searchShow()

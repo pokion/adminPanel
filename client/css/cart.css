@@ -19,7 +19,7 @@
 .product{
 	width: 100%;
 	display: flex;
-	flex-direction: column;
+	
 	border: 2px solid #eee;
 	margin: 10px 0;
 	justify-content: center;
@@ -47,7 +47,7 @@
 	justify-content: space-between;
 }
 
-@media screen and (max-width:  481px){
+@media screen and (max-width:  480px){
 	.overview{
 		width: 100%;
 	}
@@ -62,5 +62,13 @@
 
 	.product{
 		margin: 10px;
+		flex-direction: column;
+	}
+}
+
+@media screen and (min-width:  481px){
+	.product{
+		
+		flex-direction: row;
 	}
 }

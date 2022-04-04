@@ -7,7 +7,6 @@
 
 .payLine{
 	display: flex;
-	flex-direction: column;
 	text-align: center;
 	margin-top: 40px;
 }
@@ -21,7 +20,7 @@
 }
 
 .methodImg{
-	height: 50px;
+	
 }
 
 .payForm{
@@ -76,11 +75,12 @@
 	flex-direction: column;
 	position: relative;
 	padding: 10px 20px;
+	cursor: pointer;
 }
 
 .payLabel>img{
 	height: 60%;
-	object-fit: cover;
+	object-fit: contain;
 }
 
 .payRadio{
@@ -88,8 +88,10 @@
 	width: 0px;
 }
 
-input.payRadio:focus ~ label{
+input.payRadio:focus ~ label,
+input.payRadio:checked ~ label{
 	border: 2px solid green;
+	padding: 8px 18px;
 }
 
 .payButtons{
@@ -119,5 +121,14 @@ input.payRadio:focus ~ label{
 @media screen and (max-width: 480px){
 	.space{
 		margin-bottom: 20px;
+	}
+	.payLine{
+		flex-direction: column;
+	}
+}
+
+@media screen and (min-width: 481px){
+	.payLine{
+		flex-direction: row;
 	}
 }
