@@ -21,9 +21,9 @@ public class FindAllProductOrderOption extends Option {
     public void execute() {
         System.out.println("Wszystkie productOrder");
 
-        ArrayList<ProductOrder> productOrders = this.productOrderService.findAll();
+        Optional<ArrayList<ProductOrder>> productOrders = this.productOrderService.findAll();
         for (ProductOrder productOrder:
-                productOrders) {
+                productOrders.get()) {
             System.out.println(
                     "id: "+productOrder.getId()+", " +
                             "productID: "+productOrder.getProductID()+", " +

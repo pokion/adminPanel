@@ -2,15 +2,11 @@ package pl.czarek.adminpanel.service;
 
 import pl.czarek.adminpanel.builder.CategoryBuilder;
 import pl.czarek.adminpanel.builder.ProductBuilder;
-import pl.czarek.adminpanel.io.output;
-import pl.czarek.adminpanel.obj.categoryOptions.Category;
 import pl.czarek.adminpanel.obj.productOptions.Product;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.*;
+
+import static java.sql.Types.NULL;
 
 public class ProductService {
 
@@ -22,9 +18,16 @@ public class ProductService {
 
     public void createProduct(Product product) {
         try {
+            String  categoryId;
+            if (product.getCategory().getId() != 0){
+                categoryId = String.valueOf(product.getCategory().getId());
+            }else {
+                categoryId = "NULL";
+            }
+
             this.databaseService.performDML(
                     "INSERT INTO product(name, categoryID) " +
-                            "VALUE ('"+ product.getName() +"', '"+ product.getCategory().getId() +"')"
+                            "VALUE ('"+ product.getName() +"', "+ categoryId +")"
             );
         }catch (Exception e){
             e.printStackTrace();
@@ -47,7 +50,11 @@ public class ProductService {
 
     public Optional<Product> findProduct(int id) {
         try{
-            String query = String.format("SELECT * FROM product WHERE id=%d", id);
+            String query = String.format(
+                    "SELECT product.id AS ID, product.categoryID, product.name\n" +
+                            "FROM product\n" +
+                            "WHERE product.id = %d"
+                    , id);
 
             Product product = this.databaseService.performQuery(query, resultSet -> {
                 if(resultSet.next()){
@@ -56,7 +63,8 @@ public class ProductService {
 
                     return new ProductBuilder(id)
                             .setName(name)
-                            .setCategory(new Category(categoryId))
+                            .setCategory(new CategoryBuilder(categoryId)
+                                    .getCategory())
                             .getProduct();
                 }
 
@@ -86,17 +94,24 @@ public class ProductService {
 
     public Optional<ArrayList<Product>> findAll(){
         try{
-            ArrayList<Product> products = this.databaseService.performQuery("SELECT * FROM product", resultSet -> {
+            ArrayList<Product> products = this.databaseService.performQuery(
+                    "SELECT product.id AS ID, product.categoryID, product.name, category.name AS categoryName\n" +
+                            "FROM product\n" +
+                            "LEFT JOIN category ON product.categoryID = category.id"
+                    , resultSet -> {
                 ArrayList<Product> productsQuery = new ArrayList<>();
                 while (resultSet.next()){
 
                     int id = resultSet.getInt("id");
                     String name = resultSet.getString("name");
+                    String categoryName = resultSet.getString("categoryName");
                     int categoryId = resultSet.getInt("categoryID");
 
                     productsQuery.add(new ProductBuilder(id)
                             .setName(name)
-                            .setCategory(new Category(categoryId))
+                            .setCategory(new CategoryBuilder(categoryId)
+                                    .setName(categoryName)
+                                    .getCategory())
                             .getProduct());
                 }
                 return productsQuery;

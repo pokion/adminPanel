@@ -2,6 +2,7 @@ package pl.czarek.adminpanel.service;
 
 import pl.czarek.adminpanel.builder.ProductOrderBuilder;
 import pl.czarek.adminpanel.builder.UserBuilder;
+import pl.czarek.adminpanel.obj.productOptions.Product;
 import pl.czarek.adminpanel.obj.productOrderOptions.ProductOrder;
 import pl.czarek.adminpanel.obj.userOptions.User;
 
@@ -89,7 +90,7 @@ public class UserService {
         }
     }
 
-    public ArrayList<User> findAll() {
+    public Optional<ArrayList<User>> findAll() {
         try {
             ArrayList<User> users = this.databaseService.performQuery("SELECT * FROM user", resultSet -> {
                 ArrayList<User> usersQueries = new ArrayList<>();
@@ -110,7 +111,7 @@ public class UserService {
                 }
                 return usersQueries;
             });
-            return users;
+            return Optional.ofNullable(users);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

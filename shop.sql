@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 24 Mar 2022, 22:47
+-- Czas generowania: 04 Kwi 2022, 21:16
 -- Wersja serwera: 10.4.22-MariaDB
 -- Wersja PHP: 8.1.1
 
@@ -68,7 +68,8 @@ INSERT INTO `orders` (`id`, `userID`, `status`, `dataOrder`) VALUES
 (3, 4, 'Paid', '2022-03-22'),
 (4, 5, 'Ok', '2022-03-22'),
 (5, 6, 'Cart', '2022-03-22'),
-(6, 8, 'Cart', '2022-03-23');
+(6, 8, 'Cart', '2022-03-23'),
+(7, 1, 'ok', '2022-03-27');
 
 -- --------------------------------------------------------
 
@@ -94,11 +95,15 @@ INSERT INTO `product` (`id`, `categoryID`, `name`) VALUES
 (6, 3, 'New Balance GM500Vr1'),
 (7, 3, 'Skechers 12615 BKRG Czarny'),
 (8, 4, 'Badura V787-19-1 Beżowy'),
-(9, 4, 'Jenny Fairy LS5618-02 Czarny'),
+(9, 3, 'Jenny Fairy LS5618-02 Czarny'),
 (10, 5, 'Saszki SA/1 czarne'),
 (11, 5, 'Lasocki MB-BOBO-04 Skóra'),
 (12, NULL, 'Addidasy szare'),
-(13, NULL, 'Czarne też addidasy');
+(13, NULL, 'Czarne też addidasy'),
+(15, 2, 'Govani Gucci'),
+(17, NULL, 'sd'),
+(18, NULL, 'gononGONE'),
+(19, NULL, 'gonontGONE');
 
 -- --------------------------------------------------------
 
@@ -121,11 +126,12 @@ CREATE TABLE `product_order` (
 
 INSERT INTO `product_order` (`id`, `productID`, `orderID`, `quantity`, `price`, `createDate`) VALUES
 (1, 2, 1, 1, '399.00', '2022-03-22 20:18:14'),
-(2, 6, 2, 2, '798.99', '2022-03-22 20:18:14'),
-(3, 7, 3, 1, '299.99', '2022-03-22 20:18:14'),
-(4, 9, 3, 1, '199.99', '2022-03-22 20:18:14'),
-(5, 10, 4, 1, '200.00', '2022-03-22 20:18:14'),
-(6, 11, 5, 1, '499.89', '2022-03-22 20:18:14');
+(2, 6, 2, 2, '798.99', '2022-02-15 20:18:14'),
+(3, 7, 3, 1, '299.99', '2021-12-16 20:18:14'),
+(4, 9, 3, 1, '199.99', '2016-03-27 20:18:14'),
+(5, 10, 4, 1, '200.00', '2018-03-20 20:18:14'),
+(6, 11, 5, 1, '499.89', '2022-01-11 20:18:14'),
+(8, 4, 7, 1, '200.00', '2022-03-27 16:57:46');
 
 -- --------------------------------------------------------
 
@@ -200,31 +206,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT dla tabeli `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT dla tabeli `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT dla tabeli `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT dla tabeli `product_order`
 --
 ALTER TABLE `product_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT dla tabeli `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Ograniczenia dla zrzutów tabel

@@ -4,6 +4,7 @@ import pl.czarek.adminpanel.builder.CategoryBuilder;
 import pl.czarek.adminpanel.builder.ProductOrderBuilder;
 import pl.czarek.adminpanel.obj.categoryOptions.Category;
 import pl.czarek.adminpanel.obj.productOrderOptions.ProductOrder;
+import pl.czarek.adminpanel.obj.userOptions.User;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -41,8 +42,7 @@ public class ProductOrderService {
                                 "productID ='" + productOrder.getProductID() + "'," +
                                 "orderID ='" + productOrder.getOrderID() + "'," +
                                 "quantity ='" + productOrder.getQuantity() + "'," +
-                                "price ='" + productOrder.getPrice() + "'," +
-                                "createDate ='" + productOrder.getDate() + "' " +
+                                "price ='" + productOrder.getPrice() + "'" +
                                 "WHERE id=" + productOrder.getId()
                 );
             }catch (Exception e){
@@ -91,7 +91,7 @@ public class ProductOrderService {
         }
     }
 
-    public ArrayList<ProductOrder> findAll() {
+    public Optional<ArrayList<ProductOrder>> findAll() {
         try {
             ArrayList<ProductOrder> productOrders = this.databaseService.performQuery("SELECT * FROM product_order", resultSet -> {
                 ArrayList<ProductOrder> productOrdersQueries = new ArrayList<>();
@@ -114,7 +114,7 @@ public class ProductOrderService {
                 }
                 return productOrdersQueries;
             });
-            return productOrders;
+            return Optional.ofNullable(productOrders);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

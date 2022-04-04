@@ -22,10 +22,10 @@ public class FindAllUserOption extends Option {
     public void execute() {
         System.out.println("Wszystkie user");
 
-        ArrayList<User> users = this.userService.findAll();
+        Optional<ArrayList<User>> users = this.userService.findAll();
 
         for (User user:
-                users) {
+                users.get()) {
             System.out.println(
                     "id: "+user.getId()+", "
                             +"login: "+ user.getLogin()+", "
