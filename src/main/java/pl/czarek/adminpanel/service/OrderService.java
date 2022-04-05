@@ -1,7 +1,8 @@
 package pl.czarek.adminpanel.service;
 
-import pl.czarek.adminpanel.builder.OrderBuilder;
+import pl.czarek.adminpanel.builder.*;
 import pl.czarek.adminpanel.obj.orderOptions.Order;
+import pl.czarek.adminpanel.obj.productOrderOptions.ProductOrder;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class OrderService {
         try{
             this.databaseService.performDML(
                     "INSERT INTO orders (userID, status) VALUES (" +
-                            "'"+ order.getUserID() +"',"+
+                            "'"+ order.getUser().getId() +"',"+
                             "'"+ order.getStatus() +"')"
             );
         }catch (Exception e){
@@ -27,12 +28,14 @@ public class OrderService {
         }
     }
 
+
+
     public void updateOrder(Order order){
         if (this.findOrder(order.getId()).isPresent()){
             try{
                 this.databaseService.performDML(
                         "UPDATE orders SET " +
-                                "userID ='" + order.getUserID() + "'," +
+                                "userID ='" + order.getUser().getId() + "'," +
                                 "status ='" + order.getStatus() + "' " +
                                 "WHERE id="+ order.getId()
                 );
@@ -55,7 +58,7 @@ public class OrderService {
                 Date date = results.getDate("dataOrder");
 
                 Order order = new OrderBuilder(idOrder)
-                        .setUserID(userID)
+                        .setUser(new UserBuilder(userID).getUser())
                         .setStatus(status)
                         .setDate(date).getOrder();
 
@@ -79,6 +82,51 @@ public class OrderService {
         }
     }
 
+    public Optional<ArrayList<ProductOrder>> getLinked(int id){
+        try {
+            ArrayList<ProductOrder> productOrders = this.databaseService.performQuery(
+                    "SELECT orders.id ,orders.status, orders.dataOrder, user.id AS userID, user.name AS userName, user.login AS userLogin, user.password AS userPassword, user.createDate AS userCreateDate,\n" +
+                            "\t\tproduct_order.id AS productOrderID, product_order.quantity AS productOrderQuantity, product_order.price AS productOrderPrice, product_order.createDate AS productOrderCreateDate,\n" +
+                            "        product.id AS productID, product.name AS productName, category.id AS categoryID, category.name AS categoryName\n" +
+                            "FROM orders\n" +
+                            "INNER JOIN user ON orders.userID = user.id\n" +
+                            "INNER JOIN product_order ON product_order.orderID = orders.id\n" +
+                            "INNER JOIN product ON product_order.productID = product.id\n" +
+                            "INNER JOIN category ON product.categoryID = category.id\n" +
+                            "WHERE user.id = "+id,
+                    resultSet -> {
+                        ArrayList<ProductOrder> query = new ArrayList<>();
+                        while (resultSet.next()){
+                            query.add(new ProductOrderBuilder(resultSet.getInt("productOrderID"))
+                                    .setPrice(resultSet.getFloat("productOrderPrice"))
+                                    .setDate(resultSet.getDate("productOrderCreateDate"))
+                                    .setQuantity(resultSet.getInt("productOrderQuantity"))
+                                    .setOrder(new OrderBuilder(resultSet.getInt("id"))
+                                            .setStatus(resultSet.getString("status"))
+                                            .setDate(resultSet.getDate("dataOrder"))
+                                            .setUser(new UserBuilder(resultSet.getInt("userID"))
+                                                    .setLogin(resultSet.getString("userLogin"))
+                                                    .setPassword(resultSet.getString("userPassword"))
+                                                    .getUser())
+                                            .getOrder())
+                                    .setProduct(new ProductBuilder(resultSet.getInt("productID"))
+                                            .setName(resultSet.getString("productName"))
+                                            .setCategory(new CategoryBuilder(resultSet.getInt("categoryID"))
+                                                    .setName(resultSet.getString("categoryName"))
+                                                    .getCategory())
+                                            .getProduct())
+                                    .getProductOrder());
+                        }
+                        return query;
+                    }
+            );
+            return Optional.ofNullable(productOrders);
+        }catch (Exception e){
+            e.printStackTrace();
+            return Optional.empty();
+        }
+    }
+
     public Optional<ArrayList<Order>> findAll(){
         try {
             ArrayList<Order> orders = this.databaseService.performQuery("SELECT * FROM orders", resultSet -> {
@@ -92,7 +140,7 @@ public class OrderService {
                     ordersQuery.add(new OrderBuilder(id)
                             .setDate(dataOrder)
                             .setStatus(status)
-                            .setUserID(userID)
+                            .setUser(new UserBuilder(userID).getUser())
                             .getOrder());
                 }
                 return ordersQuery;
@@ -103,4 +151,6 @@ public class OrderService {
             return Optional.empty();
         }
     }
+
+    //public Optional<ArrayList<>>
 }

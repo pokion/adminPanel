@@ -1,6 +1,7 @@
 package pl.czarek.adminpanel.builder;
 
 import pl.czarek.adminpanel.obj.orderOptions.Order;
+import pl.czarek.adminpanel.obj.userOptions.User;
 
 import java.sql.Date;
 
@@ -16,8 +17,8 @@ public class OrderBuilder {
         this.order = new Order(id);
     }
 
-    public OrderBuilder setUserID(int userID){
-        this.order.setUserID(userID);
+    public OrderBuilder setUser(User user){
+        this.order.setUser(user);
         return this;
     }
 

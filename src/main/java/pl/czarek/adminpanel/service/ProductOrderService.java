@@ -1,6 +1,8 @@
 package pl.czarek.adminpanel.service;
 
 import pl.czarek.adminpanel.builder.CategoryBuilder;
+import pl.czarek.adminpanel.builder.OrderBuilder;
+import pl.czarek.adminpanel.builder.ProductBuilder;
 import pl.czarek.adminpanel.builder.ProductOrderBuilder;
 import pl.czarek.adminpanel.obj.categoryOptions.Category;
 import pl.czarek.adminpanel.obj.productOrderOptions.ProductOrder;
@@ -23,8 +25,8 @@ public class ProductOrderService {
         try{
             this.databaseService.performDML(
                     "INSERT INTO product_order (productID, orderID, quantity, price) VALUES (" +
-                            "'"+ productOrder.getProductID() +"'," +
-                            "'"+ productOrder.getOrderID() +"'," +
+                            "'"+ productOrder.getProduct().getId() +"'," +
+                            "'"+ productOrder.getOrder().getId() +"'," +
                             "'"+ productOrder.getQuantity() +"'," +
                             "'"+ productOrder.getPrice() +"'" +
                             ")"
@@ -39,8 +41,8 @@ public class ProductOrderService {
             try{
                 this.databaseService.performDML(
                         "UPDATE product_order SET " +
-                                "productID ='" + productOrder.getProductID() + "'," +
-                                "orderID ='" + productOrder.getOrderID() + "'," +
+                                "productID ='" + productOrder.getProduct().getId() + "'," +
+                                "orderID ='" + productOrder.getOrder().getId() + "'," +
                                 "quantity ='" + productOrder.getQuantity() + "'," +
                                 "price ='" + productOrder.getPrice() + "'" +
                                 "WHERE id=" + productOrder.getId()
@@ -66,8 +68,8 @@ public class ProductOrderService {
                 Date date = results.getDate("createDate");
 
                 ProductOrder productOrder = new ProductOrderBuilder(idPOrder)
-                        .setProductID(productID)
-                        .setOrderID(orderID)
+                        .setProduct(new ProductBuilder(productID).getProduct())
+                        .setOrder(new OrderBuilder(orderID).getOrder())
                         .setQuantity(quantity)
                         .setPrice(price)
                         .setDate(date).getProductOrder();
@@ -106,8 +108,8 @@ public class ProductOrderService {
 
                     productOrdersQueries.add(new ProductOrderBuilder(id)
                             .setPrice(price)
-                            .setOrderID(orderID)
-                            .setProductID(productID)
+                            .setOrder(new OrderBuilder(orderID).getOrder())
+                            .setProduct(new ProductBuilder(productID).getProduct())
                             .setQuantity(quantity)
                             .setDate(createDate)
                             .getProductOrder());

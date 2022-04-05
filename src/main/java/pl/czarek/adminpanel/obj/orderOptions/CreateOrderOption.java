@@ -1,6 +1,7 @@
 package pl.czarek.adminpanel.obj.orderOptions;
 
 import pl.czarek.adminpanel.builder.OrderBuilder;
+import pl.czarek.adminpanel.builder.UserBuilder;
 import pl.czarek.adminpanel.io.input;
 import pl.czarek.adminpanel.io.output;
 import pl.czarek.adminpanel.obj.Option;
@@ -24,7 +25,7 @@ public class CreateOrderOption extends Option {
         String status = input.question("Podaj status");
 
         orderService.createOrder(new OrderBuilder()
-                .setUserID(userID)
+                .setUser(new UserBuilder(userID).getUser())
                 .setStatus(status)
                 .getOrder());
     }

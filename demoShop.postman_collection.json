@@ -592,6 +592,19 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "cart",
+			"item": [
+				{
+					"name": "getCartById",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

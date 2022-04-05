@@ -51,19 +51,22 @@ public class ProductService {
     public Optional<Product> findProduct(int id) {
         try{
             String query = String.format(
-                    "SELECT product.id AS ID, product.categoryID, product.name\n" +
-                            "FROM product\n" +
+                    "SELECT product.id AS ID, product.categoryID, product.name, category.name AS categoryName \n" +
+                            "FROM product \n" +
+                            "LEFT JOIN category ON product.categoryID = category.id " +
                             "WHERE product.id = %d"
                     , id);
 
             Product product = this.databaseService.performQuery(query, resultSet -> {
                 if(resultSet.next()){
                     String name = resultSet.getString("name");
+                    String categoryName = resultSet.getString("categoryName");
                     int categoryId = resultSet.getInt("categoryID");
 
                     return new ProductBuilder(id)
                             .setName(name)
                             .setCategory(new CategoryBuilder(categoryId)
+                                    .setName(categoryName)
                                     .getCategory())
                             .getProduct();
                 }

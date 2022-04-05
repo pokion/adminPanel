@@ -102,10 +102,13 @@ body{
 .menu{
 	display: flex;
 	flex-direction: row;
-	justify-content: right;
+	justify-content: left;
 	align-items: center;
-	width: 40%;
 	text-align: center;
+}
+
+.barMobile>.search{
+	margin-top: 20px;
 }
 
 .menu--item{
@@ -248,9 +251,10 @@ body{
 .barMobile{
 	display: flex;
 	height: 100%;
-	width: 60%;
+	width: 80%;
 	flex-direction: column;
 	background-color: white;
+	padding: 10px;
 }
 
 .mobileMenuIco{
@@ -272,6 +276,9 @@ body{
 
 .barListMobile>li{
 	padding: 10px 0;
+	background-color: #eee;
+	margin-top: 10px;
+	border-radius: 5px;
 }
 
 .menu--item-mobile{

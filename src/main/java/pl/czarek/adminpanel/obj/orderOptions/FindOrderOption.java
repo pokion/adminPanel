@@ -27,7 +27,7 @@ public class FindOrderOption extends Option {
 
         if (order.isPresent()){
             output.write("id: "+order.get().getId());
-            output.write("userID: "+order.get().getUserID());
+            output.write("userID: "+order.get().getUser().getId());
             output.write("status: "+order.get().getStatus());
             output.write("date: "+order.get().getDate());
         }else {

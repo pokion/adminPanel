@@ -29,7 +29,7 @@ public class FindAllOrderOption extends Option {
                     "id: "+order.getId()+", " +
                             "date: "+order.getDate()+", " +
                             "status: "+order.getStatus()+", " +
-                            "uesrID: "+order.getUserID()
+                            "user: "+order.getUser().getId()
             );
         }
     }

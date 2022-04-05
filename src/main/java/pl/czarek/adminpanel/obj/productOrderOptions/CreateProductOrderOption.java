@@ -1,5 +1,7 @@
 package pl.czarek.adminpanel.obj.productOrderOptions;
 
+import pl.czarek.adminpanel.builder.OrderBuilder;
+import pl.czarek.adminpanel.builder.ProductBuilder;
 import pl.czarek.adminpanel.builder.ProductOrderBuilder;
 import pl.czarek.adminpanel.io.input;
 import pl.czarek.adminpanel.io.output;
@@ -26,8 +28,8 @@ public class CreateProductOrderOption extends Option {
         float price = Float.parseFloat(input.question("Podaj cenę"));
 
         productOrderService.createProductOrder(new ProductOrderBuilder()
-                .setProductID(productID)
-                .setOrderID(orderID)
+                .setProduct(new ProductBuilder(productID).getProduct())
+                .setOrder(new OrderBuilder(orderID).getOrder())
                 .setQuantity(quantity)
                 .setPrice(price)
                 .getProductOrder());

@@ -1,10 +1,12 @@
 package pl.czarek.adminpanel.obj.orderOptions;
 
+import pl.czarek.adminpanel.obj.userOptions.User;
+
 import java.sql.Date;
 
 public class Order {
     private int id;
-    private int userID;
+    private User user;
     private String status;
     private Date date;
 
@@ -18,8 +20,8 @@ public class Order {
         return id;
     }
 
-    public int getUserID(){
-        return userID;
+    public User getUser(){
+        return user;
     }
 
     public Date getDate(){
@@ -30,8 +32,8 @@ public class Order {
         return status;
     }
 
-    public void setUserID(int userID){
-        this.userID = userID;
+    public void setUser(User user){
+        this.user = user;
     }
 
     public void setStatus(String status){

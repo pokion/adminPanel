@@ -27,8 +27,8 @@ public class FindProductOrderOption extends Option {
 
         if (productOrder.isPresent()){
             output.write("id: "+productOrder.get().getId());
-            output.write("productID: "+productOrder.get().getProductID());
-            output.write("orderID: "+productOrder.get().getOrderID());
+            output.write("productID: "+productOrder.get().getProduct().getId());
+            output.write("orderID: "+productOrder.get().getOrder().getId());
             output.write("quantity: "+productOrder.get().getQuantity());
             output.write("price: "+productOrder.get().getPrice());
             output.write("createDate: "+productOrder.get().getDate());

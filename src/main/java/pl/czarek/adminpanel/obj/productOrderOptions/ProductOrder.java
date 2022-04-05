@@ -1,11 +1,14 @@
 package pl.czarek.adminpanel.obj.productOrderOptions;
 
+import pl.czarek.adminpanel.obj.orderOptions.Order;
+import pl.czarek.adminpanel.obj.productOptions.Product;
+
 import java.sql.Date;
 
 public class ProductOrder {
     private int id;
-    private int productID;
-    private int orderID;
+    private Product product;
+    private Order order;
     private int quantity;
     private float price;
     private Date date;
@@ -20,12 +23,12 @@ public class ProductOrder {
         return id;
     }
 
-    public int getProductID(){
-        return productID;
+    public Product getProduct(){
+        return product;
     }
 
-    public int getOrderID(){
-        return orderID;
+    public Order getOrder(){
+        return order;
     }
 
     public int getQuantity(){
@@ -40,12 +43,12 @@ public class ProductOrder {
         return date;
     }
 
-    public void setProductID(int productID){
-        this.productID = productID;
+    public void setProduct(Product product){
+        this.product = product;
     }
 
-    public void setOrderID(int orderID){
-        this.orderID = orderID;
+    public void setOrder(Order order){
+        this.order = order;
     }
 
     public void setQuantity(int quantity){

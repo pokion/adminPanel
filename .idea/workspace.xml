@@ -4,39 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbda5a5e-5e34-4583-8c4f-a90327986aed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/spring/src/main/java/pl/britenet/btntrainbackshop/BtnTrainBackShopApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring/src/main/java/pl/britenet/btntrainbackshop/config/serviceConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring/src/main/java/pl/britenet/btntrainbackshop/controller/categoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring/src/main/java/pl/britenet/btntrainbackshop/controller/orderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring/src/main/java/pl/britenet/btntrainbackshop/controller/productController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring/src/main/java/pl/britenet/btntrainbackshop/controller/productOrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring/src/main/java/pl/britenet/btntrainbackshop/controller/userController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spring/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/example/demo/DemoApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/example/demo/SpringController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/src/test/java/com/example/demo/DemoApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/categoryOptions/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/categoryOptions/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOrderOptions/FindAllProductOrderOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/productOrderOptions/FindAllProductOrderOption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/userOptions/FindAllUserOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/userOptions/FindAllUserOption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/ProductOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/ProductOrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/adminpanel-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/adminpanel-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/categoryOptions/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/categoryOptions/Category.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/productOrderOptions/FindAllProductOrderOption.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/productOrderOptions/FindAllProductOrderOption.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/userOptions/FindAllUserOption.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/obj/userOptions/FindAllUserOption.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/ProductOrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/ProductOrderService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/ProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/czarek/adminpanel/service/UserService.class" afterDir="false" />
-    </list>
+    <list default="true" id="bbda5a5e-5e34-4583-8c4f-a90327986aed" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,7 +47,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/spring" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />

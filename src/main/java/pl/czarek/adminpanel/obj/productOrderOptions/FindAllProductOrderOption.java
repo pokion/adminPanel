@@ -26,8 +26,8 @@ public class FindAllProductOrderOption extends Option {
                 productOrders.get()) {
             System.out.println(
                     "id: "+productOrder.getId()+", " +
-                            "productID: "+productOrder.getProductID()+", " +
-                            "orderID: "+productOrder.getOrderID()+", " +
+                            "productID: "+productOrder.getProduct().getId()+", " +
+                            "orderID: "+productOrder.getOrder().getId()+", " +
                             "quantity: "+productOrder.getQuantity()+", " +
                             "price: "+productOrder.getPrice()+", " +
                             "CreateDate"+productOrder.getDate()

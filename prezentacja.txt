@@ -193,6 +193,22 @@ SPRING{
     	łatwo go przetestwoać i wdrożyć
 }
 
+SPRING BOOT WEB{
+	Dwie główne zalety spring weba są to :
+	-automatycznie się konfiguruje.
+	-jest kompatybilny z web developmentem.
 
-produkt więcej napisu
-no i form dalej
+	spring web używa Spring MVC, REST i Tomcat do łączenia się z serwerem. Sam spring-boot-starter-web pobiera wszystkie dodatki związane z tworzeniem stron internetowcyh i także zmniejsza liczbę zależności.
+
+	Cele Spring Boota
+	-do unikania kompleksowej konfiguracji XML w Springu
+	-żeby zredukować czas budowania aplikacji i uruchamiać ją niezależnie.
+
+	Spring Boot
+	-pozwala zarządzać REST endpointami
+	-daje elastyczność w konfiguracji Java Beans, XML i transakcje z bazą danych
+
+
+	Punkt wejściowy aplikacji to klasa @SpringBootApplication
+	Skanuje pliki automatycznie w projekcie przez @ComponetScan
+}

@@ -1,5 +1,7 @@
 package pl.czarek.adminpanel.builder;
 
+import pl.czarek.adminpanel.obj.orderOptions.Order;
+import pl.czarek.adminpanel.obj.productOptions.Product;
 import pl.czarek.adminpanel.obj.productOrderOptions.ProductOrder;
 
 import java.sql.Date;
@@ -16,13 +18,13 @@ public class ProductOrderBuilder {
         this.productOrder = new ProductOrder(id);
     }
 
-    public ProductOrderBuilder setProductID(int productID){
-        this.productOrder.setProductID(productID);
+    public ProductOrderBuilder setProduct(Product product){
+        this.productOrder.setProduct(product);
         return this;
     }
 
-    public ProductOrderBuilder setOrderID(int orderID){
-        this.productOrder.setOrderID(orderID);
+    public ProductOrderBuilder setOrder(Order order){
+        this.productOrder.setOrder(order);
         return this;
     }
 
