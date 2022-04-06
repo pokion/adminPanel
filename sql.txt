@@ -10,6 +10,8 @@ create Table{
         name VARCHAR(255),
         PRIMARY KEY (id)
     );
+
+
     CREATE TABLE productOrder(
         id INT AUTO_INCREMENT,
         productID INT,
@@ -299,3 +301,14 @@ sql inny{
     INNER JOIN product_order ON orders.id = product_order.orderID
     GROUP BY user.name
     HAVING SUM(product_order.quantity) > 5
+
+
+
+    SELECT product.id AS ID, product.categoryID, product.price, product.name, category.name AS categoryName, path
+FROM product,
+    (SELECT GROUP_CONCAT(image.path) AS path
+    FROM imagelink
+    INNER JOIN product ON product.id = imagelink.productID
+    INNER JOIN image ON imagelink.imageID = image.id
+    GROUP BY product.name) AS path
+LEFT JOIN category ON product.categoryID = category.id

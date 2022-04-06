@@ -28,4 +28,14 @@ public class ProductBuilder {
     public Product getProduct(){
         return this.product;
     }
+
+    public ProductBuilder setPrice(float price) {
+        this.product.setPrice(price);
+        return this;
+    }
+
+    public ProductBuilder setPath(String path) {
+        this.product.setImages(path);
+        return this;
+    }
 }

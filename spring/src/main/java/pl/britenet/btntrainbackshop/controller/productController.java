@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/product")
+@CrossOrigin("null")
 public class productController {
 
     private ProductService productService;
@@ -19,6 +20,7 @@ public class productController {
     public productController(ProductService productService){
         this.productService = productService;
     }
+
 
     @GetMapping
     public ResponseEntity<ArrayList<Product>> getAllProduct(){

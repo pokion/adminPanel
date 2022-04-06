@@ -16,7 +16,7 @@
 			<div class="topBar hideOnMobile">
 				<div class="bar">
 					<ul class="barList">
-						<li><a class="buttonNavi" href="./index.html">Strona główna</a></li>
+						<li><a class="buttonNavi active" href="./index.html">Strona główna</a></li>
 						<li><a class="buttonNavi" href="./historyOrder.html">Historia zamówień</a></li>
 					</ul>
 					<div class="logo">
@@ -33,11 +33,19 @@
 							<i class="fa-solid fa-user fa-lg"></i>
 							<p class="menu--item-option">Zaloguj</p>
 						</div>
-						<div class="menu--item invisible">
-							<i class="fa-solid fa-magnifying-glass fa-lg"></i>
-							<p class="menu--item-option">Szukaj</p>
+						<div class="menu--item">
+							<a href="javascript:void(0);" id="search" class="menu--item-none">
+								<i class="fa-solid fa-magnifying-glass fa-lg"></i>
+								<p class="menu--item-option">Szukaj</p>
+							</a>
 						</div>
 					</div>
+				</div>
+				<div class="search invisible">
+					<form>
+						<span><i class="fa-solid fa-magnifying-glass fa-lg"></i></span>
+						<input type="text" name="search" class="searchInput" placeholder='Wpisz, czego szukasz, np. "buty na jesień" lub "obuwie damskie'>
+					</form>
 				</div>
 			</div>
 
@@ -56,7 +64,7 @@
 						LOGO
 					</div>
 					<ul class="barListMobile">
-						<li><a class="buttonNavi " href="./index.html">Strona główna</a></li>
+						<li><a class="buttonNavi active" href="./index.html">Strona główna</a></li>
 						<li><a class="buttonNavi" href="./historyOrder.html">Historia zamówień</a></li>
 					</ul>
 					<div class="menu">
@@ -74,6 +82,13 @@
 							<i class="fa-solid fa-magnifying-glass fa-lg"></i>
 							<p class="menu--item-option">Szukaj</p>
 						</div>
+					</div>
+
+					<div class="search">
+						<form>
+							<span><i class="fa-solid fa-magnifying-glass fa-lg"></i></span>
+							<input type="text" name="search" class="searchInput" placeholder='Wpisz, czego szukasz, np. "buty na jesień" lub "obuwie damskie'>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -150,5 +165,15 @@
 		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 	</div>
 <script type="text/javascript" src="./js/main.js"></script>
+<script type="text/javascript" src="./js/productsFetch.js"></script>
+<script type="text/javascript">
+	let productId = window.location.href.split('?id=');
+
+	let product = new Product();
+
+	product.one(productId[1], product => {
+		console.log(products)
+	})
+</script>
 </body>
 </html>

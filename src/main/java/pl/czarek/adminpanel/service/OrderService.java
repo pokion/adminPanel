@@ -86,8 +86,8 @@ public class OrderService {
         try {
             ArrayList<ProductOrder> productOrders = this.databaseService.performQuery(
                     "SELECT orders.id ,orders.status, orders.dataOrder, user.id AS userID, user.name AS userName, user.login AS userLogin, user.password AS userPassword, user.createDate AS userCreateDate,\n" +
-                            "\t\tproduct_order.id AS productOrderID, product_order.quantity AS productOrderQuantity, product_order.price AS productOrderPrice, product_order.createDate AS productOrderCreateDate,\n" +
-                            "        product.id AS productID, product.name AS productName, category.id AS categoryID, category.name AS categoryName\n" +
+                            "\t\tproduct_order.id AS productOrderID, product_order.quantity AS productOrderQuantity, product_order.createDate AS productOrderCreateDate,\n" +
+                            "        product.id AS productID, product.name AS productName, category.id AS categoryID, product.price AS productPrice category.name AS categoryName\n" +
                             "FROM orders\n" +
                             "INNER JOIN user ON orders.userID = user.id\n" +
                             "INNER JOIN product_order ON product_order.orderID = orders.id\n" +
@@ -98,7 +98,7 @@ public class OrderService {
                         ArrayList<ProductOrder> query = new ArrayList<>();
                         while (resultSet.next()){
                             query.add(new ProductOrderBuilder(resultSet.getInt("productOrderID"))
-                                    .setPrice(resultSet.getFloat("productOrderPrice"))
+                                    .setPrice(resultSet.getFloat("productPrice"))
                                     .setDate(resultSet.getDate("productOrderCreateDate"))
                                     .setQuantity(resultSet.getInt("productOrderQuantity"))
                                     .setOrder(new OrderBuilder(resultSet.getInt("id"))

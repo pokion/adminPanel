@@ -206,10 +206,10 @@
 
 		<!-- modal end -->
 
-		<div class="content">
+		<div class="content" id="productsContent">
 
 			
-			<div class="product">
+			<!-- <div class="product">
 				<div class="quickView">
 					<a href="./produkt.html" class="imgA">
 						
@@ -258,7 +258,7 @@
 					<p>349,99 ZŁ</p>
 					<p class="productDesc">Obuwie sportowe ADIDAS QUESTAR GZ0624</p>
 				</div>
-			</div>
+			</div> -->
 
 		</div>
 	</div>
@@ -273,13 +273,39 @@
 	</div>
 	
 	<script type="text/javascript" src="./js/main.js"></script>
-	<script type="text/javascript" src="./js/modal.js">
-		
-	</script>
+	<script type="text/javascript" src="./js/modal.js"></script>
+	<script type="text/javascript" src="./js/productsFetch.js"></script>
 	<script type="text/javascript">
 		let modal = new Modal('.product--triger');
-
 		modal.init();
+
+		let product = new Product();
+
+		product.all( products => {
+			console.log(products)
+
+			for (let product of products){
+
+				let image = (product.images == null) ?  'null.png' : product.images.split(',')[0]
+				console.log(image,product.image)
+
+				console.log(product)
+				document.querySelector('#productsContent').innerHTML +=`
+				<div class="product">
+					<div class="quickView">
+						<a href="./produkt.html?id=${product.id}" class="imgA">
+							<img class="productImage" src="./image/${image}">
+						</a>
+						<a href="#0" trigger="#content4" class="product--triger invisibleOpacity">Podgląd</a>
+					</div>
+					<div class="productTitle">
+						<p>${product.price} ZŁ</p>
+						<p class="productDesc">${product.name}</p>
+					</div>
+				</div>
+				`
+			}
+		})
 	</script>
 </body>
 </html>

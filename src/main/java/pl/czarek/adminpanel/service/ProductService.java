@@ -98,23 +98,30 @@ public class ProductService {
     public Optional<ArrayList<Product>> findAll(){
         try{
             ArrayList<Product> products = this.databaseService.performQuery(
-                    "SELECT product.id AS ID, product.categoryID, product.name, category.name AS categoryName\n" +
+                    "SELECT product.id AS ID, product.categoryID, product.price, product.name, category.name AS categoryName, GROUP_CONCAT(image.path) AS path\n" +
                             "FROM product\n" +
-                            "LEFT JOIN category ON product.categoryID = category.id"
+                            "LEFT JOIN imagelink ON imagelink.productID = product.id\n" +
+                            "LEFT JOIN image ON imagelink.imageID = image.id\n" +
+                            "LEFT JOIN category ON product.categoryID = category.id\n" +
+                            "GROUP BY product.name\n"
                     , resultSet -> {
                 ArrayList<Product> productsQuery = new ArrayList<>();
                 while (resultSet.next()){
 
                     int id = resultSet.getInt("id");
+                    String path = resultSet.getString("path");
                     String name = resultSet.getString("name");
                     String categoryName = resultSet.getString("categoryName");
+                    float price = resultSet.getFloat("price");
                     int categoryId = resultSet.getInt("categoryID");
 
                     productsQuery.add(new ProductBuilder(id)
                             .setName(name)
+                                    .setPrice(price)
                             .setCategory(new CategoryBuilder(categoryId)
                                     .setName(categoryName)
                                     .getCategory())
+                                    .setPath(path)
                             .getProduct());
                 }
                 return productsQuery;

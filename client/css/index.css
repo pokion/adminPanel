@@ -102,7 +102,7 @@ body{
 .menu{
 	display: flex;
 	flex-direction: row;
-	justify-content: left;
+	justify-content: right;
 	align-items: center;
 	text-align: center;
 }
