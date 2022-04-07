@@ -16,7 +16,7 @@ public class ProductService {
         this.databaseService = databaseService;
     }
 
-    public void createProduct(Product product) {
+    public Boolean createProduct(Product product) {
         try {
             String  categoryId;
             if (product.getCategory().getId() != 0){
@@ -29,8 +29,10 @@ public class ProductService {
                     "INSERT INTO product(name, categoryID) " +
                             "VALUE ('"+ product.getName() +"', "+ categoryId +")"
             );
+            return true;
         }catch (Exception e){
             e.printStackTrace();
+            return false;
         }
     }
 
@@ -51,10 +53,13 @@ public class ProductService {
     public Optional<Product> findProduct(int id) {
         try{
             String query = String.format(
-                    "SELECT product.id AS ID, product.categoryID, product.name, category.name AS categoryName \n" +
-                            "FROM product \n" +
-                            "LEFT JOIN category ON product.categoryID = category.id " +
-                            "WHERE product.id = %d"
+                    "SELECT product.id AS ID, product.sex, product.brand, product.color, product.model, product.style, product.categoryID, product.price, product.name, category.name AS categoryName, GROUP_CONCAT(image.path) AS path\n" +
+                            "FROM product\n" +
+                            "LEFT JOIN imagelink ON imagelink.productID = product.id\n" +
+                            "LEFT JOIN image ON imagelink.imageID = image.id\n" +
+                            "LEFT JOIN category ON product.categoryID = category.id\n" +
+                            "WHERE product.id = %d\n" +
+                            "GROUP BY product.name"
                     , id);
 
             Product product = this.databaseService.performQuery(query, resultSet -> {
@@ -62,12 +67,26 @@ public class ProductService {
                     String name = resultSet.getString("name");
                     String categoryName = resultSet.getString("categoryName");
                     int categoryId = resultSet.getInt("categoryID");
+                    float price = resultSet.getFloat("price");
+                    String images = resultSet.getString("path");
+                    String sex = resultSet.getString("sex");
+                    String brand = resultSet.getString("brand");
+                    String color = resultSet.getString("color");
+                    String model = resultSet.getString("model");
+                    String style = resultSet.getString("style");
 
                     return new ProductBuilder(id)
                             .setName(name)
                             .setCategory(new CategoryBuilder(categoryId)
                                     .setName(categoryName)
                                     .getCategory())
+                            .setPath(images)
+                            .setPrice(price)
+                            .setSex(sex)
+                            .setBrand(brand)
+                            .setColor(color)
+                            .setModel(model)
+                            .setStyle(style)
                             .getProduct();
                 }
 
@@ -98,30 +117,40 @@ public class ProductService {
     public Optional<ArrayList<Product>> findAll(){
         try{
             ArrayList<Product> products = this.databaseService.performQuery(
-                    "SELECT product.id AS ID, product.categoryID, product.price, product.name, category.name AS categoryName, GROUP_CONCAT(image.path) AS path\n" +
+                    "SELECT product.id AS ID, product.sex, product.brand, product.color, product.model, product.style, product.categoryID, product.price, product.name, category.name AS categoryName, GROUP_CONCAT(image.path) AS path\n" +
                             "FROM product\n" +
                             "LEFT JOIN imagelink ON imagelink.productID = product.id\n" +
                             "LEFT JOIN image ON imagelink.imageID = image.id\n" +
                             "LEFT JOIN category ON product.categoryID = category.id\n" +
-                            "GROUP BY product.name\n"
+                            "GROUP BY product.name"
                     , resultSet -> {
                 ArrayList<Product> productsQuery = new ArrayList<>();
                 while (resultSet.next()){
 
                     int id = resultSet.getInt("id");
-                    String path = resultSet.getString("path");
                     String name = resultSet.getString("name");
                     String categoryName = resultSet.getString("categoryName");
-                    float price = resultSet.getFloat("price");
                     int categoryId = resultSet.getInt("categoryID");
+                    float price = resultSet.getFloat("price");
+                    String images = resultSet.getString("path");
+                    String sex = resultSet.getString("sex");
+                    String brand = resultSet.getString("brand");
+                    String color = resultSet.getString("color");
+                    String model = resultSet.getString("model");
+                    String style = resultSet.getString("style");
 
                     productsQuery.add(new ProductBuilder(id)
                             .setName(name)
-                                    .setPrice(price)
                             .setCategory(new CategoryBuilder(categoryId)
                                     .setName(categoryName)
                                     .getCategory())
-                                    .setPath(path)
+                            .setPath(images)
+                            .setPrice(price)
+                            .setSex(sex)
+                            .setBrand(brand)
+                            .setColor(color)
+                            .setModel(model)
+                            .setStyle(style)
                             .getProduct());
                 }
                 return productsQuery;

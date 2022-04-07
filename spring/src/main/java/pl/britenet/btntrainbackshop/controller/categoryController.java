@@ -1,8 +1,10 @@
 package pl.britenet.btntrainbackshop.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.britenet.btntrainbackshop.service.AuthenticationService;
 import pl.czarek.adminpanel.obj.categoryOptions.Category;
 import pl.czarek.adminpanel.service.CategoryService;
 
@@ -11,13 +13,16 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/category")
+@CrossOrigin("null")
 public class categoryController {
 
     private CategoryService categoryService;
+    private AuthenticationService authenticationService;
 
     @Autowired
-    public categoryController(CategoryService categoryService){
+    public categoryController(CategoryService categoryService, AuthenticationService authenticationService){
         this.categoryService = categoryService;
+        this.authenticationService = authenticationService;
     }
 
     @GetMapping
@@ -33,17 +38,29 @@ public class categoryController {
     }
 
     @PostMapping
-    public void createCategory(@RequestBody Category category){
-        categoryService.createCategory(category);
+    public ResponseEntity<Object> createCategory(@RequestBody Category category, @RequestHeader("Authorization") String token){
+        if(authenticationService.isAuthenticated(token)){
+            categoryService.createCategory(category);
+            return ResponseEntity.status(HttpStatus.CREATED).body(null);
+        }
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
     }
 
     @PutMapping
-    public void updateCategory(@RequestBody Category category){
-        categoryService.updateCategory(category);
+    public ResponseEntity<Object> updateCategory(@RequestBody Category category, @RequestHeader("Authorization") String token){
+        if(authenticationService.isAuthenticated(token)){
+            categoryService.updateCategory(category);
+            return ResponseEntity.status(HttpStatus.OK).body(null);
+        }
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
     }
 
     @DeleteMapping("/{categoryId}")
-    public void removeCategory(@PathVariable int categoryId){
-        categoryService.removeCategory(categoryId);
+    public ResponseEntity<Object> removeCategory(@PathVariable int categoryId, @RequestHeader("Authorization") String token){
+        if(authenticationService.isAuthenticated(token)){
+            categoryService.removeCategory(categoryId);
+            return ResponseEntity.status(HttpStatus.GONE).body(null);
+        }
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
     }
 }

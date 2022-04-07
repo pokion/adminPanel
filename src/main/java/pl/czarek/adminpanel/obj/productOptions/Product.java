@@ -9,6 +9,11 @@ public class Product {
     private float price;
     private Category category;
     private String images;
+    private String sex;
+    private String brand;
+    private String color;
+    private String model;
+    private String style;
 
     public Product(){}
 
@@ -25,8 +30,48 @@ public class Product {
         return id;
     }
 
+    public String getStyle(){
+        return style;
+    }
+
+    public String getModel(){
+        return model;
+    }
+
+    public String getColor(){
+        return color;
+    }
+
+    public String  getBrand(){
+        return brand;
+    }
+
+    public String  getSex(){
+        return sex;
+    }
+
     public float getPrice(){
         return price;
+    }
+
+    public void setStyle(String style){
+        this.style = style;
+    }
+
+    public void setModel(String model){
+        this.model = model;
+    }
+
+    public void setColor(String color){
+        this.color = color;
+    }
+
+    public void setBrand(String brand){
+        this.brand = brand;
+    }
+
+    public void setSex(String sex){
+        this.sex = sex;
     }
 
     public String getImages(){

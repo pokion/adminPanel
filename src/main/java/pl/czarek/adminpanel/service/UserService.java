@@ -33,6 +33,35 @@ public class UserService {
         }
     }
 
+    public Optional<User> findUserByLoginAndPassword(String login, String password){
+        try(Connection connection = this.databaseService.getConnection();
+        PreparedStatement statement = connection.prepareStatement(
+                "SELECT user.name, user.id, user.login, user.createDate\n" +
+                        "FROM user\n" +
+                        "WHERE user.login = '"+login+"' AND user.password = '"+password+"'"
+        )){
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()){
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String loginUser = resultSet.getString("login");
+                Date date = resultSet.getDate("createDate");
+
+                User user = new UserBuilder(id)
+                        .setName(name)
+                        .setLogin(loginUser)
+                        .setDate(date)
+                        .getUser();
+                return Optional.of(user);
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return Optional.empty();
+    }
+
     public Optional<User> findUser(int id){
         try (Connection connection = this.databaseService.getConnection();
              PreparedStatement statement = connection.prepareStatement(
@@ -66,7 +95,7 @@ public class UserService {
                 this.databaseService.performDML(
                         "UPDATE user SET name = '"+ user.getName() +"', " +
                                 "login = '"+ user.getLogin() +"', " +
-                                "password = '"+ user.getPassword() +"' WHERE id="+ user.getId()
+                                " WHERE id="+ user.getId()
                 );
             }catch (Exception e){
                 e.printStackTrace();
@@ -105,7 +134,6 @@ public class UserService {
                     usersQueries.add(new UserBuilder(id)
                             .setName(name)
                             .setLogin(login)
-                            .setPassword(password)
                             .setDate(createDate)
                             .getUser());
                 }

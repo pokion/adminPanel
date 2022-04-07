@@ -36,7 +36,7 @@
 			<div class="topBar hideOnMobile">
 				<div class="bar">
 					<ul class="barList">
-						<li><a class="buttonNavi active" href="./index.html">Strona główna</a></li>
+						<li><a class="buttonNavi" href="./index.html">Strona główna</a></li>
 						<li><a class="buttonNavi" href="./historyOrder.html">Historia zamówień</a></li>
 					</ul>
 					<div class="logo">
@@ -44,7 +44,7 @@
 					</div>
 					<div class="menu">
 						<div class="menu--item">
-							<a href="./cart.html" class="menu--item-none">
+							<a href="./cart.html" class="menu--item-none active">
 								<i class="fa-solid fa-bag-shopping fa-lg"></i>
 								<p class="menu--item-option">Koszyk</p>
 							</a>
@@ -89,7 +89,7 @@
 					</ul>
 					<div class="menu">
 						<div class="menu--item-mobile">
-							<a href="./cart.html" class="menu--item-none">
+							<a href="./cart.html" class="menu--item-none active">
 								<i class="fa-solid fa-bag-shopping fa-lg"></i>
 								<p class="menu--item-option">Koszyk</p>
 							</a>
@@ -117,9 +117,9 @@
 
 		<div class="content">
 
-			<div class="products">
+			<div class="products" id="productsCart">
 
-				<div class="product">
+				<!-- <div class="product">
 					<div class="productContent">
 						<img class="productImage" src="./image/img2.jpg">
 					</div>
@@ -138,63 +138,22 @@
 					<div class="productContent">
 						<i class="fa-solid fa-trash-can modal--triger" trigger="#contentModal"></i>
 					</div>
-				</div>
-				<div class="product">
-					<div class="productContent">
-						<img class="productImage" src="./image/adidasSzary.jpg">
-					</div>
-					<div class="productContent">
-						<p>ADIDAS</p>
-						<p>Obuwie sportowe ADIDAS STRUTTER GX0670 Biały</p>
-					</div>
-					<div class="productContent">
-						<p>Ilość</p>
-						<p>2 szt.</p>
-					</div>
-					<div class="productContent">
-						<p>Cena łączna:</p>
-						<p>499,98 zł</p>
-					</div>
-					<div class="productContent">
-						<i class="fa-solid fa-trash-can modal--triger" trigger="#contentModal"></i>
-					</div>
-				</div>
-				<div class="product">
-					<div class="productContent">
-						<img class="productImage" src="./image/image.jpg">
-					</div>
-					<div class="productContent">
-						<p>ADIDAS</p>
-						<p>Obuwie sportowe ADIDAS STRUTTER GX0670 Biały</p>
-					</div>
-					<div class="productContent">
-						<p>Ilość</p>
-						<p>2 szt.</p>
-					</div>
-					<div class="productContent">
-						<p>Cena łączna:</p>
-						<p>499,98 zł</p>
-					</div>
-					<div class="productContent">
-						<i class="fa-solid fa-trash-can modal--triger" trigger="#contentModal"></i>
-					</div>
-				</div>
-				
+				</div>	 -->	
 
 			</div>
 			<div class="overview">
 				<h1>Podsumowanie</h1>
 				<div class="boxLine">
 					<p class="boxDesc">Wartość produktów</p>
-					<span class="boxPrice">1 499,94 zł</span>
+					<span class="boxPrice"><span id="priceOrder">0</span> zł</span>
 				</div>
 				<div class="boxLine">
 					<p class="boxDesc">Koszt dostawy</p>
-					<span class="boxPrice">10,00 zł</span>
+					<span class="boxPrice"><span id="priceShipment">0</span> zł</span>
 				</div>
 				<div class="boxLine">
 					<p class="boxDesc">Suma</p>
-					<span class="boxPrice">1 509,94 zł</span>
+					<span class="boxPrice"><span id="priceTotal">0</span> zł</span>
 				</div>
 
 				<a class="buttonBuy" href="./purchase.html">Przejdź do zapłaty</a>
@@ -214,10 +173,52 @@
 	<script type="text/javascript" src="./js/main.js"></script>
 
 	<script type="text/javascript" src="./js/modal.js"></script>
+	<script type="text/javascript" src="./js/cookie.js"></script>
+	<script type="text/javascript" src="./js/productsFetch.js"></script>
 	<script type="text/javascript">
 		let modal = new Modal('.modal--triger');
-
+		let cookie = new Cookies();
+		let product = new Product();
 		modal.init();
+		window.priceTotal = 0;
+		window.count = 0;
+
+		let orderCookie = cookie.getCookie('order').split('|');
+
+		for(let id of orderCookie){
+
+			product.one(id, product => {
+				window.priceTotal += product.price
+				window.count++
+				document.querySelector("#priceOrder").innerHTML = window.priceTotal;
+				document.querySelector("#priceShipment").innerHTML = window.count * 10;
+				document.querySelector("#priceTotal").innerHTML = window.count * 10 + window.priceTotal;
+
+				document.querySelector("#productsCart").innerHTML +=`
+					<div class="product">
+						<div class="productContent">
+							<img class="productImage" src="./image/${product.images.split(',')[0]}">
+						</div>
+						<div class="productContent">
+							<p>${product.brand}</p>
+							<p>${product.name}</p>
+						</div>
+						<div class="productContent">
+							<p>Ilość</p>
+							<p>1 szt.</p>
+						</div>
+						<div class="productContent">
+							<p>Cena łączna:</p>
+							<p>${product.price} zł</p>
+						</div>
+						<div class="productContent">
+							<i class="fa-solid fa-trash-can modal--triger" trigger="#contentModal"></i>
+						</div>
+					</div>
+				`
+			})
+		}
+
 	</script>
 </body>
 </html>

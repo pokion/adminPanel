@@ -30,12 +30,14 @@
 								<p class="menu--item-option">Koszyk</p>
 							</a>
 						</div>
-						<div class="menu--item invisible">
-							<i class="fa-solid fa-user fa-lg"></i>
-							<p class="menu--item-option">Zaloguj</p>
+						<div class="menu--item login--triger" trigger="#loginModal">
+							<a  class="menu--item-none " trigger="#loginModal">
+								<i class="fa-solid fa-user fa-lg" trigger="#loginModal"></i>
+								<p class="menu--item-option" trigger="#loginModal">Zaloguj</p>
+							</a>
 						</div>
-						<div class="menu--item">
-							<a href="javascript:void(0);" id="search" class="menu--item-none">
+						<div class="menu--item" id="search">
+							<a   class="menu--item-none">
 								<i class="fa-solid fa-magnifying-glass fa-lg"></i>
 								<p class="menu--item-option">Szukaj</p>
 							</a>
@@ -50,8 +52,8 @@
 				</div>
 			</div>
 
-			<label id="menuMobileButton" class="hideOnScreen">
-				<div class="mobileMenuIco">
+			<label  class="hideOnScreen">
+				<div class="mobileMenuIco" id="menuMobileButton">
 					<i class="fa-solid fa-bars fa-xl"></i>
 				</div>
 			</label>
@@ -75,11 +77,11 @@
 								<p class="menu--item-option">Koszyk</p>
 							</a>
 						</div>
-						<div class="menu--item-mobile invisible">
+						<div class="menu--item-mobile">
 							<i class="fa-solid fa-user fa-lg"></i>
 							<p class="menu--item-option">Zaloguj</p>
 						</div>
-						<div class="menu--item-mobile invisible">
+						<div class="menu--item-mobile">
 							<i class="fa-solid fa-magnifying-glass fa-lg"></i>
 							<p class="menu--item-option">Szukaj</p>
 						</div>
@@ -97,87 +99,7 @@
 		</div>
 		<!-- modal -->
 
-		<div class="modal invisible" id="content">
-			<div class="modal--body">
-				<div class="modal--image">
-					<img src="./image/image.jpg">
-				</div>
-				<div class="modal--desc">
-					<span class="modal--desc-exit"><i class="fa-solid fa-xmark"></i></span>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					</p>
-
-					<ul class="ulOffer">
-						<li class="liOffer"><b>Marka</b>  ADIDAS</li>
-						<li class="liOffer"><b>Model</b>  PUREMOTION SE GX0607</li>
-						<li class="liOffer"><b>Kod produktu</b>  5904248795870</li>
-						<li class="liOffer"><b>Kategoria</b>  Obuwie sportowe</li>
-						<li class="liOffer"><b>Kolor</b>  Biały</li>
-						<li class="liOffer"><b>Sezon</b>  Cały rok</li>
-					</ul>
-
-					<p>Cena: 269.99 Zł</p>
-					<a href="#" class="buttonBuy">Dodaj do koszyka</a>
-				</div>
-			</div>
-		</div>
-
-		<div class="modal invisible" id="content2">
-			<div class="modal--body">
-				<div class="modal--image">
-					<img src="./image/img2.jpg">
-				</div>
-				<div class="modal--desc">
-					<span class="modal--desc-exit"><i class="fa-solid fa-xmark"></i></span>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					</p>
-
-					<ul class="ulOffer">
-						<li class="liOffer"><b>Marka</b>  ADIDAS</li>
-						<li class="liOffer"><b>Model</b>  PUREMOTION SE GX0607</li>
-						<li class="liOffer"><b>Kod produktu</b>  5904248795870</li>
-						<li class="liOffer"><b>Kategoria</b>  Obuwie sportowe</li>
-						<li class="liOffer"><b>Kolor</b>  Biały</li>
-						<li class="liOffer"><b>Sezon</b>  Cały rok</li>
-					</ul>
-
-					<p>Cena: 249.99 Zł</p>
-					<a href="#" class="buttonBuy">Dodaj do koszyka</a>
-				</div>
-			</div>
-		</div>
-
-		<div class="modal invisible" id="content3">
-			<div class="modal--body">
-				<div class="modal--image">
-					<img src="./image/adidasCzarny.jpg">
-				</div>
-				<div class="modal--desc">
-					<span class="modal--desc-exit"><i class="fa-solid fa-xmark"></i></span>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					</p>
-
-					<ul class="ulOffer">
-						<li class="liOffer"><b>Marka</b>  ADIDAS</li>
-						<li class="liOffer"><b>Model</b>  PUREMOTION SE GX0607</li>
-						<li class="liOffer"><b>Kod produktu</b>  5904248795870</li>
-						<li class="liOffer"><b>Kategoria</b>  Obuwie sportowe</li>
-						<li class="liOffer"><b>Kolor</b>  Biały</li>
-						<li class="liOffer"><b>Sezon</b>  Cały rok</li>
-					</ul>
-
-					<p>Cena: 329.99 Zł</p>
-					<a href="#" class="buttonBuy">Dodaj do koszyka</a>
-				</div>
-			</div>
-		</div>
-		<div class="modal invisible" id="content4">
+		<!-- <div class="modal invisible" id="content4">
 			<div class="modal--body">
 				<div class="modal--image">
 					<img src="./image/adidasSzary.jpg">
@@ -200,6 +122,22 @@
 
 					<p>Cena: 349.99 Zł</p>
 					<a href="#" class="buttonBuy">Dodaj do koszyka</a>
+				</div>
+			</div>
+		</div> -->
+
+
+		<div class="modal invisible" id="loginModal">
+			<div class="modal--body">
+				<span class="modal--desc-exit"><i class="fa-solid fa-xmark"></i></span>
+				<div>
+					<form>
+						<label for="login">Login:</label>
+						<input type="text" name="login" id="login">
+						<label for="password">password:</label>
+						<input type="password" name="password" id="password">
+						<button class="buttonBuy">Zaloguj</button>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -272,31 +210,29 @@
 		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 	</div>
 	
-	<script type="text/javascript" src="./js/main.js"></script>
 	<script type="text/javascript" src="./js/modal.js"></script>
 	<script type="text/javascript" src="./js/productsFetch.js"></script>
+	<script type="text/javascript" src="./js/cookie.js"></script>
 	<script type="text/javascript">
 		let modal = new Modal('.product--triger');
-		modal.init();
-
+		let modalLogin = new Modal('.login--triger');
+		
 		let product = new Product();
+		let cookie = new Cookies();
 
 		product.all( products => {
-			console.log(products)
 
 			for (let product of products){
 
 				let image = (product.images == null) ?  'null.png' : product.images.split(',')[0]
-				console.log(image,product.image)
 
-				console.log(product)
 				document.querySelector('#productsContent').innerHTML +=`
 				<div class="product">
 					<div class="quickView">
 						<a href="./produkt.html?id=${product.id}" class="imgA">
 							<img class="productImage" src="./image/${image}">
 						</a>
-						<a href="#0" trigger="#content4" class="product--triger invisibleOpacity">Podgląd</a>
+						<a href="#0" trigger="#modal${product.id}" class="product--triger invisibleOpacity">Podgląd</a>
 					</div>
 					<div class="productTitle">
 						<p>${product.price} ZŁ</p>
@@ -304,8 +240,58 @@
 					</div>
 				</div>
 				`
+
+
+				let offer = {
+					"model":product.model,
+					"nazwa":product.name,
+					"buty":product.sex,
+					"styl":product.style,
+					"marka": product.brand
+				}
+				let keys = Object.keys(offer)
+
+				let ulOffer = "";
+
+				for(let i=0; i<keys.length;i++){
+					ulOffer +=`
+						<li class="liOffer"><b>${keys[i]}</b>  ${offer[keys[i]]}</li>
+					`
+				}
+
+				document.querySelector('body').innerHTML +=`
+					<div class="modal invisible" id="modal${product.id}">
+						<div class="modal--body">
+							<div class="modal--image">
+								<img src="./image/${image}">
+							</div>
+							<div class="modal--desc">
+								<span class="modal--desc-exit"><i class="fa-solid fa-xmark"></i></span>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+								</p>
+
+								<ul class="ulOffer">
+									${ulOffer}
+								</ul>
+
+								<p>Cena: ${product.price} Zł</p>
+								<a href="javascript:cookie.addCookie('order',${product.id})" onClick="modal.modalHide();alert('Dodano do koszyka')" class="buttonBuy">Dodaj do koszyka</a>
+							</div>
+						</div>
+					</div>
+				`
 			}
+			productTriger()
+			modal.init();
+			modalLogin.init();
 		})
+
+	</script>
+	<script type="text/javascript" src="./js/main.js"></script>
+	<script type="text/javascript">
+		menuMobile()
 	</script>
 </body>
 </html>

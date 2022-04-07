@@ -97,17 +97,14 @@
 
 		<div class="content">
 
-			<div class="productImage">
-				<img class="image" src="./image/img2.jpg">
-				<img class="image" src="./image/img3.jpg">
-				<img class="image" src="./image/img3.jpg">
-				<img class="image" src="./image/img2.jpg">
+			<div class="productImage" id="images">
+				
 			</div>
 			<div class="productOfferBox">
 				<div class="description">
-					<p>Sprandi</p>
-					<h3>Obuwie sportowe prandi MP40-21035Y</h3>
-					<h4>269,99 zł</h4>
+					<p id="brand"></p>
+					<h3 id="name"></h3>
+					<h4><span id="price"></span> zł</h4>
 				</div>
 				<div class="size">
 					<p class="size--desc">Wybierz rozmiar:</p>
@@ -137,13 +134,8 @@
 				<br>
 
 				<div>
-					<ul class="ulOffer">
-						<li class="liOffer"><b>Marka</b>  Sprandi</li>
-						<li class="liOffer"><b>Model</b>  MP40-21035Y</li>
-						<li class="liOffer"><b>Kod produktu</b>  5904248795870</li>
-						<li class="liOffer"><b>Kategoria</b>  Obuwie sportowe</li>
-						<li class="liOffer"><b>Kolor</b>  Biały</li>
-						<li class="liOffer"><b>Sezon</b>  Cały rok</li>
+					<ul class="ulOffer" id="ulOffer">
+
 					</ul>
 				
 				</div>
@@ -168,11 +160,34 @@
 <script type="text/javascript" src="./js/productsFetch.js"></script>
 <script type="text/javascript">
 	let productId = window.location.href.split('?id=');
-
 	let product = new Product();
 
 	product.one(productId[1], product => {
-		console.log(products)
+		let images = product.images.split(',');
+		let offer = {
+			"model":product.model,
+			"nazwa":product.name,
+			"buty":product.sex,
+			"styl":product.style,
+			"marka": product.brand
+		}
+		let keys = Object.keys(offer)
+
+		for(let image of images){
+			document.querySelector("#images").innerHTML +=`
+				<img class="image" src="./image/${image}">
+			`
+		}
+
+		for(let i=0; i<keys.length;i++){
+			document.querySelector("#ulOffer").innerHTML +=`
+				<li class="liOffer"><b>${keys[i]}</b>  ${offer[keys[i]]}</li>
+			`
+		}
+
+		document.querySelector("#brand").innerHTML = product.brand;
+		document.querySelector("#price").innerHTML = product.price;
+		document.querySelector("#name").innerHTML = product.name;
 	})
 </script>
 </body>

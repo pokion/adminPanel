@@ -10,8 +10,6 @@ function productTriger(){
 	})
 }
 
-productTriger()
-
 function menuMobile(){
 	let button = document.querySelector('#menuMobileButton');
 	let mobileExit = document.querySelector('#mobileExit')
@@ -24,7 +22,8 @@ function menuMobile(){
 		document.querySelector("#menuMobile").classList.toggle('menuMobileHide')
 	})
 }
-menuMobile()
+
+
 
 function searchShow(){
 	let button = document.querySelector("#search");
