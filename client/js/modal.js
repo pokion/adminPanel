@@ -5,10 +5,8 @@ function Modal(triggerClass){
 	this.init = function(){
 		Array.from(document.querySelectorAll(this.trigger)).forEach((el)=>{
 			el.addEventListener('click', (event)=>{
-				console.log(event)
 				let triggerAim = event.target.getAttribute('trigger');
 				let triggerModal = document.querySelector(triggerAim);
-				console.log(triggerAim,triggerModal)
 				triggerModal.classList.remove('invisible');
 
 			})

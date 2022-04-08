@@ -33,4 +33,21 @@ function searchShow(){
 	})
 }
 
+
+
+function Login(){
+	this.login = function(){
+		let auth = new Auth();
+		let data = {
+			login: document.querySelector('#login').value,
+			password: document.querySelector('#password').value
+		}
+		auth.authenticate(data, dataRec => {
+			cookie.addCookie('token', dataRec.token)
+		})
+	}
+}
+
+
 searchShow()
+menuMobile()

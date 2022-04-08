@@ -1,0 +1,56 @@
+package pl.czarek.adminpanel.service;
+
+import pl.czarek.adminpanel.builder.CartBuilder;
+import pl.czarek.adminpanel.builder.OrderBuilder;
+import pl.czarek.adminpanel.obj.cart.Cart;
+import pl.czarek.adminpanel.obj.categoryOptions.Category;
+
+import javax.xml.crypto.Data;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Optional;
+
+public class CartService {
+    private final DatabaseService databaseService;
+
+    public CartService(DatabaseService databaseService){
+        this.databaseService = databaseService;
+    }
+
+    public Optional<ArrayList<Cart>>  getAllCart(int id){
+        try{
+            ArrayList<Cart> carts = this.databaseService.performQuery(
+                    "SELECT product_order.quantity, product_order.createDate AS productDate, product_order.id AS orderID, product.name, product.price, orders.status, orders.dataOrder AS orderDate, image.path, orders.id\n" +
+                            "FROM product_order\n" +
+                            "INNER JOIN orders ON product_order.orderID = orders.id\n" +
+                            "INNER JOIN product ON product_order.productID = product.id\n" +
+                            "INNER JOIN imagelink ON product.id = imagelink.productID\n" +
+                            "INNER JOIN image ON imagelink.imageID = image.id\n" +
+                            "INNER JOIN user ON orders.userID = user.id\n" +
+                            "WHERE user.id = 1\n" +
+                            "GROUP BY orders.id", resultSet -> {
+                        ArrayList<Cart> query = new ArrayList<>();
+                        while (resultSet.next()){
+                            int queantity = resultSet.getInt("quantity");
+                            Date productDate = resultSet.getDate("productDate");
+                            int orderID = resultSet.getInt("orderID");
+                            String name = resultSet.getString("name");
+                            float price = resultSet.getFloat("price");
+                            String statuts = resultSet.getString("status");
+                            Date orderDate = resultSet.getDate("orderDate");
+                            String path = resultSet.getString("path");
+                            int id = resultSet.getInt("id");
+
+                            query.add(new CartBuilder()
+                                    .setOrder(new OrderBuilder(orderID)
+                                            .setStatus(statuts)
+                                            .setDate(orderDate)
+                                            .getOrder())
+                                    .setPath(path)
+                                    .setProductOrder())//skończ
+                        }
+                    }
+            )
+        }
+    }
+}
