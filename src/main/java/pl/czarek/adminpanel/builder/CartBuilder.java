@@ -13,8 +13,17 @@ public class CartBuilder {
         this.cart = new Cart();
     }
 
+    public CartBuilder(int id){
+        this.cart = new Cart(id);
+    }
+
     public CartBuilder setProductOrder(ProductOrder productOrder){
         this.cart.setProductOrder(productOrder);
+        return this;
+    }
+
+    public CartBuilder setId(int id){
+        this.cart.setId(id);
         return this;
     }
 

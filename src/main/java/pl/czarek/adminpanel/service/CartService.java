@@ -2,8 +2,11 @@ package pl.czarek.adminpanel.service;
 
 import pl.czarek.adminpanel.builder.CartBuilder;
 import pl.czarek.adminpanel.builder.OrderBuilder;
+import pl.czarek.adminpanel.builder.ProductBuilder;
+import pl.czarek.adminpanel.builder.ProductOrderBuilder;
 import pl.czarek.adminpanel.obj.cart.Cart;
 import pl.czarek.adminpanel.obj.categoryOptions.Category;
+import pl.czarek.adminpanel.obj.productOptions.Product;
 
 import javax.xml.crypto.Data;
 import java.sql.Date;
@@ -39,18 +42,31 @@ public class CartService {
                             String statuts = resultSet.getString("status");
                             Date orderDate = resultSet.getDate("orderDate");
                             String path = resultSet.getString("path");
-                            int id = resultSet.getInt("id");
+                            int cartId = resultSet.getInt("id");
 
-                            query.add(new CartBuilder()
+                            query.add(new CartBuilder(cartId)
                                     .setOrder(new OrderBuilder(orderID)
                                             .setStatus(statuts)
                                             .setDate(orderDate)
                                             .getOrder())
                                     .setPath(path)
-                                    .setProductOrder())//skończ
+                                    .setProductOrder(new ProductOrderBuilder()
+                                            .setDate(productDate)
+                                            .setQuantity(queantity)
+                                            .setProduct(new ProductBuilder()
+                                                    .setName(name)
+                                                    .setPrice(price)
+                                                    .getProduct())
+                                            .getProductOrder())
+                                    .getCart());
                         }
+                        return query;
                     }
-            )
+            );
+            return Optional.ofNullable(carts);
+        }catch (Exception e){
+            e.printStackTrace();
+            return Optional.empty();
         }
     }
 }

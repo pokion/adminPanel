@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbda5a5e-5e34-4583-8c4f-a90327986aed" name="Changes" comment="" />
+    <list default="true" id="bbda5a5e-5e34-4583-8c4f-a90327986aed" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring/src/main/java/pl/britenet/btntrainbackshop/config/serviceConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/pl/britenet/btntrainbackshop/config/serviceConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring/src/main/java/pl/britenet/btntrainbackshop/controller/cartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/pl/britenet/btntrainbackshop/controller/cartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring/target/classes/pl/britenet/btntrainbackshop/controller/cartController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/builder/CartBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/builder/CartBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/cart/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/obj/cart/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/czarek/adminpanel/service/CartService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/adminpanel-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/adminpanel-1.0-SNAPSHOT.jar" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

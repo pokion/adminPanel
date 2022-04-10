@@ -36,4 +36,10 @@ public class serviceConfig {
         DatabaseService databaseService = DatabaseService.getInstance();
         return new OrderService(databaseService);
     }
+
+    @Bean
+    public CartService cartService(){
+        DatabaseService databaseService = DatabaseService.getInstance();
+        return new CartService(databaseService);
+    }
 }
