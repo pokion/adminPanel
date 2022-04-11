@@ -13,8 +13,8 @@ import java.util.UUID;
 @Service
 public class AuthenticationService {
 
-    private final Map<String , User> activeTokens;
-    private final UserService userService;
+    private Map<String , User> activeTokens;
+    private UserService userService;
 
     @Autowired
     public AuthenticationService(UserService userService){
@@ -22,8 +22,8 @@ public class AuthenticationService {
         this.userService = userService;
     }
 
-    public  Map<String, Object> authenticate(String ursname, String password){
-        Optional<User> oUser = this.userService.findUserByLoginAndPassword(ursname,password);
+    public  Map<String, Object> authenticate(String login, String password){
+        Optional<User> oUser = this.userService.findUserByLoginAndPassword(login,password);
         User user = oUser.orElseThrow();
         String token = UUID.randomUUID().toString();
 
@@ -35,7 +35,7 @@ public class AuthenticationService {
         return response;
     }
 
-    public Optional<User> retriveUserByToken(String token){
+    public Optional<User> retrieveUserByToken(String token){
         return Optional.of(this.activeTokens.get(token));
 
     }

@@ -1,9 +1,6 @@
 let modal = new Modal('.product--triger');
-let modalLogin = new Modal('.login--triger');
 
 let product = new Product();
-let cookie = new Cookies();
-let login = new Login();
 product.all( products => {
 
 	for (let product of products){
@@ -63,6 +60,7 @@ product.all( products => {
 		`
 		productTriger()
 		searchShow()
+		searchStart()
 		menuMobile()
 		modal.init();
 		modalLogin.init();

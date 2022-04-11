@@ -11,12 +11,32 @@
 <body>
 
 	<div class="container">
+		<div class="modal invisible" id="loginModal">
+			<div class="modal--body">
+				<div class="loginDiv">
+					<span class="modal--desc-exit"><i class="fa-solid fa-xmark"></i></span>
+					
+						<div class="bodyModalLogin">
+							<div class="space">
+								<input type="text" name="login" id="login" required>
+								<label for="login">Login</label>
+							</div>
+							<div class="space">
+								<input type="password" name="password" id="password" required>
+								<label for="password">password</label>
+							</div>
+						</div>
+						<button class="buttonBuy" id="loginButton" onclick="login.login()">Zaloguj</button>
+					
+				</div>
+			</div>
+		</div>
 
 		<div>
 			<div class="topBar hideOnMobile">
 				<div class="bar">
 					<ul class="barList">
-						<li><a class="buttonNavi " href="./index.html">Strona główna</a></li>
+						<li><a class="buttonNavi" href="./index.html">Strona główna</a></li>
 						<li><a class="buttonNavi active" href="./historyOrder.html">Historia zamówień</a></li>
 					</ul>
 					<div class="logo">
@@ -29,9 +49,11 @@
 								<p class="menu--item-option">Koszyk</p>
 							</a>
 						</div>
-						<div class="menu--item invisible">
-							<i class="fa-solid fa-user fa-lg"></i>
-							<p class="menu--item-option">Zaloguj</p>
+						<div class="menu--item login--triger" trigger="#loginModal">
+							<a  class="menu--item-none " trigger="#loginModal">
+								<i class="fa-solid fa-user fa-lg" trigger="#loginModal"></i>
+								<p class="menu--item-option" trigger="#loginModal">Zaloguj</p>
+							</a>
 						</div>
 						<div class="menu--item">
 							<a id="search" href="#"  class="menu--item-none">
@@ -43,14 +65,14 @@
 				</div>
 				<div class="search invisible">
 					<form>
-						<span><i class="fa-solid fa-magnifying-glass fa-lg"></i></span>
-						<input type="text" name="search" class="searchInput" placeholder='Wpisz, czego szukasz, np. "buty na jesień" lub "obuwie damskie'>
+						<a id="searchGo"><span><i class="fa-solid fa-magnifying-glass fa-lg"></i></span></a>
+						<input id="searchInput" type="text" name="search" class="searchInput" placeholder='Wpisz, czego szukasz, np. "buty na jesień" lub "obuwie damskie'>
 					</form>
 				</div>
 			</div>
 
-			<label id="menuMobileButton" class="hideOnScreen">
-				<div class="mobileMenuIco">
+			<label  class="hideOnScreen">
+				<div class="mobileMenuIco" id="menuMobileButton">
 					<i class="fa-solid fa-bars fa-xl"></i>
 				</div>
 			</label>
@@ -64,7 +86,7 @@
 						LOGO
 					</div>
 					<ul class="barListMobile">
-						<li><a class="buttonNavi " href="./index.html">Strona główna</a></li>
+						<li><a class="buttonNavi" href="./index.html">Strona główna</a></li>
 						<li><a class="buttonNavi active" href="./historyOrder.html">Historia zamówień</a></li>
 					</ul>
 					<div class="menu">
@@ -74,11 +96,11 @@
 								<p class="menu--item-option">Koszyk</p>
 							</a>
 						</div>
-						<div class="menu--item-mobile invisible">
+						<div class="menu--item-mobile">
 							<i class="fa-solid fa-user fa-lg"></i>
 							<p class="menu--item-option">Zaloguj</p>
 						</div>
-						<div class="menu--item-mobile invisible">
+						<div class="menu--item-mobile">
 							<i class="fa-solid fa-magnifying-glass fa-lg"></i>
 							<p class="menu--item-option">Szukaj</p>
 						</div>
@@ -97,42 +119,36 @@
 
 		<div class="content">
 
-			<table class="historyTable">
+			<table class="historyTable" id="cartTable">
 				<tr>
 					<th>Nr. zamówienia</th>
 					<th>Data założenia</th>
 					<th>Status</th>
-					<th>Wartość</th>
-					<th>Zapytaj o zamówienie</th>
 				</tr>
-				<tr>
+				<!-- <tr>
 					<td>2</td>
 					<td>2018-12-05 13:58:13</td>
 					<td>Wysłane (kurierem)</td>
 					<td>1 509,94 zł</td>
-					<td><a href="#">Zapytaj</a></td>
 				</tr>
 				<tr>
 					<td>3</td>
 					<td>2018-12-05 13:58:13</td>
 					<td>Wysłane (kurierem)</td>
 					<td>1 509,94 zł</td>
-					<td><a href="#">Zapytaj</a></td>
 				</tr>
 				<tr>
 					<td>4</td>
 					<td>2018-12-05 13:58:13</td>
 					<td>Wysłane (kurierem)</td>
 					<td>1 509,94 zł</td>
-					<td><a href="#">Zapytaj</a></td>
 				</tr>
 				<tr>
 					<td>5</td>
 					<td>2018-12-05 13:58:13</td>
 					<td>Wysłane (kurierem)</td>
 					<td>1 509,94 zł</td>
-					<td><a href="#">Zapytaj</a></td>
-				</tr>
+				</tr> -->
 			</table>
 
 		</div>
@@ -148,9 +164,24 @@
 	</div>
 	<script type="text/javascript" src="./js/cookie.js"></script>
 	<script type="text/javascript" src="./js/modal.js"></script>
+	<script type="text/javascript" src="./js/auth.js"></script>
 	<script type="text/javascript" src="./js/main.js"></script>
-	<!-- <script type="text/javascript">
-		
-	</script> -->
+	<script type="text/javascript" src="./js/cartFetch.js"></script>
+	<script type="text/javascript">
+		let cart = new Cart();
+
+		cart.cart(cookie.getCookie('token'), carts => {
+
+			for(let cart of carts){
+				document.querySelector('#cartTable').innerHTML +=`
+					<tr>
+						<td>${cart.id}</td>
+						<td>${cart.order.date}</td>
+						<td>${cart.order.status}</td>
+					</tr>
+				`
+			}
+		})
+	</script>
 </body>
 </html>

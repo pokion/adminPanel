@@ -114,6 +114,49 @@ public class ProductService {
         }
     }
 
+    public Optional<ArrayList<Product>> findFromSearch(String stringSearch){
+        try{
+            ArrayList<Product> products = this.databaseService.performQuery(
+                    "SELECT product.id, product.categoryID, product.name, product.price, product.sex, product.brand, product.color, product.model, product.style, GROUP_CONCAT(image.path) AS path FROM product \n" +
+                            "INNER JOIN imagelink ON product.id = imagelink.productID\n" +
+                            "INNER JOIN image ON imagelink.imageID = image.id\n" +
+                            "WHERE CONCAT(product.sex, '', product.name, '', product.brand, '', product.color, '', product.model, '', product.style) LIKE \"%"+stringSearch+"%\"\n" +
+                            "GROUP BY product.id",
+                    resultSet -> {
+                        ArrayList<Product> productsQuery = new ArrayList<>();
+                        while (resultSet.next()){
+
+                            int id = resultSet.getInt("id");
+                            String name = resultSet.getString("name");
+                            float price = resultSet.getFloat("price");
+                            String images = resultSet.getString("path");
+                            String sex = resultSet.getString("sex");
+                            String brand = resultSet.getString("brand");
+                            String color = resultSet.getString("color");
+                            String model = resultSet.getString("model");
+                            String style = resultSet.getString("style");
+
+                            productsQuery.add(new ProductBuilder(id)
+                                    .setName(name)
+                                    .setPath(images)
+                                    .setPrice(price)
+                                    .setSex(sex)
+                                    .setBrand(brand)
+                                    .setColor(color)
+                                    .setModel(model)
+                                    .setStyle(style)
+                                    .getProduct());
+                        }
+                        return productsQuery;
+                    }
+            );
+            return Optional.ofNullable(products);
+        }catch (Exception e){
+            e.printStackTrace();
+            return Optional.empty();
+        }
+    }
+
     public Optional<ArrayList<Product>> findAll(){
         try{
             ArrayList<Product> products = this.databaseService.performQuery(

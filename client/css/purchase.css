@@ -11,14 +11,6 @@
 	margin-top: 40px;
 }
 
-.space{
-	margin: 10px;
-	text-align: left;
-	display: flex;
-	flex-direction: column;
-	position: relative;
-}
-
 .methodImg{
 	
 }
@@ -35,32 +27,6 @@
 	flex-wrap: nowrap;
 	width: 100%;
 	justify-content: center;
-}
-
-.space>input{
-	font-size: 1.3rem;
-	outline: none;
-	border: none;
-	border-bottom: 2px solid #eee;
-	transition: 0.3s;
-}
-
-.space>label{
-	position: absolute;
-	bottom: 10px;
-	cursor: text;
-	transition: 0.3s;
-}
-
-.space>input:focus{
-	border-bottom: 2px solid #ff0000;
-}
-
-.space>input:focus ~ label,
-.space>input:valid ~ label{
-	bottom: 40px;
-	font-size: 0.9rem;
-	transition: 0.3s;
 }
 
 

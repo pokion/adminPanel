@@ -30,8 +30,8 @@ public class CartService {
                             "INNER JOIN imagelink ON product.id = imagelink.productID\n" +
                             "INNER JOIN image ON imagelink.imageID = image.id\n" +
                             "INNER JOIN user ON orders.userID = user.id\n" +
-                            "WHERE user.id = 1\n" +
-                            "GROUP BY orders.id", resultSet -> {
+                            "WHERE user.id = "+id +
+                            " GROUP BY orders.id", resultSet -> {
                         ArrayList<Cart> query = new ArrayList<>();
                         while (resultSet.next()){
                             int queantity = resultSet.getInt("quantity");

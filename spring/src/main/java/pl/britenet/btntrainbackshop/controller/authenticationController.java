@@ -30,7 +30,7 @@ public class authenticationController {
 
     @GetMapping
     public Optional<User> retriveByToken(@RequestBody String token){
-        return Optional.of(this.authenticationService.retriveUserByToken(token).orElseThrow());
+        return Optional.of(this.authenticationService.retrieveUserByToken(token).orElseThrow());
     }
 
 }
