@@ -16,12 +16,22 @@ public class OrderService {
         this.databaseService = databaseService;
     }
 
-    public void createOrder(Order order){
+    public Optional<int> createOrder(Order order){//dokończ
         try{
             this.databaseService.performDML(
-                    "INSERT INTO orders (userID, status) VALUES (" +
+                    "INSERT INTO orders (userID, status, name, ursname, phoneNumber, email, postCode, city, street, building, paymentMethod) VALUES (" +
                             "'"+ order.getUser().getId() +"',"+
-                            "'"+ order.getStatus() +"')"
+                            "'"+ order.getStatus() +"'," +
+                            "'"+ order.getName() +"'," +
+                            "'"+ order.getUrsname() +"'," +
+                            "'"+ order.getPhoneNumber() +"'," +
+                            "'"+ order.getEmail() +"'," +
+                            "'"+ order.getPostCode() +"'," +
+                            "'"+ order.getCity() +"'," +
+                            "'"+ order.getStreet() +"'," +
+                            "'"+ order.getBuilding() +"'," +
+                            "'"+ order.getPaymentMethod() +"' " +
+                            ")"
             );
         }catch (Exception e){
             e.printStackTrace();

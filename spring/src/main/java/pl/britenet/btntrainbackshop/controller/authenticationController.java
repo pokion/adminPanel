@@ -1,6 +1,8 @@
 package pl.britenet.btntrainbackshop.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.britenet.btntrainbackshop.service.AuthenticationService;
 import pl.czarek.adminpanel.obj.userOptions.User;
@@ -31,6 +33,12 @@ public class authenticationController {
     @GetMapping
     public Optional<User> retriveByToken(@RequestBody String token){
         return Optional.of(this.authenticationService.retrieveUserByToken(token).orElseThrow());
+    }
+
+    @DeleteMapping
+    public ResponseEntity<Object> removeToken(@RequestHeader("Authorization") String token){
+        this.authenticationService.removeToken(token);
+        return ResponseEntity.status(HttpStatus.GONE).body(null);
     }
 
 }

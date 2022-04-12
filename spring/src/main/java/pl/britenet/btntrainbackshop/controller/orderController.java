@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.britenet.btntrainbackshop.service.AuthenticationService;
 import pl.czarek.adminpanel.obj.orderOptions.Order;
+import pl.czarek.adminpanel.obj.productOrderOptions.ProductOrder;
 import pl.czarek.adminpanel.service.OrderService;
 
 import java.util.ArrayList;
@@ -38,9 +39,9 @@ public class orderController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> createOrder(@RequestBody Order order, @RequestHeader("Authorization") String token){
+    public ResponseEntity<Object> createOrder(@RequestBody ProductOrder productOrder, @RequestHeader("Authorization") String token){
         if(authenticationService.isAuthenticated(token)){
-            orderService.createOrder(order);
+            orderService.createOrder(productOrder.getOrder());
             return ResponseEntity.status(HttpStatus.CREATED).body(null);
         }
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);

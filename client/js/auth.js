@@ -24,4 +24,18 @@ function Auth(){
 		})
 	}
 
+	this.removeToken = function(token, callback){
+		this.connect('authenticate', {
+			headers: {
+		      'Content-Type': 'application/json',
+		      'Authorization': token
+		    },
+		    method: 'DELETE'
+		}).then(res => {
+			callback(res)
+		}).catch(err => {
+			callback(err)
+		})
+	}
+
 }

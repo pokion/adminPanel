@@ -40,6 +40,10 @@ public class AuthenticationService {
 
     }
 
+    public void removeToken(String token){
+        this.activeTokens.remove(token);
+    }
+
     public boolean isAuthenticated(String token){
         return this.activeTokens.containsKey(token);
     }

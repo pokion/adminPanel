@@ -51,9 +51,11 @@ product.all( products => {
 							${ulOffer}
 						</ul>
 						<p>Cena: ${product.price} Zł</p>
-						<a href="javascript:cookie.addToCookie('order',
+						<div class="modalButton">
+							<a href="javascript:console.log(cookie.addToCookie('order',
 						${product.id}, '|'
-						)" onClick="modal.modalHide();alert('Dodano do koszyka')" class="buttonBuy">Dodaj do koszyka</a>
+						))" onClick="modal.modalHide();alert('Dodano do koszyka')" class="buttonBuy">Dodaj do koszyka</a>
+						</div>
 					</div>
 				</div>
 			</div>

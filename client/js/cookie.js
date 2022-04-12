@@ -32,12 +32,30 @@ function Cookies(){
 	}
 
 	this.addToCookie = (name, val, delimeter) => {
-		let cookie = this.getCookie(name);
-		if(cookie){
-			document.cookie = `${name}=${val+delimeter+cookie}`
+		if(name == 'order'){
+			if(this.getCookie('token')){
+				let cookie = this.getCookie(name);
+				if(cookie){
+					document.cookie = `${name}=${val+delimeter+cookie}`
+					return true;
+				}else{
+
+					document.cookie = `${name}=${val}`
+					return true
+				}
+			}else{
+				alert('Musisz się zalogować')
+				return false
+			}
 		}else{
-			document.cookie = `${name}=${val}`
+			let cookie = this.getCookie(name);
+				if(cookie){
+					document.cookie = `${name}=${val+delimeter+cookie}`
+					return true
+				}else{
+					document.cookie = `${name}=${val}`
+					return true
+				}
 		}
-		
 	}
 }

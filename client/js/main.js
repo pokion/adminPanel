@@ -61,12 +61,51 @@ function Login(){
 			cookie.addCookie('token', dataRec.token);
 			cookie.addCookie('userID', dataRec.user.id);
 			modalLogin.modalHide();
+			hideFromNotUser()
+			document.querySelector('#loginMenu').classList.add('invisible')
+			document.querySelector('#logoutMenu').classList.remove('invisible')
+			document.querySelector('#loginMenuMobile').classList.add('invisible')
+			document.querySelector('#logoutMenuMobile').classList.remove('invisible')
 			alert('Zalogowano')
 		})
 	}
 }
 
+function logout(){
+	let auth = new Auth();
 
+	auth.removeToken(cookie.getCookie('token'), res => {
+		cookie.deleteCookie('token')
+		cookie.deleteCookie('userID')
+		document.querySelector('#loginMenu').classList.remove('invisible')
+		document.querySelector('#logoutMenu').classList.add('invisible')
+		document.querySelector('#loginMenuMobile').classList.remove('invisible')
+		document.querySelector('#logoutMenuMobile').classList.add('invisible')
+		hideFromNotUser()
+		window.location.replace('./index.html')
+		alert('Wylogowano')
+	})
+}
+
+function hideFromNotUser(){
+	let hideElements = document.querySelectorAll('.hideFromNotUser');
+
+	if(!cookie.getCookie('token')){
+		hideElements.forEach((el,idx) => {
+			el.classList.add('invisible')
+		})
+	}else{
+		hideElements.forEach((el,idx) => {
+			el.classList.remove('invisible')
+			document.querySelector('#loginMenu').classList.add('invisible')
+			document.querySelector('#logoutMenu').classList.remove('invisible')
+			document.querySelector('#loginMenuMobile').classList.add('invisible')
+			document.querySelector('#logoutMenuMobile').classList.remove('invisible')
+		})
+	}
+}
+
+hideFromNotUser()
 searchShow()
 searchStart()
 menuMobile()
