@@ -134,6 +134,7 @@
 					<th>Nr. zamówienia</th>
 					<th>Data założenia</th>
 					<th>Status</th>
+					<th>Rozwiń</th>
 				</tr>
 				<!-- <tr>
 					<td>2</td>
@@ -177,17 +178,19 @@
 	<script type="text/javascript" src="./js/auth.js"></script>
 	<script type="text/javascript" src="./js/main.js"></script>
 	<script type="text/javascript" src="./js/cartFetch.js"></script>
+	<script type="text/javascript" src="./js/productFetch.js"></script>
 	<script type="text/javascript">
 		let cart = new Cart();
 
-		cart.cart(cookie.getCookie('token'), carts => {
-
+		cart.get(cookie.getCookie('token'), carts => {
 			for(let cart of carts){
 				document.querySelector('#cartTable').innerHTML +=`
 					<tr>
 						<td>${cart.id}</td>
 						<td>${cart.order.date}</td>
 						<td>${cart.order.status}</td>
+						<td><i class="fa-solid fa-sort-down"></i></td>
+						<div id="productInsert${cart.order.id}"></div>
 					</tr>
 				`
 			}

@@ -16,14 +16,14 @@
 		<div class="modal invisible" id="contentModal">
 			<div class="modal--body">
 				<div class="modal--image">
-					<img src="./image/image.jpg">
+					<img id="imgModalDelete" src="./image/image.jpg">
 				</div>
 				<div class="modal--desc">
-					<span class="modal--desc-exit"><i class="fa-solid fa-xmark"></i></span>
+					<span class="modal--desc-exit" id="cancelDelete"><i class="fa-solid fa-xmark"></i></span>
 					<p>Czy chcesz usunąć z koszyka ten produkt ?</p>
 					<div>
 						<a href="#" class="buttonBuy" id="deleteOrder" onclick="del()">Tak</a>
-						<a href="#" class="buttonBuy">nie</a>
+						<a href="#" class="buttonBuy" onclick="document.querySelector('#cancelDelete').click()">nie</a>
 					</div>
 				</div>
 			</div>
@@ -208,32 +208,36 @@
 	<script type="text/javascript" src="./js/productsFetch.js"></script>
 	<script type="text/javascript">
 
-
+		window.cart = new Map();
 		let modal = new Modal('.modal--triger');
 		let product = new Product();
 		
 		window.priceTotal = 0;
 		window.count = 0;
 
-		let orderCookie = cookie.getCookie('order').split('|');
-
 		function isCartEmpty(){
+			let orderCookie = cookie.getCookie('order').split('|');
 			if(orderCookie[0] == ""){
 				alert("Musisz coś dodać do koszyka")
 			}else{
+				cookie.addCookie('cart', JSON.stringify([...window.cart.entries()]))
 				window.location.replace('./purchase.html');
 			}
 		}
 
-		if(orderCookie[0] == ''){
-			console.log(orderCookie)
-			document.querySelector("#productsCart").innerHTML +=`
-				<h3>Pusty Koszyk ;(</h3>
-			`
+		function isEmptyStage(){
+			let orderCookie = cookie.getCookie('order').split('|');
+			if(orderCookie[0] == ''){
+				document.querySelector("#productsCart").innerHTML +=`
+					<h3 style="text-align: right;">Twój koszyk jest pusty</h3>
+				`
 
-			document.querySelector('.overview').classList.toggle('invisible')
+				document.querySelector('.overview').classList.toggle('invisible')
+			}
 		}
 
+		isEmptyStage()
+		let orderCookie = cookie.getCookie('order').split('|');
 		for(let id of orderCookie){
 
 			if(id != ''){
@@ -243,6 +247,8 @@
 					document.querySelector("#priceOrder").innerHTML = window.priceTotal;
 					document.querySelector("#priceShipment").innerHTML = window.count * 10;
 					document.querySelector("#priceTotal").innerHTML = window.count * 10 + window.priceTotal;
+
+					window.cart.set(product.id+'', 1)
 
 					document.querySelector("#productsCart").innerHTML +=`
 						<div class="product" id="productDel${product.id}">
@@ -255,14 +261,15 @@
 							</div>
 							<div class="productContent">
 								<p>Ilość</p>
-								<p>1 szt.</p>
+								<p><span id="countProduct">1</span> szt.</p>
+								<div><button onClick="cartManage(${product.id}, 1, ${product.price})">+</button><button onClick="cartManage(${product.id}, -1, ${product.price})">-</button></div>
 							</div>
 							<div class="productContent">
-								<p>Cena łączna:</p>
+								<p>Cena:</p>
 								<p><span class="priceProductCart">${product.price}</span> zł</p>
 							</div>
 							<div class="productContent">
-								<i class="fa-solid fa-trash-can modal--triger" trigger="#contentModal" onClick="window.orderDelId = ${product.id}"></i>
+								<i class="fa-solid fa-trash-can modal--triger" trigger="#contentModal" id="delete${product.id}" onClick="window.orderDelId=${product.id};document.querySelector('#imgModalDelete').setAttribute('src', './image/${product.images.split(',')[0]}')"></i>
 							</div>
 						</div>
 					`
@@ -282,8 +289,39 @@
 			cookie.addCookie('order', cookies.join("|"))
 			modal.modalHide();
 			document.querySelector("#priceOrder").innerHTML = window.priceTotal;
+			document.querySelector("#priceShipment").innerHTML = window.count * 10;
+			document.querySelector("#priceTotal").innerHTML = window.count * 10 + window.priceTotal;
+			isEmptyStage()
+		}
+
+		function cartManage(id, value, price){
+			if(value > 0){
+				window.cart.set(id+'', window.cart.get(id+'')+value)
+
+				window.priceTotal += price;
+				window.count++;
+
+				document.querySelector("#countProduct").innerHTML = Number(document.querySelector("#countProduct").innerHTML)+1;
+				document.querySelector("#priceOrder").innerHTML = window.priceTotal;
 				document.querySelector("#priceShipment").innerHTML = window.count * 10;
 				document.querySelector("#priceTotal").innerHTML = window.count * 10 + window.priceTotal;
+			}else if(value < 0){
+				if(Number(document.querySelector("#countProduct").innerHTML) == 1){
+					document.querySelector('#delete'+id).click()
+				}else{
+					window.cart.set(id+'', Number(window.cart.get(id+''))+value);
+
+					window.priceTotal -= price;
+					window.count--;
+
+					document.querySelector("#countProduct").innerHTML = Number(document.querySelector("#countProduct").innerHTML)-1;
+					document.querySelector("#priceOrder").innerHTML = window.priceTotal;
+					document.querySelector("#priceShipment").innerHTML = window.count * 10;
+					document.querySelector("#priceTotal").innerHTML = window.count * 10 + window.priceTotal;
+				}
+
+				
+			}
 		}
 	</script>
 </body>

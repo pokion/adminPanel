@@ -6,7 +6,9 @@ import pl.czarek.adminpanel.builder.ProductBuilder;
 import pl.czarek.adminpanel.builder.ProductOrderBuilder;
 import pl.czarek.adminpanel.obj.cart.Cart;
 import pl.czarek.adminpanel.obj.categoryOptions.Category;
+import pl.czarek.adminpanel.obj.orderOptions.Order;
 import pl.czarek.adminpanel.obj.productOptions.Product;
+import pl.czarek.adminpanel.obj.productOrderOptions.ProductOrder;
 
 import javax.xml.crypto.Data;
 import java.sql.Date;
@@ -20,7 +22,38 @@ public class CartService {
         this.databaseService = databaseService;
     }
 
-    public Optional<ArrayList<Cart>>  getAllCart(int id){
+    public Optional<ArrayList<ProductOrder>> getAllCartByOrderID(int id){
+        try{
+            ArrayList<ProductOrder> productOrders = this.databaseService.performQuery(
+                    "SELECT * FROM `product_order` WHERE `orderID` = "+id,
+                    resultSet -> {
+                        ArrayList<ProductOrder> query = new ArrayList<>();
+                        while (resultSet.next()){
+                            int idd = resultSet.getInt("id");
+                            int productID = resultSet.getInt("productID");
+                            int orderID = resultSet.getInt("orderID");
+                            Date createDate = resultSet.getDate("createDate");
+
+
+                            query.add(new ProductOrderBuilder()
+                                            .setDate(createDate)
+                                            .setOrder(new Order(orderID))
+                                            .setProduct(new Product(productID))
+                                            .getProductOrder()
+                                    );
+                        }
+                        return query;
+                    }
+            );
+
+            return Optional.ofNullable(productOrders);
+        }catch (Exception e){
+            e.printStackTrace();
+            return Optional.empty();
+        }
+    }
+
+    public Optional<ArrayList<Cart>> getAllCart(int id){
         try{
             ArrayList<Cart> carts = this.databaseService.performQuery(
                     "SELECT product_order.quantity, product_order.createDate AS productDate, product_order.id AS orderID, product.name, product.price, orders.status, orders.dataOrder AS orderDate, image.path, orders.id\n" +

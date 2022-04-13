@@ -1,25 +1,54 @@
 function Cart(){
+
 	this.connect = async function(path, opt){
-		let options = opt || {};
 		try{
-			const cart = await fetch(`http:localhost:8080/${path}`, options);
-			return Promise.resolve(cart.json());
+			const cart = await fetch(`http:localhost:8080/${path}`, opt)
+			return Promise.resolve(cart.json())
 		}catch (e){
 			return Promise.reject(e);
 		}
 	}
 
-	this.cart = function(token, callback){
-		this.connect(`cart`, {
+	this.send = function(data, callback){
+		this.connect('cart', {
 			headers: {
 				'Content-Type': 'application/json',
-				'Authorization': token
+				'Authorization': cookie.getCookie('token')
+			},
+			method: 'POST',
+			body: JSON.stringify(data)
+		}).then( res => {
+			callback(res)
+		}).catch( res => {
+			console.log(res)
+		})
+	}
+
+	this.getByOrderID = function(id,callback){
+		this.connect('cart/'+id, {
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': cookie.getCookie('token')
 			},
 			method: 'GET'
-		}).then( carts => {
-			callback(carts)
-		}).catch( err =>{
-			console.log(JSON.stringify(err))
+		}).then( res => {
+			callback(res)
+		}).catch( res => {
+			console.log(res)
+		})
+	}
+
+	this.get = function(data, callback){
+		this.connect('cart', {
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': cookie.getCookie('token')
+			},
+			method: 'GET'
+		}).then( res => {
+			callback(res)
+		}).catch( res => {
+			console.log(res)
 		})
 	}
 }

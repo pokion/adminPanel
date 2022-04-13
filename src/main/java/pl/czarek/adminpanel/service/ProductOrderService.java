@@ -24,11 +24,10 @@ public class ProductOrderService {
     public void createProductOrder(ProductOrder productOrder){
         try{
             this.databaseService.performDML(
-                    "INSERT INTO product_order (productID, orderID, quantity, price) VALUES (" +
+                    "INSERT INTO product_order (productID, orderID, quantity) VALUES (" +
                             "'"+ productOrder.getProduct().getId() +"'," +
                             "'"+ productOrder.getOrder().getId() +"'," +
-                            "'"+ productOrder.getQuantity() +"'," +
-                            "'"+ productOrder.getPrice() +"'" +
+                            "'"+ productOrder.getQuantity() +"'" +
                             ")"
             );
         }catch (Exception e){
@@ -43,8 +42,7 @@ public class ProductOrderService {
                         "UPDATE product_order SET " +
                                 "productID ='" + productOrder.getProduct().getId() + "'," +
                                 "orderID ='" + productOrder.getOrder().getId() + "'," +
-                                "quantity ='" + productOrder.getQuantity() + "'," +
-                                "price ='" + productOrder.getPrice() + "'" +
+                                "quantity ='" + productOrder.getQuantity() + "'" +
                                 "WHERE id=" + productOrder.getId()
                 );
             }catch (Exception e){
@@ -64,14 +62,12 @@ public class ProductOrderService {
                 int productID = results.getInt("productID");
                 int orderID = results.getInt("orderID");
                 int quantity = results.getInt("quantity");
-                float price = results.getFloat("price");
                 Date date = results.getDate("createDate");
 
                 ProductOrder productOrder = new ProductOrderBuilder(idPOrder)
                         .setProduct(new ProductBuilder(productID).getProduct())
                         .setOrder(new OrderBuilder(orderID).getOrder())
                         .setQuantity(quantity)
-                        .setPrice(price)
                         .setDate(date).getProductOrder();
 
                 return Optional.of(productOrder);

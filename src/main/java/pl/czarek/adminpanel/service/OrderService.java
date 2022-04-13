@@ -16,7 +16,32 @@ public class OrderService {
         this.databaseService = databaseService;
     }
 
-    public Optional<int> createOrder(Order order){//dokończ
+    public Optional<ArrayList<Order>> getOrderNew(){
+        try {
+            ArrayList<Order> orders = this.databaseService.performQuery("SELECT * FROM orders ORDER BY id DESC LIMIT 1", resultSet -> {
+                ArrayList<Order> ordersQuery = new ArrayList<>();
+                while (resultSet.next()){
+                    int id = resultSet.getInt("id");
+                    int userID = resultSet.getInt("userID");
+                    String status = resultSet.getString("status");
+                    Date dataOrder = resultSet.getDate("dataOrder");
+
+                    ordersQuery.add(new OrderBuilder(id)
+                            .setDate(dataOrder)
+                            .setStatus(status)
+                            .setUser(new UserBuilder(userID).getUser())
+                            .getOrder());
+                }
+                return ordersQuery;
+            });
+            return Optional.ofNullable(orders);
+        }catch (Exception e){
+            e.printStackTrace();
+            return Optional.empty();
+        }
+    }
+
+    public void createOrder(Order order){
         try{
             this.databaseService.performDML(
                     "INSERT INTO orders (userID, status, name, ursname, phoneNumber, email, postCode, city, street, building, paymentMethod) VALUES (" +

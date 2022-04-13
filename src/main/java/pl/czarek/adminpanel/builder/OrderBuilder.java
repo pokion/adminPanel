@@ -58,7 +58,7 @@ public class OrderBuilder {
     }
 
     public OrderBuilder setBuilding(int building){
-        this.order.setBuilding(building);
+        this.order.setBuilding(String.valueOf(building));
         return this;
     }
 

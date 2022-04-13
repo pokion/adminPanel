@@ -155,7 +155,7 @@
 
 		<div class="content">
 
-			<form class="payForm">
+			<form class="payForm" action="javascript:void(0);" onsubmit="sendData()" >
 
 				<div class="payNavi"></div>
 
@@ -282,6 +282,7 @@
 	<script type="text/javascript" src="./js/cookie.js"></script>
 	<script type="text/javascript" src="./js/auth.js"></script>
 	<script type="text/javascript" src="./js/main.js"></script>
+	<script type="text/javascript" src="./js/cartFetch.js"></script>
 		
 	</script>
 	<script type="text/javascript" src="./js/purchase.js">
@@ -291,6 +292,61 @@
 		let modal = new Modal('.product--triger');
 
 		modal.init();
+
+		function sendData(){
+			let name = document.querySelector('#name').value;
+			let ursname = document.querySelector('#ursname').value;
+			let email = document.querySelector('#email').value;
+			let city = document.querySelector('#city').value;
+			let phoneNumber = document.querySelector('#phone').value;
+			let postCode = document.querySelector('#postCode').value;
+			let street = document.querySelector('#street').value;
+			let building = document.querySelector('#house').value;
+			let paymentMethod = document.querySelector('input[type=radio][name=method]:checked').value;
+
+			let order = {
+				status: 'order',
+				name,
+				ursname,
+				email,
+				city,
+				phoneNumber: Number(phoneNumber),
+				postCode,
+				street,
+				building,
+				paymentMethod,
+				user: {
+					id: Number(cookie.getCookie('userID'))
+				}
+			}
+
+			let jsonProduct = cookie.getCookie('cart');
+			let productOrder = [];
+
+			for(let array of JSON.parse(jsonProduct)){
+				productOrder.push({
+									product: {
+										id: array[0]
+									},
+									quantity: array[1]
+								})
+			}
+
+			let cart = new Cart();
+
+			cart.send({
+				order,
+				productOrder
+			}, res => {
+				console.log(res)
+			})
+
+
+			console.log({
+				order,
+				productOrder
+			})
+		}
 
 		
 	</script>

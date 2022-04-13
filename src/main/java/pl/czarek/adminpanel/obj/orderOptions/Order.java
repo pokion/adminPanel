@@ -15,7 +15,7 @@ public class Order {
     private String postCode;
     private String city;
     private String street;
-    private int building;
+    private String  building;
     private String paymentMethod;
     private Date date;
 
@@ -69,7 +69,7 @@ public class Order {
         return paymentMethod;
     }
 
-    public int getBuilding(){
+    public String getBuilding(){
         return building;
     }
 
@@ -77,7 +77,7 @@ public class Order {
         return status;
     }
 
-    public void setBuilding(int building) {
+    public void setBuilding(String building) {
         this.building = building;
     }
 
