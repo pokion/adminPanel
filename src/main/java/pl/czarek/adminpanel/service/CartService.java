@@ -32,10 +32,12 @@ public class CartService {
                             int idd = resultSet.getInt("id");
                             int productID = resultSet.getInt("productID");
                             int orderID = resultSet.getInt("orderID");
+                            int quantity = resultSet.getInt("quantity");
                             Date createDate = resultSet.getDate("createDate");
 
 
                             query.add(new ProductOrderBuilder()
+                                            .setQuantity(quantity)
                                             .setDate(createDate)
                                             .setOrder(new Order(orderID))
                                             .setProduct(new Product(productID))

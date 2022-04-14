@@ -132,10 +132,9 @@
 		<div class="modal invisible" id="content">
 			<div class="modal--body">
 				<div class="modal--image">
-					<img src="./image/image.jpg">
+					<img src="./image/pod.jpg">
 				</div>
 				<div class="modal--desc">
-					<span class="modal--desc-exit"><i class="fa-solid fa-xmark"></i></span>
 					<!-- <p>Czy wszystkie dane się zgadzają?</p>
 					<p>Imię: <span id="nameVer"></span>  Nazwisko: <span id="ursnameVer"></span></p>
 					<p>Nr telefonu: <span id="telVer"></span>  Email: <span id="emailVer"></span></p>
@@ -244,24 +243,24 @@
 				<div class="payBox">
 					<h3>Zgody</h3>
 					<div class="payLine">
-						<input type="checkbox" name="agre" required>
-						<p>Wyrażam zgodę na przetwarzanie moich danych podanych w powyższym formularzu w celach marketingowych, otrzymywanie od Allegro.pl sp. z o.o. informacji handlowych z wykorzystaniem środków komunikacji elektronicznej (m.in. e-mail, telefon, komunikator internetowy) oraz na używanie telekomunikacyjnych urządzeń końcowych (w szczególności telefonu) dla celów przesyłania mi informacji handlowych (w tym marketingu bezpośredniego).</p>
+						<input type="checkbox" id="agree" name="agre" required>
+						<label for="agree">Wyrażam zgodę na przetwarzanie moich danych podanych w powyższym formularzu w celach marketingowych, otrzymywanie od Allegro.pl sp. z o.o. informacji handlowych z wykorzystaniem środków komunikacji elektronicznej (m.in. e-mail, telefon, komunikator internetowy) oraz na używanie telekomunikacyjnych urządzeń końcowych (w szczególności telefonu) dla celów przesyłania mi informacji handlowych (w tym marketingu bezpośredniego).*</label>
 					</div>
 					<div class="payLine">
-						<input type="checkbox" name="agre1" required>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. </p>
+						<input type="checkbox" id="agree1" name="agre1" required>
+						<label for="agree1">Akceptuję regulamin serwisu i zapoznałem się z informacjami dotyczącymi moich danych osobowych poniżej.*</label>
 					</div>
 					<div class="payLine">
-						<input type="checkbox" name="agre2">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						<input type="checkbox" id="agree2" name="agre2">
+						<label for="agree2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</label>
 					</div>
+					<p>*Musisz zaakceptować</p>
 				</div>
 				<div class="space payButtons">
 					
-					<button class="buttonBuy" trigger="#content" payButton="next" id="cheackUser">Zakup</button>
+					<button class="buttonBuy product--triger" trigger="#content" payButton="next" id="cheackUser">Zakup</button>
 				</div>
 			</form>
 			
@@ -339,12 +338,8 @@
 				productOrder
 			}, res => {
 				console.log(res)
-			})
-
-
-			console.log({
-				order,
-				productOrder
+				cookie.deleteCookie('order')
+				cookie.deleteCookie('cart')
 			})
 		}
 

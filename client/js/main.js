@@ -15,6 +15,15 @@ function productTriger(){
 	})
 }
 
+function countCart(){
+	if(cookie.getCookie('order')){
+		document.querySelector('.countProducts').innerHTML = Number(document.querySelector('.countProducts').innerHTML)+1;
+	}else{
+		document.querySelector('.countProducts').innerHTML = 1;
+		document.querySelector('.circleCart').classList.toggle('invisible')
+	}
+}
+
 function menuMobile(){
 	let button = document.querySelector('#menuMobileButton');
 	let mobileExit = document.querySelector('#mobileExit')

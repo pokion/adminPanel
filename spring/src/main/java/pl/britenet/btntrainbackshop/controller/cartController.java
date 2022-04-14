@@ -48,7 +48,7 @@ public class cartController {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
     }
 
-    @GetMapping("/cartID")
+    @GetMapping("/{cartID}")
     public ResponseEntity<ArrayList<ProductOrder>> getAllCartsByOrderId(@RequestHeader("Authorization") String token, @PathVariable int cartID){
         if(authenticationService.isAuthenticated(token)){
             Optional<ArrayList<ProductOrder>> productOrders = Optional.of(cartService.getAllCartByOrderID(cartID).get());

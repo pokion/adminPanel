@@ -16,6 +16,10 @@
 	height: 50px;
 }
 
+.rotate{
+	transform: rotate(180deg);
+}
+
 .historyTable>tbody>td, .historyTable>tbody>th{
 	border-right: 2px solid #eee;
 }

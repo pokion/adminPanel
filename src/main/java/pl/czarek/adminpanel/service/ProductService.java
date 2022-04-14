@@ -120,7 +120,7 @@ public class ProductService {
                     "SELECT product.id, product.categoryID, product.name, product.price, product.sex, product.brand, product.color, product.model, product.style, GROUP_CONCAT(image.path) AS path FROM product \n" +
                             "INNER JOIN imagelink ON product.id = imagelink.productID\n" +
                             "INNER JOIN image ON imagelink.imageID = image.id\n" +
-                            "WHERE CONCAT(product.sex, '', product.name, '', product.brand, '', product.color, '', product.model, '', product.style) LIKE \"%"+stringSearch+"%\"\n" +
+                            "WHERE CONCAT(product.sex, '', product.name, '', product.brand, '', product.color, '', product.model, '', product.style) LIKE '%"+stringSearch+"%'\n" +
                             "GROUP BY product.id",
                     resultSet -> {
                         ArrayList<Product> productsQuery = new ArrayList<>();

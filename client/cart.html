@@ -226,7 +226,14 @@
 		}
 
 		function isEmptyStage(){
-			let orderCookie = cookie.getCookie('order').split('|');
+			let cookies = new Cookies()
+			console.log(cookies)
+			let orderCookie = cookies.getCookie('order');
+			if(!orderCookie){
+				orderCookie = ''.split('|')
+			}else{
+				orderCookie = orderCookie.split('|')
+			}
 			if(orderCookie[0] == ''){
 				document.querySelector("#productsCart").innerHTML +=`
 					<h3 style="text-align: right;">Twój koszyk jest pusty</h3>
@@ -244,9 +251,9 @@
 					product.one(id, product => {
 					window.priceTotal += product.price
 					window.count++
-					document.querySelector("#priceOrder").innerHTML = window.priceTotal;
+					document.querySelector("#priceOrder").innerHTML = (window.priceTotal).toFixed(2);
 					document.querySelector("#priceShipment").innerHTML = window.count * 10;
-					document.querySelector("#priceTotal").innerHTML = window.count * 10 + window.priceTotal;
+					document.querySelector("#priceTotal").innerHTML =( window.count * 10 + window.priceTotal).toFixed(2);
 
 					window.cart.set(product.id+'', 1)
 
@@ -261,8 +268,9 @@
 							</div>
 							<div class="productContent">
 								<p>Ilość</p>
-								<p><span id="countProduct">1</span> szt.</p>
-								<div><button onClick="cartManage(${product.id}, 1, ${product.price})">+</button><button onClick="cartManage(${product.id}, -1, ${product.price})">-</button></div>
+								<p><span id="countProduct${product.id}">1</span> szt.</p>
+								<div><button class="buttonBuy" onClick="cartManage(${product.id}, -1, ${product.price})">-</button>
+								<button class="buttonBuy" onClick="cartManage(${product.id}, 1, ${product.price})">+</button></div>
 							</div>
 							<div class="productContent">
 								<p>Cena:</p>
@@ -288,9 +296,10 @@
 			cookie.deleteCookie('order');
 			cookie.addCookie('order', cookies.join("|"))
 			modal.modalHide();
-			document.querySelector("#priceOrder").innerHTML = window.priceTotal;
+			document.querySelector("#priceOrder").innerHTML = (window.priceTotal).toFixed(2);
 			document.querySelector("#priceShipment").innerHTML = window.count * 10;
-			document.querySelector("#priceTotal").innerHTML = window.count * 10 + window.priceTotal;
+			document.querySelector("#priceTotal").innerHTML = (window.count * 10 + window.priceTotal).toFixed(2);
+			window.cart.delete(window.orderDelId+'')
 			isEmptyStage()
 		}
 
@@ -301,12 +310,12 @@
 				window.priceTotal += price;
 				window.count++;
 
-				document.querySelector("#countProduct").innerHTML = Number(document.querySelector("#countProduct").innerHTML)+1;
-				document.querySelector("#priceOrder").innerHTML = window.priceTotal;
+				document.querySelector("#countProduct"+id).innerHTML = Number(document.querySelector("#countProduct"+id).innerHTML)+1;
+				document.querySelector("#priceOrder").innerHTML = (window.priceTotal).toFixed(2);
 				document.querySelector("#priceShipment").innerHTML = window.count * 10;
-				document.querySelector("#priceTotal").innerHTML = window.count * 10 + window.priceTotal;
+				document.querySelector("#priceTotal").innerHTML = (window.count * 10 + window.priceTotal).toFixed(2);
 			}else if(value < 0){
-				if(Number(document.querySelector("#countProduct").innerHTML) == 1){
+				if(Number(document.querySelector("#countProduct"+id).innerHTML) == 1){
 					document.querySelector('#delete'+id).click()
 				}else{
 					window.cart.set(id+'', Number(window.cart.get(id+''))+value);
@@ -314,10 +323,10 @@
 					window.priceTotal -= price;
 					window.count--;
 
-					document.querySelector("#countProduct").innerHTML = Number(document.querySelector("#countProduct").innerHTML)-1;
-					document.querySelector("#priceOrder").innerHTML = window.priceTotal;
+					document.querySelector("#countProduct"+id).innerHTML = Number(document.querySelector("#countProduct"+id).innerHTML)-1;
+					document.querySelector("#priceOrder").innerHTML = (window.priceTotal).toFixed(2);
 					document.querySelector("#priceShipment").innerHTML = window.count * 10;
-					document.querySelector("#priceTotal").innerHTML = window.count * 10 + window.priceTotal;
+					document.querySelector("#priceTotal").innerHTML = (window.count * 10 + window.priceTotal).toFixed(2);
 				}
 
 				
