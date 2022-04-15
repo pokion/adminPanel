@@ -16,7 +16,7 @@
 			<div class="topBar hideOnMobile">
 				<div class="bar">
 					<ul class="barList">
-						<li><a class="buttonNavi" href="./index.html">Strona główna</a></li>
+						<li><a class="buttonNavi " href="./index.html">Strona główna</a></li>
 						<li><a class="buttonNavi hideFromNotUser" href="./historyOrder.html">Historia zamówień</a></li>
 					</ul>
 					<div class="logo">
@@ -27,6 +27,7 @@
 							<a href="./cart.html" class="menu--item-none">
 								<i class="fa-solid fa-bag-shopping fa-lg"></i>
 								<p class="menu--item-option">Koszyk</p>
+								<div class="circleCart invisible"><span class="countProducts"></span></div>
 							</a>
 						</div>
 						<div class="menu--item login--triger" id="loginMenu" trigger="#loginModal">
@@ -72,10 +73,19 @@
 						LOGO
 					</div>
 					<ul class="barListMobile">
-						<li><a class="buttonNavi" href="./index.html">Strona główna</a></li>
-						<li><a class="buttonNavi hideFromNotUser" href="./historyOrder.html">Historia zamówień</a></li>
+						<li><a class="buttonNavi " href="./index.html">Strona główna</a></li>
+						<li class="hideFromNotUser"><a class="buttonNavi " href="./historyOrder.html">Historia zamówień</a></li>
 					</ul>
-					<div class="menu">
+					
+
+					<div class="search">
+						<form>
+							<span><i class="fa-solid fa-magnifying-glass fa-lg"></i></span>
+							<input type="text" name="search" class="searchInput" placeholder='Wpisz, czego szukasz, np. "buty na jesień" lub "obuwie damskie'>
+						</form>
+					</div>
+
+					<div class="menu-mobile">
 						<div class="menu--item-mobile">
 							<a href="./cart.html" class="menu--item-none hideFromNotUser">
 								<i class="fa-solid fa-bag-shopping fa-lg"></i>
@@ -94,13 +104,6 @@
 							<i class="fa-solid fa-magnifying-glass fa-lg"></i>
 							<p class="menu--item-option">Szukaj</p>
 						</div>
-					</div>
-
-					<div class="search">
-						<form>
-							<span><i class="fa-solid fa-magnifying-glass fa-lg"></i></span>
-							<input type="text" name="search" class="searchInput" placeholder='Wpisz, czego szukasz, np. "buty na jesień" lub "obuwie damskie'>
-						</form>
 					</div>
 				</div>
 			</div>

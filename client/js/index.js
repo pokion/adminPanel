@@ -54,7 +54,7 @@ product.all( products => {
 						<div class="modalButton">
 							<a href="javascript:console.log(cookie.addToCookie('order',
 						${product.id}, '|'
-						))" onClick="modal.modalHide();alert('Dodano do koszyka');countCart()" class="buttonBuy">Dodaj do koszyka</a>
+						))" onClick="modal.modalHide();alert('Dodano do koszyka')" class="buttonBuy">Dodaj do koszyka</a>
 						</div>
 					</div>
 				</div>
