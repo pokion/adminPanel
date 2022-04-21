@@ -1,0 +1,21 @@
+<template>
+    <template if:true = {isModalVisible}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+        class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- <div class="slds-modal__header">
+                    <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Content</h1>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    
+                </div> -->
+
+                <!-- <custom-content-archived></custom-content-archived> -->
+
+                <recipe-dynamic-import
+                    lwc:dynamic={componentConstructor}
+                ></recipe-dynamic-import>
+            </div>
+        </section>
+    </template>
+</template>

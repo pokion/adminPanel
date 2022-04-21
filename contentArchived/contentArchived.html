@@ -1,0 +1,23 @@
+<template>
+	<div class="slds-modal__header">
+        <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Archived</h1>
+    </div>
+    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+        Do you want to archive?
+    </div>
+    <div class="slds-modal__footer">
+        <lightning-button
+                label="Cancel" 
+                title="Non-primary action" 
+                onclick={handleClose} 
+                class="slds-m-left_x-small"
+        ></lightning-button>
+        <lightning-button 
+                variant="brand" 
+                label="Archivize" 
+                title="Primary action" 
+                onclick={handleSave} 
+                class="slds-m-left_x-small"
+        ></lightning-button>
+    </div>
+</template>
